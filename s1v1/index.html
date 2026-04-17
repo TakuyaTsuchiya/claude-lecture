@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S1V1 Claude Code入門 — 全体像</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover">
+    <div class="brand">Claude Code入門・実践</div>
+    <h1>はじめに</h1>
+    <div class="rule"></div>
+  </section>
+
+  <!-- 2: Course map -->
+  <section class="slide">
+    <div class="eyebrow">COURSE MAP</div>
+    <h2>この講座の全体像</h2>
+    <div class="rule"></div>
+    <div class="sections" style="margin-top:20px;">
+      <div class="tag">S1 / S2</div><div>Claude Code の基本</div>
+      <div class="tag">S3 / S4</div><div>業務効率化（Skills / MCP）</div>
+      <div class="tag">S5 / S6</div><div>アプリ開発（フロント / サーバー）</div>
+    </div>
+  </section>
+
+  <!-- 3: 3 core messages intro -->
+  <section class="slide">
+    <div class="eyebrow">CORE MESSAGES</div>
+    <h2>本講座で伝えたい<br>3つの核心</h2>
+  </section>
+
+  <!-- 4: Core 1 title -->
+  <section class="slide">
+    <div class="big-number">1</div>
+    <h2>目の前の問題を<br>解決していく</h2>
+  </section>
+
+  <!-- 5: Core 1 supplement -->
+  <section class="slide">
+    <div class="eyebrow">核心 01</div>
+    <p>Claude Code はパワフルだからこそ、<br>「改善したい・作りたい」という<br><strong>問題意識が前提</strong>になる。</p>
+  </section>
+
+  <!-- 6: Core 2 title -->
+  <section class="slide">
+    <div class="big-number">2</div>
+    <h2>Claude Codeと対話しながら<br>自力で解決する</h2>
+  </section>
+
+  <!-- 7: Core 2 supplement -->
+  <section class="slide">
+    <div class="eyebrow">核心 02</div>
+    <p>Claude Code の UI / UX は頻繁に変わる。<br>それでも「<strong>何をしたいか</strong>」が<br>分かっていれば、対話して自力で解決できる。</p>
+  </section>
+
+  <!-- 8: Core 3 title -->
+  <section class="slide">
+    <div class="big-number">3</div>
+    <h2>習うより慣れろ</h2>
+  </section>
+
+  <!-- 9: Core 3 supplement -->
+  <section class="slide">
+    <div class="eyebrow">核心 03</div>
+    <p>SNS では毎日、便利なツール・プロンプト・<br>新機能のニュースが飛び交う。<br>でも本質は <strong>作って問題を解決すること</strong>。</p>
+    <p style="color:var(--color-accent); font-weight:700;">情報に振り回されず、<br>どんどん作って・どんどん失敗する。</p>
+  </section>
+
+  <!-- 10: Course flow -->
+  <section class="slide">
+    <div class="eyebrow">HOW WE LEARN</div>
+    <h2>講座の進め方</h2>
+    <div class="rule"></div>
+    <ul class="plain" style="margin-top:20px;">
+      <li>1本あたり約5分のモジュール形式</li>
+      <li>スライド解説 + Claude Code の実演</li>
+      <li>S1 から順に、手を動かしながら進める</li>
+    </ul>
+  </section>
+
+  <!-- 11: Closing -->
+  <section class="slide cover">
+    <h1>それでは<br>始めましょう</h1>
+    <div class="rule"></div>
+    <div class="subtitle">S2 — Claude Code の基本へ</div>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', () => show(i + 1));
+</script>
+
+</body>
+</html>
