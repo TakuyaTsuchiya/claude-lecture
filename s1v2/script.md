@@ -1,9 +1,9 @@
-# S2V1 台本 — まずは体験してみよう
+# S1V2 台本 — まずは体験してみよう
 
 - **想定尺**: 約5分（うち実演 約4分）
 - **実演**: あり（Claude.ai のウェブ版で Claude Code を動かす）
 - **文体**: 敬体（ですます調）
-- **スライド**: [s2v1/index.html](./index.html)（全4枚）
+- **スライド**: [s1v2/index.html](./index.html)（全4枚）
 - **成果物**: `sushi_3sha_comparison.html`（実演で生成）
 
 ---
