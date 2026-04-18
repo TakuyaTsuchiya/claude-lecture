@@ -28,6 +28,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ディレクトリ命名は `s{section}v{video}`（例: `s1v1/`, `s2v3/`）。
 
+## 新動画追加時の必須チェックリスト（絶対に忘れるな）
+
+新しい `s{N}v{N}/` ディレクトリを作成したら、**同じコミットで必ず** `index.html` のリンクも追加すること。追加しないと GitHub Pages で見れない。
+
+1. `s{N}v{N}/index.html` と `s{N}v{N}/script.md` を作成
+2. **ルートの `index.html` に該当モジュールのリンクを追加**（"coming soon" → 実リンクに差し替え）
+3. スクリーンショット検証（`node scripts/screenshot-slides.js`）
+4. 上記をまとめて1コミットでpush
+
 ## スライドの技術構成
 
 **HTMLスライド**（自由度重視、Revealなどのフレームワークは不採用）。
