@@ -3,7 +3,7 @@
 - **想定尺**: 約5分（うち実演 約4分）
 - **1秒あたり**: 4.1字
 - **実演**: あり
-- **スライド**: [s1v2/index.html](./index.html)（全4枚）
+- **スライド**: [s1v2/index.html](./index.html)
 - **成果物**: `sushi_3sha_comparison.html`（実演で生成）
 
 ---
