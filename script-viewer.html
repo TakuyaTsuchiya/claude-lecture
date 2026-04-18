@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台本ビューア</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="styles/slide.css">
+<style>
+  body {
+    overflow: auto;
+    background: #f9f9f9;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .back-btn {
+    font-size: 15pt;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .back-btn:hover { opacity: 0.7; }
+  .script-title {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--color-text);
+    flex: 1;
+  }
+  .tts-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .tts-btn {
+    font-size: 15pt;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .tts-btn:hover { opacity: 0.75; }
+  #btn-play  { background: var(--color-accent); color: #fff; }
+  #btn-pause { background: var(--color-accent-soft); color: var(--color-accent); display: none; }
+  #btn-stop  { background: var(--color-line); color: var(--color-sub); display: none; }
+
+  .content {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    padding: 48px 56px;
+    font-size: 19pt;
+    line-height: 2;
+    color: var(--color-text);
+  }
+  .content h1 { font-size: 28pt; margin: 40px 0 16px; }
+  .content h2 {
+    font-size: 22pt;
+    color: var(--color-accent);
+    margin: 48px 0 12px;
+    padding-top: 24px;
+    border-top: 2px solid var(--color-line);
+  }
+  .content h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+  .content p  { margin: 12px 0; }
+  .content ul, .content ol { margin: 8px 0 8px 32px; }
+  .content li { margin: 4px 0; }
+  .content hr { border: none; border-top: 1px solid var(--color-line); margin: 32px 0; }
+  .content strong { color: var(--color-text); }
+  .content code {
+    font-family: var(--font-mono);
+    background: var(--color-accent-soft);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 16pt;
+  }
+
+  .highlight-word {
+    background: #ffe066;
+    border-radius: 3px;
+  }
+
+  #error {
+    color: #c00;
+    font-size: 18pt;
+    padding: 40px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="toolbar">
+    <a class="back-btn" href="index.html">← 一覧へ</a>
+    <div class="script-title" id="title">台本</div>
+    <div class="tts-controls">
+      <button class="tts-btn" id="btn-play">▶ 読み上げ</button>
+      <button class="tts-btn" id="btn-pause">⏸ 一時停止</button>
+      <button class="tts-btn" id="btn-stop">■ 停止</button>
+    </div>
+  </div>
+  <div class="content" id="content"><p style="color:var(--color-mute)">読み込み中…</p></div>
+  <div id="error" style="display:none"></div>
+</div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const src = params.get('src');
+
+  if (!src) {
+    document.getElementById('error').style.display = 'block';
+    document.getElementById('error').textContent = 'src パラメータがありません';
+    document.getElementById('content').style.display = 'none';
+  } else {
+    fetch(src)
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(md => {
+        const nameMatch = src.match(/([^/]+)\/script\.md$/);
+        if (nameMatch) document.getElementById('title').textContent = nameMatch[1].toUpperCase() + ' 台本';
+        document.title = document.getElementById('title').textContent;
+        document.getElementById('content').innerHTML = marked.parse(md);
+      })
+      .catch(e => {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').textContent = 'ファイルを読み込めませんでした: ' + src;
+        document.getElementById('content').style.display = 'none';
+      });
+  }
+
+  // TTS
+  const synth = window.speechSynthesis;
+  let utterance = null;
+
+  function getPlainText() {
+    return document.getElementById('content').innerText;
+  }
+
+  function setControls(state) {
+    document.getElementById('btn-play').style.display  = state === 'idle'    ? '' : 'none';
+    document.getElementById('btn-pause').style.display = state === 'playing' ? '' : 'none';
+    document.getElementById('btn-stop').style.display  = state !== 'idle'    ? '' : 'none';
+  }
+
+  document.getElementById('btn-play').addEventListener('click', () => {
+    synth.cancel();
+    utterance = new SpeechSynthesisUtterance(getPlainText());
+    utterance.lang = 'ja-JP';
+    utterance.rate = 0.95;
+    utterance.onend = () => setControls('idle');
+    utterance.onerror = () => setControls('idle');
+    synth.speak(utterance);
+    setControls('playing');
+  });
+
+  document.getElementById('btn-pause').addEventListener('click', () => {
+    if (synth.speaking && !synth.paused) {
+      synth.pause();
+      document.getElementById('btn-pause').textContent = '▶ 再開';
+    } else if (synth.paused) {
+      synth.resume();
+      document.getElementById('btn-pause').textContent = '⏸ 一時停止';
+    }
+  });
+
+  document.getElementById('btn-stop').addEventListener('click', () => {
+    synth.cancel();
+    setControls('idle');
+  });
+</script>
+</body>
+</html>
