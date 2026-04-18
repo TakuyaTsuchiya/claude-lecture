@@ -15,43 +15,54 @@
     <h1 style="font-size:58pt;">Claude Code を<br>安全に使う方法を知ろう</h1>
   </section>
 
-  <!-- 2: 権限3段階 -->
+  <!-- 2: 権限4モード -->
   <section class="slide">
-    <div class="eyebrow">PERMISSION MODE</div>
-    <h2 style="font-size:36pt; margin-bottom:40px;">権限モードを使い分けよう</h2>
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; max-width:1200px; width:100%; text-align:left;">
+    <div class="eyebrow" style="margin-bottom:16px;">PERMISSION MODE</div>
+    <h2 style="font-size:34pt; margin-bottom:16px;">権限モードを使い分けよう</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:1000px; width:100%; text-align:left;">
 
       <!-- デフォルト -->
-      <div style="border:3px solid var(--color-line); border-radius:12px; padding:32px 28px;">
-        <div style="font-size:18pt; font-weight:700; color:var(--color-accent); letter-spacing:0.1em; margin-bottom:16px;">DEFAULT</div>
-        <div style="font-size:26pt; font-weight:700; margin-bottom:20px;">デフォルト</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+      <div style="border:3px solid var(--color-line); border-radius:12px; padding:20px 28px;">
+        <div style="font-size:16pt; font-weight:700; color:var(--color-accent); letter-spacing:0.1em; margin-bottom:12px;">DEFAULT</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">デフォルト</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
           ファイル編集：<span style="color:var(--color-text); font-weight:700;">毎回確認</span><br>
           コマンド実行：<span style="color:var(--color-text); font-weight:700;">毎回確認</span>
         </div>
-        <div style="margin-top:24px; font-size:18pt; color:var(--color-mute); line-height:1.6;">慣れるまでの<br>最初の期間に</div>
+        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">慣れるまでの最初の期間に</div>
       </div>
 
       <!-- Auto-accept -->
-      <div style="border:3px solid var(--color-accent); border-radius:12px; padding:32px 28px; background:var(--color-accent-soft);">
-        <div style="font-size:18pt; font-weight:700; color:var(--color-accent); letter-spacing:0.03em; margin-bottom:16px;">AUTO-ACCEPT</div>
-        <div style="font-size:26pt; font-weight:700; margin-bottom:20px;">編集だけ自動</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+      <div style="border:3px solid var(--color-accent); border-radius:12px; padding:20px 28px; background:var(--color-accent-soft);">
+        <div style="font-size:16pt; font-weight:700; color:var(--color-accent); letter-spacing:0.03em; margin-bottom:12px;">AUTO-ACCEPT</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">編集だけ自動</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
           ファイル編集：<span style="color:var(--color-text); font-weight:700;">自動</span><br>
           コマンド実行：<span style="color:var(--color-text); font-weight:700;">毎回確認</span>
         </div>
-        <div style="margin-top:24px; font-size:18pt; color:var(--color-mute); line-height:1.6;">日常業務での<br>メイン設定</div>
+        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">日常業務でのメイン設定</div>
       </div>
 
-      <!-- フルオート -->
-      <div style="border:3px solid var(--color-line); border-radius:12px; padding:32px 28px;">
-        <div style="font-size:18pt; font-weight:700; color:var(--color-accent); letter-spacing:0.05em; margin-bottom:16px;">FULL AUTO</div>
-        <div style="font-size:26pt; font-weight:700; margin-bottom:20px;">フルオート</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+      <!-- Plan -->
+      <div style="border:3px solid var(--color-line); border-radius:12px; padding:20px 28px;">
+        <div style="font-size:16pt; font-weight:700; color:var(--color-accent); letter-spacing:0.1em; margin-bottom:12px;">PLAN</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">計画モード</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
+          ファイル編集：<span style="color:var(--color-text); font-weight:700;">なし</span><br>
+          コマンド実行：<span style="color:var(--color-text); font-weight:700;">なし</span>
+        </div>
+        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">複雑なタスクの事前確認に</div>
+      </div>
+
+      <!-- Bypass -->
+      <div style="border:3px solid var(--color-line); border-radius:12px; padding:20px 28px; background:#f9f9f9;">
+        <div style="font-size:16pt; font-weight:700; color:var(--color-mute); letter-spacing:0.05em; margin-bottom:12px;">BYPASS</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px; color:var(--color-sub);">権限スキップ</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
           ファイル編集：<span style="color:var(--color-text); font-weight:700;">自動</span><br>
           コマンド実行：<span style="color:var(--color-text); font-weight:700;">自動</span>
         </div>
-        <div style="margin-top:24px; font-size:18pt; color:var(--color-mute); line-height:1.6;">サンドボックス<br>環境限定で</div>
+        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">サンドボックス環境専用</div>
       </div>
 
     </div>
