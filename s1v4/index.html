@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S1V4 社内会議用資料をHTMLでサクッと作ってみよう</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1>社内会議用資料を<br>HTMLでサクッと作ってみよう</h1>
+  </section>
+
+  <!-- 2: お題 -->
+  <section class="slide">
+    <div class="eyebrow">TODAY'S TASK</div>
+    <h2>アジェンダMarkdown1枚から<br>会議用HTMLサイトを作る</h2>
+    <div class="rule"></div>
+    <p style="color:var(--color-sub);">URLを1本送るだけで、<br>参加者全員がブラウザで開ける会議資料に。</p>
+  </section>
+
+  <!-- 3: プロンプト -->
+  <section class="slide">
+    <div class="eyebrow">PROMPT</div>
+    <pre style="font-family:var(--font-mono); font-size:19pt; line-height:1.8; text-align:left; background:#f7f7f7; padding:40px 48px; border-radius:8px; max-width:1200px; white-space:pre-wrap; color:var(--color-text);">@agenda.md のアジェンダをもとに、
+社内会議用のHTMLページを1枚作ってください。
+
+URL1本で参加者が開けるよう、
+スタイルも込みの自己完結HTMLで。
+frontend-design スキルを使って
+見栄えよく仕上げてください。</pre>
+  </section>
+
+  <!-- 4: Closing -->
+  <section class="slide cover">
+    <h1>設定より、<br>まず手を動かそう</h1>
+    <div class="rule"></div>
+    <div class="subtitle">詰まったら、Claudeに聞きながら進めばいい。</div>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script src="../styles/slide.js"></script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', () => show(i + 1));
+</script>
+
+</body>
+</html>
