@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node scripts/screenshot-slides.js *)",
+      "Read(/tmp/slide-check/*)"
+    ]
+  }
+}
