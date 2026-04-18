@@ -98,3 +98,19 @@ CSS変数は `:root` で定義済み。値を変えるときは `styles/slide.cs
 
 `/Users/tchytky/.claude/projects/-Users-tchytky-Desktop-claude-lecture/memory/` に
 プロジェクト固有のメモリがある。セッション開始時に `MEMORY.md` を確認すること。
+
+## スライドのビジュアル検証（必須）
+
+スライドHTMLを編集・作成したら、**必ず**以下を実行して全ページを目視確認する：
+
+```bash
+node scripts/screenshot-slides.js <section>/index.html
+```
+
+保存先: `/tmp/slide-check/<section>/p1.png` 〜 `pN.png`。`Read` ツールで画像を開いて確認し、以下が問題ないことを検証する：
+
+- テキストの意図しない折り返し・見切れがない
+- 文字サイズが十分に大きい（最小18pt）
+- 全ページがスライド境界内に収まっている
+
+問題があれば修正してから再度スクリーンショットを撮り直す。ユーザーへの報告前に解決しておくこと。
