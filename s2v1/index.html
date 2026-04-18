@@ -60,27 +60,45 @@
     </div>
   </section>
 
-  <!-- 4: 実演 -->
+  <!-- 4: /init 紹介 -->
   <section class="slide">
-    <div class="eyebrow">DEMO</div>
-    <h2 style="font-size:36pt; margin-bottom:48px;">実際に CLAUDE.md を作ってみる</h2>
-    <div style="display:flex; flex-direction:column; gap:28px; max-width:900px; width:100%; text-align:left;">
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">①</div>
-        <div style="font-size:26pt; line-height:1.5;">作業フォルダの一番上に <code style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 12px; border-radius:6px; font-size:24pt;">CLAUDE.md</code> を新規作成</div>
+    <div class="eyebrow">ショートカット</div>
+    <h2 style="font-size:44pt; margin-bottom:40px;"><code style="font-family:var(--font-mono); background:#f0f0f0; padding:6px 20px; border-radius:8px; font-size:40pt; color:var(--color-accent);">/init</code> で自動作成</h2>
+    <div style="max-width:1040px; width:100%; display:flex; flex-direction:column; gap:20px; text-align:left;">
+      <div style="font-size:26pt; line-height:1.6;">
+        <code style="font-family:var(--font-mono); font-size:24pt;">init</code> = <code style="font-family:var(--font-mono); font-size:24pt;">initialize</code>（初期化する）の略
       </div>
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">②</div>
-        <div style="font-size:26pt; line-height:1.5;">3行テンプレートを書き込んで保存</div>
+      <div style="font-size:24pt; line-height:1.6; color:var(--color-sub);">
+        → 「最初のセットアップをする」という意味
       </div>
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">③</div>
-        <div style="font-size:26pt; line-height:1.5;">Claude Code を起動して自動で読まれることを確認</div>
+      <div style="margin-top:20px; font-size:24pt; line-height:1.7;">
+        Claude Code がフォルダの中身を見て<br>
+        CLAUDE.md を自動で作ってくれる
       </div>
     </div>
   </section>
 
-  <!-- 5: リンク集として使う -->
+  <!-- 5: 実演 -->
+  <section class="slide">
+    <div class="eyebrow">DEMO</div>
+    <h2 style="font-size:36pt; margin-bottom:48px;">実際に <code style="font-family:var(--font-mono); background:#f0f0f0; padding:4px 16px; border-radius:8px; font-size:32pt;">/init</code> を使ってみる</h2>
+    <div style="display:flex; flex-direction:column; gap:28px; max-width:960px; width:100%; text-align:left;">
+      <div style="display:flex; align-items:center; gap:28px;">
+        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">①</div>
+        <div style="font-size:26pt; line-height:1.5;">Claude Code で対象のフォルダを開く</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:28px;">
+        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">②</div>
+        <div style="font-size:26pt; line-height:1.5;"><code style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 12px; border-radius:6px; font-size:24pt;">/init</code> を実行 → CLAUDE.md が自動生成</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:28px;">
+        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">③</div>
+        <div style="font-size:26pt; line-height:1.5;">3行テンプレを追記して保存</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6: リンク集として使う -->
   <section class="slide">
     <div class="eyebrow">活用法</div>
     <h2 style="font-size:36pt; margin-bottom:32px;">ドキュメントのリンク集として使う</h2>
@@ -97,14 +115,14 @@
     </div>
   </section>
 
-  <!-- 6: Closing -->
+  <!-- 7: Closing -->
   <section class="slide cover">
     <h1 style="font-size:72pt;">書きすぎない</h1>
     <div class="rule"></div>
     <div style="display:flex; flex-direction:column; gap:20px; text-align:left;">
-      <div style="font-size:28pt; color:var(--color-sub);">長いほど良いわけではない</div>
-      <div style="font-size:28pt; color:var(--color-sub);">目安は 10行以内</div>
-      <div style="font-size:28pt; color:var(--color-sub);">増えたら別ファイルに分けてリンクを張る</div>
+      <div style="font-size:28pt; color:var(--color-sub);">長いほど AI は指示を守らなくなる</div>
+      <div style="font-size:28pt; color:var(--color-sub);">目安は 200行以内</div>
+      <div style="font-size:28pt; color:var(--color-sub);">増えたら別ファイルに分けて呼び出す</div>
     </div>
   </section>
 
