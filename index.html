@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code入門・実践</title>
+<link rel="stylesheet" href="styles/slide.css">
+<style>
+  body {
+    overflow: auto;
+    background: #f9f9f9;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+  .site-title {
+    font-size: 36pt;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 8px;
+  }
+  .site-sub {
+    font-size: 18pt;
+    color: var(--color-mute);
+    margin-bottom: 64px;
+  }
+  .section-group {
+    margin-bottom: 56px;
+  }
+  .section-label {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-line);
+  }
+  .module-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .module-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    padding: 20px 24px;
+  }
+  .module-id {
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    min-width: 56px;
+  }
+  .module-name {
+    font-size: 20pt;
+    font-weight: 500;
+    color: var(--color-text);
+    flex: 1;
+  }
+  .module-links {
+    display: flex;
+    gap: 10px;
+  }
+  .btn {
+    display: inline-block;
+    font-size: 14pt;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.75; }
+  .btn-slides {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  .btn-script {
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+  }
+  .wip {
+    font-size: 13pt;
+    color: var(--color-mute);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="site-title">Claude Code入門・実践</div>
+  <div class="site-sub">スライド &amp; 台本 一覧</div>
+
+  <!-- S1 / S2 -->
+  <div class="section-group">
+    <div class="section-label">S1 / S2</div>
+    <div class="section-title">Claude Code の基本</div>
+    <ul class="module-list">
+      <li class="module-item">
+        <div class="module-id">S1V1</div>
+        <div class="module-name">はじめに — 全体像と3つの核心</div>
+        <div class="module-links">
+          <a class="btn btn-slides" href="s1v1/">スライド</a>
+          <a class="btn btn-script" href="s1v1/script.md">台本</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- S3 / S4 -->
+  <div class="section-group">
+    <div class="section-label">S3 / S4</div>
+    <div class="section-title">業務効率化（Skills / MCP）</div>
+    <ul class="module-list">
+      <li class="module-item">
+        <div class="module-id">S3V1</div>
+        <div class="module-name">準備中</div>
+        <div class="module-links"><span class="wip">coming soon</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- S5 / S6 -->
+  <div class="section-group">
+    <div class="section-label">S5 / S6</div>
+    <div class="section-title">アプリ開発（フロント / サーバー）</div>
+    <ul class="module-list">
+      <li class="module-item">
+        <div class="module-id">S5V1</div>
+        <div class="module-name">準備中</div>
+        <div class="module-links"><span class="wip">coming soon</span></div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
