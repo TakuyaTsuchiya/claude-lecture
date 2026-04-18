@@ -12,7 +12,7 @@
     background: #f9f9f9;
   }
   .page {
-    max-width: 780px;
+    max-width: 1365px;
     margin: 0 auto;
     padding: 60px 40px 120px;
   }
@@ -35,24 +35,6 @@
     color: var(--color-text);
     flex: 1;
   }
-  .tts-controls {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  .tts-btn {
-    font-size: 15pt;
-    font-weight: 700;
-    padding: 10px 24px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-  .tts-btn:hover { opacity: 0.75; }
-  #btn-play  { background: var(--color-accent); color: #fff; }
-  #btn-pause { background: var(--color-accent-soft); color: var(--color-accent); display: none; }
-  #btn-stop  { background: var(--color-line); color: var(--color-sub); display: none; }
 
   .content {
     background: #fff;
@@ -85,11 +67,6 @@
     font-size: 16pt;
   }
 
-  .highlight-word {
-    background: #ffe066;
-    border-radius: 3px;
-  }
-
   #error {
     color: #c00;
     font-size: 18pt;
@@ -103,11 +80,6 @@
   <div class="toolbar">
     <a class="back-btn" href="index.html">← 一覧へ</a>
     <div class="script-title" id="title">台本</div>
-    <div class="tts-controls">
-      <button class="tts-btn" id="btn-play">▶ 読み上げ</button>
-      <button class="tts-btn" id="btn-pause">⏸ 一時停止</button>
-      <button class="tts-btn" id="btn-stop">■ 停止</button>
-    </div>
   </div>
   <div class="content" id="content"><p style="color:var(--color-mute)">読み込み中…</p></div>
   <div id="error" style="display:none"></div>
@@ -136,46 +108,6 @@
         document.getElementById('content').style.display = 'none';
       });
   }
-
-  // TTS
-  const synth = window.speechSynthesis;
-  let utterance = null;
-
-  function getPlainText() {
-    return document.getElementById('content').innerText;
-  }
-
-  function setControls(state) {
-    document.getElementById('btn-play').style.display  = state === 'idle'    ? '' : 'none';
-    document.getElementById('btn-pause').style.display = state === 'playing' ? '' : 'none';
-    document.getElementById('btn-stop').style.display  = state !== 'idle'    ? '' : 'none';
-  }
-
-  document.getElementById('btn-play').addEventListener('click', () => {
-    synth.cancel();
-    utterance = new SpeechSynthesisUtterance(getPlainText());
-    utterance.lang = 'ja-JP';
-    utterance.rate = 0.95;
-    utterance.onend = () => setControls('idle');
-    utterance.onerror = () => setControls('idle');
-    synth.speak(utterance);
-    setControls('playing');
-  });
-
-  document.getElementById('btn-pause').addEventListener('click', () => {
-    if (synth.speaking && !synth.paused) {
-      synth.pause();
-      document.getElementById('btn-pause').textContent = '▶ 再開';
-    } else if (synth.paused) {
-      synth.resume();
-      document.getElementById('btn-pause').textContent = '⏸ 一時停止';
-    }
-  });
-
-  document.getElementById('btn-stop').addEventListener('click', () => {
-    synth.cancel();
-    setControls('idle');
-  });
 </script>
 </body>
 </html>
