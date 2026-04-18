@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S1V3 Claude Code を自分のPCで動かそう</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1>Claude Code を<br>自分のPCで動かそう</h1>
+  </section>
+
+  <!-- 2: 事前準備 -->
+  <section class="slide">
+    <div class="eyebrow">BEFORE YOU START</div>
+    <h2>必要なもの</h2>
+    <div class="rule"></div>
+    <ul class="plain" style="font-size:28pt; line-height:2.2;">
+      <li>Claude <strong>Pro</strong> プラン以上 <span style="color:var(--color-sub); font-size:22pt;">（Freeプランでは使えません）</span></li>
+      <li>仕事で使うなら <strong style="color:var(--color-accent);">Max</strong> プランを推奨</li>
+      <li>ダウンロード: <strong>claude.ai/download</strong></li>
+    </ul>
+  </section>
+
+  <!-- 3: Mac インストール -->
+  <section class="slide">
+    <div class="eyebrow">INSTALL — macOS</div>
+    <h2>Mac へのインストール</h2>
+    <div class="rule"></div>
+    <ol class="plain" style="font-size:26pt; line-height:2.4; list-style:decimal; padding-left:1.4em;">
+      <li><code style="font-family:var(--font-mono); font-size:24pt; background:#f0f0f0; padding:2px 10px; border-radius:4px;">claude.ai/download</code> からMac版をDL</li>
+      <li><code style="font-family:var(--font-mono); font-size:24pt; background:#f0f0f0; padding:2px 10px; border-radius:4px;">.dmg</code> を開いてアプリをインストール</li>
+      <li>Claude Code を起動してサインイン</li>
+    </ol>
+  </section>
+
+  <!-- 4: Windows インストール -->
+  <section class="slide">
+    <div class="eyebrow">INSTALL — Windows</div>
+    <h2>Windows へのインストール</h2>
+    <div class="rule"></div>
+    <ol class="plain" style="font-size:26pt; line-height:2.4; list-style:decimal; padding-left:1.4em;">
+      <li><code style="font-family:var(--font-mono); font-size:24pt; background:#f0f0f0; padding:2px 10px; border-radius:4px;">claude.ai/download</code> からWindows版をDL</li>
+      <li><code style="font-family:var(--font-mono); font-size:24pt; background:#f0f0f0; padding:2px 10px; border-radius:4px;">.exe</code> を実行してインストール</li>
+      <li>Claude Code を起動してサインイン</li>
+    </ol>
+  </section>
+
+  <!-- 5: Closing -->
+  <section class="slide cover">
+    <h1>環境が整った<br>ここから始まる</h1>
+    <div class="rule"></div>
+    <div class="subtitle">この先の動画はすべてこの環境で進みます。</div>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', () => show(i + 1));
+</script>
+
+</body>
+</html>
