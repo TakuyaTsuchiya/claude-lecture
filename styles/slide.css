@@ -201,6 +201,19 @@ html, body {
   z-index: 100;
 }
 
+@media (max-width: 1279px), (max-height: 799px) {
+  .page-indicator {
+    font-size: clamp(11px, 1.5vmin, 18pt);
+    bottom: clamp(10px, 2vmin, 24px);
+    right: clamp(12px, 2vmin, 32px);
+  }
+  .nav-hint {
+    font-size: clamp(11px, 1.5vmin, 18pt);
+    bottom: clamp(10px, 2vmin, 24px);
+    left: clamp(12px, 2vmin, 32px);
+  }
+}
+
 @media print {
   .page-indicator, .nav-hint { display: none; }
   .slide { display: flex !important; page-break-after: always; position: relative; height: 100vh; }
