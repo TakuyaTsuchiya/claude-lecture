@@ -123,3 +123,7 @@ node scripts/screenshot-slides.js <section>/index.html
 - 全ページがスライド境界内に収まっている
 
 問題があれば修正してから再度スクリーンショットを撮り直す。ユーザーへの報告前に解決しておくこと。
+
+## コミット後は必ずpushする
+
+スライド・台本のコミット後は **必ず `git push origin main` を実行する**。ユーザーに指示させない。
