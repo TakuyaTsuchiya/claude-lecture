@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | セクション | 内容 |
 |---|---|
 | S1 / S2 | Claude Code の基本 |
-| S3 / S4 | 業務効率化（Skills / MCP） |
+| S3 / S4 | 業務効率化（Skills / MCP / コネクタ） |
 | S5 / S6 | アプリ開発（フロント / サーバー） |
 
 ディレクトリ命名は `s{section}v{video}`（例: `s1v1/`, `s2v3/`）。
@@ -90,6 +90,21 @@ CSS変数は `:root` で定義済み。値を変えるときは `styles/slide.cs
 - `Claude.ai` — ブラウザで開くウェブ版
 - `Claude Code デスクトップ版` — Mac / Windows のデスクトップアプリ（`Claude Desktop` とは書かない）
 - `Claude Code CLI` — ターミナルで動かすコマンドライン版
+
+## 外部連携の3分類（必守）
+
+Claudeから外部に手を伸ばす手段は3つ。**混同しない／用語を揃える**。
+
+- **Skill** — Claudeに渡す手順書。資格やマニュアルの発想。`.claude/skills/` に置く。S3V1 / V2で扱う
+- **MCP** — Model Context Protocolサーバーを追加して機能を拡張する仕組み。公式レジストリ掲載と非公式（コミュニティ製）がある。CLI / デスクトップ版とも利用可、自由度は高いが設定は重め
+- **コネクタ** — Anthropic公式が用意した外部サービス連携の窓口。Drive / Gmail / Calendar / Notion / Linear / Figma等が登録済み。Claude Code デスクトップ版の「ディレクトリ → コネクタ」から追加、数クリックでOAuth接続
+
+**コネクタの「接続」と「セッション有効化」は別ステップ**。ディレクトリで追加＋OAuthしただけだとセッションから使えない。入力欄の「+」or「/」メニューの「Connectors」でセッションごとに有効化する必要がある。実演では詰まりポイントなので丁寧に見せる。
+
+教材の役割分担（予定）：
+- S3V1 / V2 — Skill
+- S3V3 / V4 — MCP
+- S3V5 — コネクタ①
 
 ## URL・略称の表記ルール（必守）
 
