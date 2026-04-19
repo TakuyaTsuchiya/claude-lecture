@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S1V5 Claude Code を安全に使う方法を知ろう</title>
+<title>S1V5 モードを使い分けよう</title>
 <link rel="stylesheet" href="../styles/slide.css">
 </head>
 <body>
@@ -12,90 +12,109 @@
 
   <!-- 1: Cover -->
   <section class="slide cover active">
-    <h1 style="font-size:58pt;">Claude Code を<br>安全に使う方法を知ろう</h1>
+    <h1>モードを<br>使い分けよう</h1>
   </section>
 
-  <!-- 2: 権限4モード -->
+  <!-- 2: 3モード比較 -->
   <section class="slide">
-    <div class="eyebrow" style="margin-bottom:16px;">PERMISSION MODE</div>
-    <h2 style="font-size:34pt; margin-bottom:16px;">権限モードを使い分けよう</h2>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:1000px; width:100%; text-align:left;">
+    <div class="eyebrow">PERMISSION MODE</div>
+    <h2 style="font-size:36pt; margin-bottom:32px;">3つのモード</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; max-width:1100px; width:100%; text-align:left;">
 
-      <!-- デフォルト -->
-      <div style="border:3px solid var(--color-line); border-radius:12px; padding:20px 28px;">
-        <div style="font-size:16pt; font-weight:700; color:var(--color-accent); letter-spacing:0.1em; margin-bottom:12px;">DEFAULT</div>
-        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">デフォルト</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
-          ファイル編集：<span style="color:var(--color-text); font-weight:700;">毎回確認</span><br>
-          コマンド実行：<span style="color:var(--color-text); font-weight:700;">毎回確認</span>
+      <!-- 許可を確認 -->
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:24px 28px;">
+        <div style="font-size:14pt; font-weight:700; color:var(--color-mute); letter-spacing:0.08em; margin-bottom:10px;">モード 1</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">許可を確認</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+          ファイル編集：確認<br>
+          コマンド：確認
         </div>
-        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">慣れるまでの最初の期間に</div>
+        <div style="margin-top:16px; font-size:18pt; color:var(--color-mute);">最初の慣れる期間に</div>
       </div>
 
-      <!-- Auto-accept -->
-      <div style="border:3px solid var(--color-accent); border-radius:12px; padding:20px 28px; background:var(--color-accent-soft);">
-        <div style="font-size:16pt; font-weight:700; color:var(--color-accent); letter-spacing:0.03em; margin-bottom:12px;">AUTO-ACCEPT</div>
-        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">編集だけ自動</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
-          ファイル編集：<span style="color:var(--color-text); font-weight:700;">自動</span><br>
-          コマンド実行：<span style="color:var(--color-text); font-weight:700;">毎回確認</span>
+      <!-- 編集を承認 -->
+      <div style="border:3px solid var(--color-accent); border-radius:12px; padding:24px 28px; background:var(--color-accent-soft);">
+        <div style="font-size:14pt; font-weight:700; color:var(--color-accent); letter-spacing:0.08em; margin-bottom:10px;">モード 2 ／ デフォルト</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">編集を承認</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+          ファイル編集：自動<br>
+          コマンド：確認
         </div>
-        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">日常業務でのメイン設定</div>
+        <div style="margin-top:16px; font-size:18pt; color:var(--color-mute);">日常作業のメイン設定</div>
       </div>
 
-      <!-- Plan -->
-      <div style="border:3px solid var(--color-line); border-radius:12px; padding:20px 28px;">
-        <div style="font-size:16pt; font-weight:700; color:var(--color-accent); letter-spacing:0.1em; margin-bottom:12px;">PLAN</div>
-        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">計画モード</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
-          ファイル編集：<span style="color:var(--color-text); font-weight:700;">なし</span><br>
-          コマンド実行：<span style="color:var(--color-text); font-weight:700;">なし</span>
+      <!-- プランモード -->
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:24px 28px;">
+        <div style="font-size:14pt; font-weight:700; color:var(--color-mute); letter-spacing:0.08em; margin-bottom:10px;">モード 3</div>
+        <div style="font-size:24pt; font-weight:700; margin-bottom:16px;">プランモード</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+          ファイル編集：なし<br>
+          コマンド：なし
         </div>
-        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">複雑なタスクの事前確認に</div>
-      </div>
-
-      <!-- Bypass -->
-      <div style="border:3px solid var(--color-line); border-radius:12px; padding:20px 28px; background:#f9f9f9;">
-        <div style="font-size:16pt; font-weight:700; color:var(--color-mute); letter-spacing:0.05em; margin-bottom:12px;">BYPASS</div>
-        <div style="font-size:24pt; font-weight:700; margin-bottom:16px; color:var(--color-sub);">権限スキップ</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.7; white-space:nowrap;">
-          ファイル編集：<span style="color:var(--color-text); font-weight:700;">自動</span><br>
-          コマンド実行：<span style="color:var(--color-text); font-weight:700;">自動</span>
-        </div>
-        <div style="margin-top:12px; font-size:18pt; color:var(--color-mute);">サンドボックス環境専用</div>
+        <div style="margin-top:16px; font-size:18pt; color:var(--color-mute);">複雑なタスクの事前確認に</div>
       </div>
 
     </div>
   </section>
 
-  <!-- 3: 実演導線 -->
+  <!-- 3: 上級モード -->
   <section class="slide">
-    <div class="eyebrow">DEMO</div>
-    <h2 style="font-size:36pt; margin-bottom:48px;">今日の実演 3ステップ</h2>
-    <div style="display:flex; flex-direction:column; gap:28px; max-width:900px; width:100%; text-align:left;">
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">①</div>
-        <div style="font-size:26pt; line-height:1.5;">権限モードを切り替えてみる</div>
+    <div class="eyebrow">NOTE</div>
+    <h2 style="font-size:36pt; margin-bottom:36px;">残り 2 つは普段触らなくていい</h2>
+    <div style="display:flex; flex-direction:column; gap:20px; max-width:900px; width:100%; text-align:left;">
+
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:20px 32px; background:#f9f9f9;">
+        <div style="font-size:22pt; font-weight:700; margin-bottom:8px; color:var(--color-sub);">許可をバイパス</div>
+        <div style="font-size:18pt; color:var(--color-mute);">すべての操作を確認なしで実行。Docker等サンドボックス専用</div>
       </div>
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">②</div>
-        <div style="font-size:26pt; line-height:1.5;">承認画面で <kbd style="font-family:var(--font-mono); background:#f0f0f0; padding:4px 14px; border-radius:6px; font-size:24pt;">Ctrl+E</kbd> を押して意図を確認する</div>
+
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:20px 32px; background:#f9f9f9;">
+        <div style="font-size:22pt; font-weight:700; margin-bottom:8px; color:var(--color-sub);">自動モード</div>
+        <div style="font-size:18pt; color:var(--color-mute);">リスク判定付きで自動承認。研究プレビュー段階</div>
       </div>
-      <div style="display:flex; align-items:center; gap:28px;">
-        <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">③</div>
-        <div style="font-size:26pt; line-height:1.5;">破壊的コマンドを<br>ダミーフォルダで実際に見る</div>
+
+      <div style="font-size:20pt; color:var(--color-mute); margin-top:8px;">
+        どちらも初期状態では無効 ―― Claude Code の設定で有効化が必要
       </div>
     </div>
   </section>
 
-  <!-- 4: Closing -->
+  <!-- 4: プライバシー -->
+  <section class="slide">
+    <div class="eyebrow">PRIVACY</div>
+    <h2 style="font-size:36pt; margin-bottom:40px;">入力内容のあつかい</h2>
+    <div style="display:flex; flex-direction:column; gap:28px; max-width:960px; width:100%; text-align:left;">
+
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <div style="font-size:32pt; color:var(--color-accent); min-width:44px; margin-top:-4px;">①</div>
+        <div>
+          <div style="font-size:26pt; font-weight:700; margin-bottom:8px;">機密情報・個人情報は入れない</div>
+          <div style="font-size:20pt; color:var(--color-sub);">プロンプトはAnthropicのサーバーを経由する</div>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <div style="font-size:32pt; color:var(--color-accent); min-width:44px; margin-top:-4px;">②</div>
+        <div>
+          <div style="font-size:26pt; font-weight:700; margin-bottom:8px;">学習オプトアウトの確認</div>
+          <div style="font-size:20pt; color:var(--color-sub);">
+            Claude.ai → 設定 → データとプライバシー<br>
+            「Help improve Claude」をオフ
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5: Closing -->
   <section class="slide cover">
-    <h1 style="font-size:62pt;">安全に使う<br>3つの習慣</h1>
+    <h1 style="font-size:62pt;">3 つだけ<br>覚えよう</h1>
     <div class="rule"></div>
     <div style="display:flex; flex-direction:column; gap:20px; text-align:left;">
-      <div style="font-size:28pt; color:var(--color-sub);">モードは場面で選ぶ</div>
-      <div style="font-size:28pt; color:var(--color-sub);">承認画面は必ず読む</div>
-      <div style="font-size:28pt; color:var(--color-sub);">迷ったら <kbd style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 12px; border-radius:6px; font-size:26pt;">Ctrl+E</kbd> で意図を確認する</div>
+      <div style="font-size:28pt; color:var(--color-sub);">モードは場面で使い分ける</div>
+      <div style="font-size:28pt; color:var(--color-sub);">承認画面は読んでから押す</div>
+      <div style="font-size:28pt; color:var(--color-sub);">機密情報は入れない</div>
     </div>
   </section>
 
