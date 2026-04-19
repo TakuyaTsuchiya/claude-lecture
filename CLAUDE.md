@@ -91,6 +91,12 @@ CSS変数は `:root` で定義済み。値を変えるときは `styles/slide.cs
 - `Claude Code デスクトップ版` — Mac / Windows のデスクトップアプリ（`Claude Desktop` とは書かない）
 - `Claude Code CLI` — ターミナルで動かすコマンドライン版
 
+## URL・略称の表記ルール（必守）
+
+- **URLは必ず `https://` から書く**。`claude.ai/design` のような省略形は禁止。正：`https://claude.ai/design`
+- **台本にURLを書かない**。読み上げできないため。「こちらのページ」「このリンク」に置き換える
+- **略称を使わない**。`PM` は「プロジェクトマネージャー」、`LP` は「ランディングページ」と初出時に必ず展開する
+
 ## 画像・出典
 
 - 外部画像は `assets/` に保存。ファイル名は内容ベース（例: `mcp-architecture.png`、`claude-design.svg`）
