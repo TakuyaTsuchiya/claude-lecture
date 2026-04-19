@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S2V4 Claude Designをチームで活かす</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1>Claude Designを<br>チームで活かす</h1>
+  </section>
+
+  <!-- 2: Share -->
+  <section class="slide">
+    <div class="eyebrow">SHARE</div>
+    <h2>リンク1本で<br>チームと共有</h2>
+    <div class="rule"></div>
+    <div style="display:flex; gap:24px; max-width:960px; width:100%; margin-bottom:32px;">
+      <div style="flex:1; padding:32px 16px; background:var(--color-accent-soft); border-radius:12px; text-align:center;">
+        <div style="font-size:28pt; font-weight:700; color:var(--color-accent); margin-bottom:10px;">View</div>
+        <div style="font-size:20pt; color:var(--color-sub);">閲覧のみ</div>
+      </div>
+      <div style="flex:1; padding:32px 16px; background:var(--color-accent-soft); border-radius:12px; text-align:center;">
+        <div style="font-size:28pt; font-weight:700; color:var(--color-accent); margin-bottom:10px;">Comment</div>
+        <div style="font-size:20pt; color:var(--color-sub);">コメント追加</div>
+      </div>
+      <div style="flex:1; padding:32px 16px; background:var(--color-accent-soft); border-radius:12px; text-align:center;">
+        <div style="font-size:28pt; font-weight:700; color:var(--color-accent); margin-bottom:10px;">Edit</div>
+        <div style="font-size:20pt; color:var(--color-sub);">共同編集</div>
+      </div>
+    </div>
+    <p style="font-size:22pt; color:var(--color-sub);">要素を直接クリックしてインラインコメント</p>
+  </section>
+
+  <!-- 3: Design System -->
+  <section class="slide">
+    <div class="eyebrow">DESIGN SYSTEM</div>
+    <h2>ブランドを登録すれば<br>2本目から自動適用</h2>
+    <div class="rule"></div>
+    <div style="display:flex; align-items:center; gap:36px; max-width:960px; width:100%;">
+      <div style="flex:1; display:flex; flex-direction:column; gap:18px;">
+        <div style="padding:22px 24px; border:2px solid var(--color-line); border-radius:10px; font-size:22pt; font-weight:600; text-align:center;">コードベース</div>
+        <div style="padding:22px 24px; border:2px solid var(--color-line); border-radius:10px; font-size:22pt; font-weight:600; text-align:center;">デザインファイル</div>
+        <div style="padding:22px 24px; border:2px solid var(--color-line); border-radius:10px; font-size:22pt; font-weight:600; text-align:center;">ブランド資料</div>
+      </div>
+      <div style="font-size:44pt; color:var(--color-accent); font-weight:300;">→</div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:18px;">
+        <div style="padding:22px 24px; background:var(--color-accent-soft); border-radius:10px; font-size:22pt; font-weight:700; color:var(--color-accent); text-align:center;">カラー &amp; フォント</div>
+        <div style="padding:22px 24px; background:var(--color-accent-soft); border-radius:10px; font-size:22pt; font-weight:700; color:var(--color-accent); text-align:center;">コンポーネント</div>
+        <div style="padding:22px 24px; background:var(--color-accent-soft); border-radius:10px; font-size:22pt; font-weight:700; color:var(--color-accent); text-align:center;">スタイルルール</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4: Handoff -->
+  <section class="slide">
+    <div class="eyebrow">HANDOFF</div>
+    <h2>設計図をClaude Codeに渡す</h2>
+    <div class="rule"></div>
+    <div style="max-width:960px; width:100%;">
+      <div style="background:#1a1a1a; color:#e8e8e8; padding:24px 28px; border-radius:10px; font-family:var(--font-mono); font-size:18pt; line-height:1.7; margin-bottom:28px; word-break:break-all;">
+        https://api.anthropic.com/v1/design/h/<span style="color:#c15f3c;">{ID}</span><br>?open_file=<span style="color:#c15f3c;">{ファイル名}</span>
+      </div>
+      <div style="display:flex; gap:18px;">
+        <div style="flex:1; padding:20px 12px; border:1.5px solid var(--color-line); border-radius:8px; text-align:center; font-size:20pt; font-weight:600;">カラートークン</div>
+        <div style="flex:1; padding:20px 12px; border:1.5px solid var(--color-line); border-radius:8px; text-align:center; font-size:20pt; font-weight:600;">コンポーネント構造</div>
+        <div style="flex:1; padding:20px 12px; border:1.5px solid var(--color-line); border-radius:8px; text-align:center; font-size:20pt; font-weight:600;">Grid / Flexbox仕様</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: Closing -->
+  <section class="slide cover">
+    <h1 style="font-size:60pt; line-height:1.5;">チームの全員が<br>デザイナーになれる</h1>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script src="../styles/slide.js"></script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', () => show(i + 1));
+</script>
+
+</body>
+</html>
