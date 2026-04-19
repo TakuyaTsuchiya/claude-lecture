@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>経営日報 2026-04-10</title>
+<style>
+  body {
+    font-family: "游ゴシック", "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+    background: #f7f5f2;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 40px 24px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+  .header {
+    border-bottom: 3px solid #c15f3c;
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #c15f3c;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  h1 { font-size: 28px; margin: 6px 0 4px; letter-spacing: 0.02em; }
+  .period { color: #888; font-size: 14px; }
+
+  h2 {
+    font-size: 18px;
+    margin: 40px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid #c15f3c;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .kpi {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .kpi .label { font-size: 11px; color: #888; letter-spacing: 0.1em; text-transform: uppercase; }
+  .kpi .value { font-size: 28px; font-weight: 700; margin-top: 4px; color: #1a1a1a; }
+  .kpi .unit { font-size: 13px; color: #555; font-weight: 500; margin-left: 2px; }
+  .kpi .delta { font-size: 12px; color: #2e7d32; margin-top: 4px; }
+  .kpi.warn .value { color: #c15f3c; }
+
+  .dept-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .dept {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .dept .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #f4e9e3;
+    color: #c15f3c;
+    margin-bottom: 10px;
+  }
+  .dept h3 { font-size: 16px; margin: 2px 0 10px; }
+  .dept ul { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: #333; }
+  .dept ul li + li { margin-top: 2px; }
+
+  .alert {
+    background: #fff4ee;
+    border: 1px solid #e8b39e;
+    border-left: 6px solid #c15f3c;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .alert .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #c15f3c;
+    padding: 2px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .alert .title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .alert .body { font-size: 13px; color: #444; line-height: 1.7; }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 12px;
+    color: #888;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="eyebrow">EXECUTIVE DAILY REPORT</div>
+    <h1>経営日報 2026-04-10 (金)</h1>
+    <div class="period">対象: 2026-04-06 〜 2026-04-10 / ソース: #startup-sales / #startup-cs-support / #startup-product-dev</div>
+  </div>
+
+  <h2>今週のKPI</h2>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="label">新規受注</div><div class="value">3<span class="unit">件</span></div><div class="delta">総額 420万円</div></div>
+    <div class="kpi"><div class="label">見込み案件</div><div class="value">34<span class="unit">件</span></div><div class="delta">+3 (先週末31件)</div></div>
+    <div class="kpi"><div class="label">決済機能が決め手</div><div class="value">8<span class="unit">件</span></div><div class="delta">見込み案件中</div></div>
+    <div class="kpi warn"><div class="label">失注</div><div class="value">1<span class="unit">件</span></div><div class="delta" style="color:#888;">要因は次週分析</div></div>
+    <div class="kpi"><div class="label">CS Q1要望(既存顧客)</div><div class="value">5<span class="unit">件</span></div><div class="delta">今週+4</div></div>
+    <div class="kpi"><div class="label">決済機能要望(累計)</div><div class="value">20<span class="unit">件超</span></div><div class="delta">閾値超過</div></div>
+    <div class="kpi"><div class="label">実装計画(最小)</div><div class="value">6<span class="unit">週</span></div><div class="delta">来週月曜スプリント開始</div></div>
+    <div class="kpi"><div class="label">インシデント</div><div class="value">2<span class="unit">件</span></div><div class="delta" style="color:#888;">軽微・対応済</div></div>
+  </div>
+
+  <h2>要注意事項</h2>
+  <div class="alert">
+    <span class="tag">DECISION NEEDED</span>
+    <div class="title">既存顧客向け決済機能の先行リリース可否</div>
+    <div class="body">CS部門から累計20件超の決済機能要望。既存顧客向け先行案の可否を来週経営側で判断予定（VP CS 伊藤）。営業側は「決済機能が決め手」と明言する見込み案件が8件。Go判断次第でクロージングが一気に動く可能性がある。</div>
+  </div>
+  <div class="alert">
+    <span class="tag">RISK</span>
+    <div class="title">Stripe Webhook 耐障害性の設計</div>
+    <div class="body">開発側のStripe選定は完了。最小スコープ6週間の計画で来週月曜スプリント開始。論点はWebhook耐障害性設計（担当: グエン）。スケジュール影響の有無を今週末の報告で確認。</div>
+  </div>
+  <div class="alert">
+    <span class="tag">HOT LEAD</span>
+    <div class="title">顧客C社(IT受託30名)見積依頼 — ロードマップ提示がクロージング鍵</div>
+    <div class="body">VP Sales 山田の報告より、C社はロードマップ開示次第でクロージングスピードが変わる。決済機能のリリース時期を営業に共有するタイミングを要判断。</div>
+  </div>
+
+  <h2>部門別トピック</h2>
+  <div class="dept-grid">
+    <div class="dept">
+      <span class="tag">SALES</span>
+      <h3>決済機能がクロージングの決定打に</h3>
+      <ul>
+        <li>週次実績: 新規受注3件420万円 / 失注1件 / 見込み31→34件に純増</li>
+        <li>顧客B社(製造50名)「決済機能が標準装備されたら即決」— クロージング保留中</li>
+        <li>顧客C社(IT受託30名)見積依頼 — ロードマップ次第でスピード変動</li>
+        <li>インサイド架電20件中、3件が決済機能確認 = 温度感高いリスト投入</li>
+        <li>保留中8案件、Q1コミット確定を受けて明日からアプローチ再開</li>
+      </ul>
+    </div>
+    <div class="dept">
+      <span class="tag">CUSTOMER SUCCESS</span>
+      <h3>Q1要望5件・決済機能ニーズが累計20件超</h3>
+      <ul>
+        <li>今週のインシデント: 軽微な表示崩れ2件のみ（対応済）</li>
+        <li>Q1要望 既存顧客から5件連続: A社(小売25)/F社(士業15)/G社(建設40)/H社(教育10)/I社(コンサル20)</li>
+        <li>共通テーマ: 決済〜入金確認までの自動化、他ツールからの乗り換えトリガー</li>
+        <li>既存顧客向け先行リリース案を来週経営側で相談予定</li>
+      </ul>
+    </div>
+    <div class="dept">
+      <span class="tag">PRODUCT DEV</span>
+      <h3>Stripe採用確定・最小6週間で実装スプリント着手</h3>
+      <ul>
+        <li>4候補比較(Stripe/Square/PayPay for Biz/GMO PG) → Stripe優位で確定</li>
+        <li>最小スコープ 6週間 / フルスコープ 10週間の見込み</li>
+        <li>ユーザーストーリー10本を鈴木PMが起票済み</li>
+        <li>論点: Webhook耐障害性の設計(担当 グエン)</li>
+        <li>進捗共有は毎週金曜 #startup-product-dev で継続</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated by Claude via Slack MCP — 2026-04-10 18:00 JST<br>
+    Source channels: #startup-sales, #startup-cs-support, #startup-product-dev
+  </div>
+
+</div>
+</body>
+</html>
