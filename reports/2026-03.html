@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ドレミファエア 2026年3月度 経営レポート</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root {
+    --color-text: #1a1a1a;
+    --color-sub: #555;
+    --color-mute: #888;
+    --color-border: #e5e5e5;
+    --color-accent: #1e3a5f;
+    --color-positive: #2d7a4a;
+    --color-negative: #c15f3c;
+    --color-bg: #ffffff;
+    --color-bg-soft: #f7f8fa;
+    --font-base: "游ゴシック", "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-base);
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+  header.report-header {
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 24px;
+    margin-bottom: 64px;
+  }
+  .company {
+    font-size: 14px;
+    color: var(--color-sub);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 34px;
+    margin: 0 0 12px;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .generated {
+    font-size: 13px;
+    color: var(--color-mute);
+  }
+  section {
+    margin-bottom: 72px;
+  }
+  h2 {
+    font-size: 22px;
+    color: var(--color-accent);
+    border-left: 4px solid var(--color-accent);
+    padding-left: 14px;
+    margin: 0 0 24px;
+    font-weight: 700;
+  }
+  .summary {
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 28px 32px;
+  }
+  .summary-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .summary-row + .summary-row {
+    border-top: 1px dashed var(--color-border);
+  }
+  .summary-label {
+    flex-shrink: 0;
+    width: 88px;
+    font-size: 12px;
+    color: var(--color-accent);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: #fff;
+    border: 1px solid var(--color-accent);
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .kpi-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .kpi-title {
+    font-size: 13px;
+    color: var(--color-sub);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .kpi-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .kpi-unit {
+    font-size: 18px;
+    color: var(--color-sub);
+    margin-left: 4px;
+    font-weight: 500;
+  }
+  .kpi-delta {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--color-sub);
+    line-height: 1.6;
+  }
+  .kpi-delta div + div {
+    margin-top: 3px;
+  }
+  .delta-up { color: var(--color-positive); font-weight: 700; }
+  .delta-down { color: var(--color-negative); font-weight: 700; }
+  .chart-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+  }
+  .chart-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .chart-card h3 {
+    font-size: 14px;
+    margin: 0 0 16px;
+    color: var(--color-sub);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .chart-wrapper {
+    position: relative;
+    height: 240px;
+  }
+  .discussion p {
+    margin: 0 0 16px;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .discussion p:last-child { margin-bottom: 0; }
+  .risk-opp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .panel {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    background: #fff;
+  }
+  .panel.risk { border-top: 4px solid var(--color-negative); }
+  .panel.opp { border-top: 4px solid var(--color-positive); }
+  .panel h3 {
+    margin: 0 0 16px;
+    font-size: 16px;
+  }
+  .panel.risk h3 { color: var(--color-negative); }
+  .panel.opp h3 { color: var(--color-positive); }
+  .panel ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .panel li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--color-text);
+  }
+  .panel li:last-child { margin-bottom: 0; }
+  .panel li strong {
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 14px;
+  }
+  .watchlist {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .watchlist-item {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 4px;
+    padding: 18px 24px;
+    background: #fff;
+  }
+  .watchlist-item .title {
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+  .watchlist-item .reason {
+    color: var(--color-sub);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    font-size: 12px;
+    color: var(--color-mute);
+    text-align: center;
+    line-height: 1.8;
+  }
+  @media (max-width: 720px) {
+    .kpi-grid, .chart-row, .risk-opp { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+    .kpi-value { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="report-header">
+  <div class="company">ドレミファエア株式会社</div>
+  <h1>2026年3月度 経営レポート</h1>
+  <div class="generated">生成日：2026年4月19日</div>
+</header>
+
+<section>
+  <h2>エグゼクティブサマリー</h2>
+  <div class="summary">
+    <div class="summary-row">
+      <span class="summary-label">当月の山場</span>
+      <span>春休み・卒業旅行需要が想定を上回り、座席利用率78.1%・営業利益4.8億円まで急回復。特にミ（羽田-那覇）・シ（羽田-松山）で満席便続出。</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">注目事項</span>
+      <span>GW予約が前年比+8.2%で好調。客単価も前年水準を維持しており、4月以降の収益モメンタム継続が見込まれる。</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-label">翌月の焦点</span>
+      <span>競合A社のLCC参入（7月・ド路線）への対応方針の決定と、6月就航予定のシ（羽田-松山）のプロモーション開始。</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>当月KPIハイライト</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-title">売上</div>
+      <div><span class="kpi-value">51.3</span><span class="kpi-unit">億円</span></div>
+      <div class="kpi-delta">
+        <div>前月比 <span class="delta-up">↑ +8.8億円（+20.7%）</span></div>
+        <div>前年同月比 —</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">営業利益</div>
+      <div><span class="kpi-value">4.8</span><span class="kpi-unit">億円</span></div>
+      <div class="kpi-delta">
+        <div>前月比 <span class="delta-up">↑ +3.6億円（+300%）</span></div>
+        <div>前年同月比 —</div>
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">座席利用率</div>
+      <div><span class="kpi-value">78.1</span><span class="kpi-unit">%</span></div>
+      <div class="kpi-delta">
+        <div>前月比 <span class="delta-up">↑ +9.8pt</span></div>
+        <div>前年同月比 <span class="delta-up">↑ +3.0pt</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>推移グラフ</h2>
+  <div class="chart-row">
+    <div class="chart-card">
+      <h3>売上・営業利益（億円）</h3>
+      <div class="chart-wrapper"><canvas id="trendChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>座席利用率（%）</h3>
+      <div class="chart-wrapper"><canvas id="loadChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<section class="discussion">
+  <h2>経営会議の主要論点</h2>
+  <p>3月は春休み・卒業旅行需要が事前想定を上回り、座席利用率78.1%（前年同月比+3.0pt）に着地しました。特にミ（羽田-那覇）とシ（羽田-松山）で満席便が続出し、2月の営業利益1.2億円から4.8億円へと急回復する流れを作っています。閑散期で落ち込んだ収益が、想定より強い需要で一気に取り戻されました。</p>
+  <p>一方、燃油費は13.2億円で高止まりです。2月の13.5億円からは微減したものの、通期の利益圧迫要因として継続注視する方針を確認しました。秋の機材更新で燃油コスト10%削減が見込めるため、それまでの下押しをどう抑えるかが論点です。</p>
+  <p>新路線のシ（羽田-松山）は6月就航予定で、4月下旬から就航前プロモーションを開始します。また、競合A社がLCCブランドでド（羽田-札幌）への参入を発表（7月就航予定）したため、価格競争への対応方針を次回議題としました。GW予約は前年比+8.2%で客単価も前年維持と、足元の基盤は安定しています。</p>
+</section>
+
+<section>
+  <h2>リスクと機会</h2>
+  <div class="risk-opp">
+    <div class="panel risk">
+      <h3>リスク</h3>
+      <ul>
+        <li>
+          <strong>燃油費の高止まり</strong>
+          通期営業利益に対して最大5億円の下押し要因。秋の機材更新までの期間は継続注視。
+        </li>
+        <li>
+          <strong>競合A社LCCのド路線参入</strong>
+          7月就航予定・片道15,000円前後の低価格設定で、ド（羽田-札幌）の客単価が10〜15%下落する可能性。
+        </li>
+        <li>
+          <strong>GW・お盆の天候リスク</strong>
+          欠航時の払い戻し損失が想定される。GW予約好調の裏返しとして影響額も拡大しうる。
+        </li>
+      </ul>
+    </div>
+    <div class="panel opp">
+      <h3>機会</h3>
+      <ul>
+        <li>
+          <strong>シ（羽田-松山）6月就航</strong>
+          四国観光需要の取り込みが狙い。3月時点でも同路線は満席便続出で、需要の下地は確認済み。
+        </li>
+        <li>
+          <strong>機材更新による燃油コスト削減</strong>
+          2026年秋から省燃費機への入れ替え開始。燃油コスト10%削減で利益圧迫要因が緩和される見込み。
+        </li>
+        <li>
+          <strong>GW早期予約の好調</strong>
+          前年比+8.2%、客単価も前年維持。4月以降の収益モメンタム継続が期待される。
+        </li>
+        <li>
+          <strong>ドレミマイルのリニューアル</strong>
+          7月実施予定。既存顧客のLTV向上とブランド差別化の強化。
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>来月の注目ポイント</h2>
+  <div class="watchlist">
+    <div class="watchlist-item">
+      <div class="title">シ（羽田-松山）就航前プロモーションの開始</div>
+      <div class="reason">4月下旬開始。6月就航に向けた認知形成と先行予約の獲得が、初期搭乗率を左右する。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="title">競合A社LCC参入への対応方針決定</div>
+      <div class="reason">7月就航までに価格・サービス両面の方針を固める必要がある。次回経営会議の主要議題。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="title">GW運航体制の最終確認</div>
+      <div class="reason">予約が前年比+8.2%で推移。機材繰り・乗務員配置・天候対応プロトコルの事前点検が重要。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="title">燃油費の通期見通し再点検</div>
+      <div class="reason">3月も13.2億円と高止まり。機材更新開始までの期間、通期利益への影響幅を改めて精査する。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  本レポートは経営判断の補助資料です。<br>
+  数値は社内財務データおよび3月度経営会議メモに基づきます。
+</footer>
+
+</div>
+
+<script>
+  const months = ['2026年1月', '2026年2月', '2026年3月'];
+  const sales = [48.2, 42.5, 51.3];
+  const profits = [3.1, 1.2, 4.8];
+  const loads = [72.5, 68.3, 78.1];
+
+  const accent = '#1e3a5f';
+  const positive = '#2d7a4a';
+  const gridColor = '#ececec';
+  const labelColor = '#555';
+
+  Chart.defaults.font.family = '"游ゴシック", "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif';
+  Chart.defaults.color = labelColor;
+
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: '売上',
+          data: sales,
+          borderColor: accent,
+          backgroundColor: 'rgba(30,58,95,0.08)',
+          tension: 0.3,
+          borderWidth: 2.5,
+          pointRadius: 4,
+          pointBackgroundColor: accent,
+          fill: true
+        },
+        {
+          label: '営業利益',
+          data: profits,
+          borderColor: positive,
+          backgroundColor: 'rgba(45,122,74,0.08)',
+          tension: 0.3,
+          borderWidth: 2.5,
+          pointRadius: 4,
+          pointBackgroundColor: positive,
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 12, padding: 16 } }
+      },
+      scales: {
+        y: { beginAtZero: true, grid: { color: gridColor } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('loadChart'), {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [{
+        label: '座席利用率',
+        data: loads,
+        backgroundColor: accent,
+        borderRadius: 4,
+        barThickness: 36
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: false,
+          min: 60,
+          max: 85,
+          grid: { color: gridColor },
+          ticks: { callback: v => v + '%' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+</script>
+</body>
+</html>

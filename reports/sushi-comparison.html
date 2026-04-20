@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回転寿司 三国志 ─ 大手3社決算比較レポート 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800;9..144,900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0f0f10;
+    --ink-70:     #2a2a2c;
+    --ink-40:     #6f6f74;
+    --ink-20:     #b8b8bc;
+    --ink-10:     #d9d9dc;
+    --ink-05:     #ebebee;
+    --paper:      #fafaf7;
+    --paper-2:    #f3f2ec;
+    --rule:       #1a1a1b;
+
+    --sushiro:    #e85d2b;
+    --sushiro-2:  #f3a27d;
+    --sushiro-bg: #fbe9de;
+
+    --kura:       #b4384a;
+    --kura-2:     #d98b97;
+    --kura-bg:    #f5dde1;
+
+    --kappa:      #3f6b4a;
+    --kappa-2:    #8aa892;
+    --kappa-bg:   #dee7e0;
+
+    --display: 'Fraunces', 'Shippori Mincho', serif;
+    --mincho:  'Shippori Mincho', 'Noto Serif JP', serif;
+    --sans:    'Noto Sans JP', 'Helvetica Neue', sans-serif;
+    --mono:    'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(15,15,16,.035) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  .page {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 56px 72px 96px;
+    background: var(--paper);
+    position: relative;
+  }
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 72px; right: 72px;
+    border-left: 1px solid var(--ink-10);
+    border-right: 1px solid var(--ink-10);
+    pointer-events: none;
+  }
+
+  /* ─────────── MASTHEAD ─────────── */
+  .masthead {
+    border-top: 3px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0 18px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-70);
+  }
+  .masthead .l { text-align: left; }
+  .masthead .c { font-family: var(--mincho); font-size: 13px; letter-spacing: .4em; color: var(--ink); text-transform: none; }
+  .masthead .r { text-align: right; }
+  .masthead .dot { display: inline-block; width: 6px; height: 6px; background: var(--sushiro); border-radius: 50%; margin-right: 8px; vertical-align: 1px; animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+
+  /* ─────────── HERO ─────────── */
+  .hero {
+    padding: 78px 0 48px;
+    border-bottom: 1px solid var(--ink-10);
+    position: relative;
+  }
+  .hero .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .3em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero .kicker::before {
+    content: "";
+    width: 48px; height: 1px;
+    background: var(--ink-70);
+  }
+  .hero h1 {
+    font-family: var(--mincho);
+    font-weight: 800;
+    font-size: clamp(64px, 9vw, 132px);
+    line-height: .92;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .hero h1 .accent {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sushiro);
+    font-size: .85em;
+  }
+  .hero .deck {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.45;
+    max-width: 720px;
+    color: var(--ink-70);
+    margin-top: 32px;
+    font-style: italic;
+  }
+  .hero .meta {
+    display: flex;
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--ink-20);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+  }
+  .hero .meta div strong { display: block; color: var(--ink); font-size: 14px; letter-spacing: .06em; margin-top: 4px; font-family: var(--mincho); font-weight: 600; text-transform: none; }
+
+  /* ─────────── SECTION ─────────── */
+  section.s {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--ink-10);
+  }
+  .s-head {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    align-items: baseline;
+  }
+  .s-head .num {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink-20);
+    font-feature-settings: "lnum";
+  }
+  .s-head .t h2 {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    letter-spacing: -.005em;
+  }
+  .s-head .t .sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+  }
+
+  /* ─────────── EXECUTIVE SUMMARY ─────────── */
+  .exec {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
+  }
+  .exec .cell {
+    padding: 36px 28px 32px;
+    border-right: 1px solid var(--ink-10);
+    position: relative;
+  }
+  .exec .cell:last-child { border-right: none; }
+  .exec .cell .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+    margin-bottom: 14px;
+  }
+  .exec .cell h3 {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .exec .cell p {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--ink-70);
+  }
+  .exec .cell .num {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 1;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+    font-feature-settings: "lnum";
+  }
+  .exec .cell.c1 .num { color: var(--sushiro); }
+  .exec .cell.c2 .num { color: var(--kura); }
+  .exec .cell.c3 .num { color: var(--kappa); }
+
+  /* ─────────── COMPANY CARDS ─────────── */
+  .companies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .co {
+    padding: 32px 28px 28px;
+    border: 1px solid var(--ink-10);
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+  }
+  .co:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -24px rgba(15,15,16,.14); }
+  .co::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+  }
+  .co.sushiro::before { background: var(--sushiro); }
+  .co.kura::before    { background: var(--kura); }
+  .co.kappa::before   { background: var(--kappa); }
+
+  .co .rank {
+    font-family: var(--display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-40);
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .co .rank .badge {
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: .18em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    color: #fff;
+  }
+  .co.sushiro .badge { background: var(--sushiro); }
+  .co.kura .badge    { background: var(--kura); }
+  .co.kappa .badge   { background: var(--kappa); }
+
+  .co .brand {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .co .parent {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-40);
+    letter-spacing: .08em;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--ink-20);
+  }
+  .co dl {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px 12px;
+    font-size: 12.5px;
+  }
+  .co dt { color: var(--ink-40); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; align-self: center; }
+  .co dd { font-family: var(--mincho); font-weight: 600; text-align: right; font-size: 14px; }
+  .co dd .u { font-family: var(--mono); font-size: 10px; color: var(--ink-40); margin-left: 4px; }
+
+  /* ─────────── BARS: SALES & PROFIT ─────────── */
+  .twin {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .bar-card .bar-title {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .bar-card .bar-unit {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink-10);
+  }
+  .bars { display: flex; flex-direction: column; gap: 22px; }
+  .bar {
+    display: grid;
+    grid-template-columns: 100px 1fr 120px;
+    gap: 16px;
+    align-items: center;
+  }
+  .bar .lab { font-family: var(--mincho); font-weight: 600; font-size: 15px; }
+  .bar .track { height: 36px; background: var(--ink-05); position: relative; overflow: hidden; }
+  .bar .fill {
+    height: 100%;
+    background: var(--sushiro);
+    position: relative;
+    transform-origin: left;
+    animation: grow 1.2s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .bar.kura .fill  { background: var(--kura); }
+  .bar.kappa .fill { background: var(--kappa); }
+  .bar .fill::after {
+    content: "";
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: rgba(0,0,0,.2);
+  }
+  .bar .val {
+    text-align: right;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1;
+    font-feature-settings: "lnum";
+  }
+  .bar .val .d {
+    display: block;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-40);
+    margin-top: 4px;
+  }
+  .bar .val .d.up   { color: #1e7a4a; }
+  .bar .val .d.down { color: #b4384a; }
+
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* ─────────── PROFIT MARGIN (LARGE) ─────────── */
+  .margin-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
+  }
+  .margin-wrap .m {
+    padding: 40px 24px 36px;
+    border-right: 1px solid var(--ink-10);
+    text-align: center;
+    position: relative;
+  }
+  .margin-wrap .m:last-child { border-right: none; }
+  .margin-wrap .m .name {
+    font-family: var(--mincho);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    letter-spacing: .04em;
+  }
+  .margin-wrap .m .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .margin-wrap .m .pct {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 112px;
+    line-height: 1;
+    letter-spacing: -.03em;
+    font-feature-settings: "lnum";
+  }
+  .margin-wrap .m .pct sup { font-size: 48px; font-weight: 400; margin-left: 6px; vertical-align: 38px; }
+  .margin-wrap .m.c1 .pct { color: var(--sushiro); }
+  .margin-wrap .m.c2 .pct { color: var(--kura); }
+  .margin-wrap .m.c3 .pct { color: var(--kappa); }
+  .margin-wrap .m .rank-mark {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-40);
+    margin-top: 14px;
+  }
+  .margin-wrap .m.c1 .rank-mark::before { content: "★ "; color: var(--sushiro); font-style: normal; }
+
+  /* ─────────── STORES (DOT VIZ) ─────────── */
+  .stores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .store-card {
+    padding: 28px 24px 32px;
+    background: #fff;
+    border: 1px solid var(--ink-10);
+  }
+  .store-card .name {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .store-card .count {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1;
+    margin: 20px 0 4px;
+    font-feature-settings: "lnum";
+    letter-spacing: -.02em;
+  }
+  .store-card .unit {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+  }
+  .dots {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(40, 1fr);
+    gap: 3px;
+    padding-top: 20px;
+    border-top: 1px solid var(--ink-10);
+  }
+  .dots span {
+    aspect-ratio: 1;
+    background: var(--ink-10);
+    border-radius: 50%;
+    transition: transform .2s;
+  }
+  .store-card.sushiro .dots span.on { background: var(--sushiro); }
+  .store-card.kura    .dots span.on { background: var(--kura); }
+  .store-card.kappa   .dots span.on { background: var(--kappa); }
+  .store-card .per {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--ink-20);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .store-card .per .k { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-40); }
+  .store-card .per .v { font-family: var(--display); font-weight: 700; font-size: 22px; font-feature-settings: "lnum"; }
+
+  /* ─────────── CUSTOMER METRICS ─────────── */
+  .cust-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  .cust-card {
+    padding: 36px 36px;
+    background: #fff;
+    border: 1px solid var(--ink-10);
+  }
+  .cust-card h3 {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .cust-card .cap {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .cust-list { display: flex; flex-direction: column; gap: 22px; }
+  .cust-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 140px;
+    gap: 18px;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--ink-20);
+  }
+  .cust-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .cust-row .lab { font-family: var(--mincho); font-weight: 600; font-size: 15px; }
+  .cust-row .viz { position: relative; height: 32px; }
+  .cust-row .viz .center { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--ink-20); }
+  .cust-row .viz .arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    height: 14px;
+    transform-origin: 0 50%;
+    display: flex; align-items: center;
+  }
+  .cust-row .viz .arrow .line {
+    height: 2px; background: currentColor;
+  }
+  .cust-row .viz .arrow .head {
+    width: 0; height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid currentColor;
+  }
+  .cust-row .viz .arrow.left {
+    transform-origin: 100% 50%;
+    flex-direction: row-reverse;
+  }
+  .cust-row .viz .arrow.left .head {
+    border-left: none;
+    border-right: 10px solid currentColor;
+  }
+  .cust-row.sushiro .arrow { color: var(--sushiro); }
+  .cust-row.kura    .arrow { color: var(--kura); }
+  .cust-row.kappa   .arrow { color: var(--kappa); }
+  .cust-row .val {
+    text-align: right;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 22px;
+    font-feature-settings: "lnum";
+  }
+  .cust-row .val.up   { color: #1e7a4a; }
+  .cust-row .val.down { color: #b4384a; }
+  .cust-row .val .t { display: block; font-family: var(--mono); font-weight: 400; font-size: 10px; color: var(--ink-40); letter-spacing: .1em; margin-top: 2px; }
+
+  /* ─────────── INSIGHTS ─────────── */
+  .insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 8px;
+  }
+  .insights .ins {
+    padding: 36px 32px;
+    border-right: 1px solid var(--ink-10);
+    border-top: 2px solid var(--rule);
+    position: relative;
+  }
+  .insights .ins:last-child { border-right: none; }
+  .insights .ins .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .24em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .insights .ins .tag::before {
+    content: "";
+    width: 24px; height: 2px;
+    background: currentColor;
+  }
+  .insights .ins.c1 .tag { color: var(--sushiro); }
+  .insights .ins.c2 .tag { color: var(--kura); }
+  .insights .ins.c3 .tag { color: var(--kappa); }
+  .insights .ins h3 {
+    font-family: var(--mincho);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    letter-spacing: -.005em;
+  }
+  .insights .ins p {
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--ink-70);
+  }
+  .insights .ins .dropcap::first-letter {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 52px;
+    float: left;
+    line-height: .88;
+    padding: 6px 8px 0 0;
+    color: var(--ink);
+  }
+
+  /* ─────────── FOOTER ─────────── */
+  footer.colophon {
+    padding: 56px 0 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    color: var(--ink-40);
+    line-height: 1.8;
+  }
+  footer.colophon .col h4 {
+    font-family: var(--mincho);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--ink-20);
+  }
+  footer.colophon ul { list-style: none; }
+  footer.colophon li { padding: 3px 0; }
+  footer.colophon a { color: var(--ink-70); text-decoration: none; }
+  footer.colophon a:hover { color: var(--sushiro); }
+
+  .end {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 3px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .22em;
+    color: var(--ink-40);
+    text-transform: uppercase;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .page { padding: 32px 24px; }
+    .page::before { display: none; }
+    .exec, .companies, .stores, .insights, .margin-wrap { grid-template-columns: 1fr; }
+    .twin, .cust-wrap { grid-template-columns: 1fr; gap: 32px; }
+    .exec .cell, .insights .ins, .margin-wrap .m { border-right: none; border-bottom: 1px solid var(--ink-10); }
+    .hero h1 { font-size: 56px; }
+    .margin-wrap .m .pct { font-size: 88px; }
+    .s-head { grid-template-columns: 1fr; gap: 8px; }
+    .s-head .num { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="l">Vol. 01 ／ Issue 2026.04</div>
+    <div class="c">業界ベンチマーク レポート</div>
+    <div class="r"><span class="dot"></span>EXECUTIVE BRIEF</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="kicker">Japan Conveyor-Belt Sushi — FY2025 Benchmark</div>
+    <h1>回転寿司<br><span class="accent">三国志。</span></h1>
+    <p class="deck">
+      スシロー・くら寿司・かっぱ寿司 ─ 国内回転寿司ビッグ3の最新通期決算から、
+      売上・営業利益・店舗網・客単価の4軸で「王者の条件」を読み解く。
+    </p>
+    <div class="meta">
+      <div>Report Date<strong>2026.04.20</strong></div>
+      <div>Subject Period<strong>FY2025 通期実績</strong></div>
+      <div>Companies<strong>3社／連結ベース</strong></div>
+      <div>Audience<strong>Executives & Board</strong></div>
+    </div>
+  </div>
+
+  <!-- ─────────── SECTION 01 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">01</div>
+      <div class="t">
+        <h2>エグゼクティブサマリー</h2>
+        <div class="sub">At a Glance ／ 3 takeaways</div>
+      </div>
+    </div>
+    <div class="exec">
+      <div class="cell c1">
+        <div class="tag">Winner</div>
+        <div class="num">+54%</div>
+        <h3>スシロー、営業利益5割増で独走。</h3>
+        <p>Food &amp; Life Companiesは売上4,295億円、営業利益360億円で過去最高益。海外スシロー事業が売上＋43％・利益2.3倍と全体をけん引。</p>
+      </div>
+      <div class="cell c2">
+        <div class="tag">Stalling</div>
+        <div class="num">▲4%</div>
+        <h3>くら寿司、売上最高も減益転落。</h3>
+        <p>売上2,451億円は過去最高を更新したが、原材料と人件費の上昇を吸収しきれず営業利益は54億円で減益。国内の経常利益は23％減と国内収益性が焦点。</p>
+      </div>
+      <div class="cell c3">
+        <div class="tag">Struggling</div>
+        <div class="num">▲15%</div>
+        <h3>かっぱ寿司、コスト圧力で減益。</h3>
+        <p>売上732億円（＋1.4％）、営業利益14億円は前期比▲15.3％。客単価は3社最大の＋7.5％だが客数▲10％で相殺。店舗数295で3位。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SECTION 02 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">02</div>
+      <div class="t">
+        <h2>3社プロフィール</h2>
+        <div class="sub">Company Cards ／ Core figures, FY2025</div>
+      </div>
+    </div>
+    <div class="companies">
+
+      <!-- SUSHIRO -->
+      <div class="co sushiro">
+        <div class="rank"><span>No. 1 / Market Leader</span><span class="badge">SUSHIRO</span></div>
+        <div class="brand">スシロー</div>
+        <div class="parent">FOOD &amp; LIFE COMPANIES ／ 3563 ／ 決算期 2025/9</div>
+        <dl>
+          <dt>売上収益</dt><dd>4,295.7<span class="u">億円</span></dd>
+          <dt>YoY</dt><dd>+19.0<span class="u">%</span></dd>
+          <dt>営業利益</dt><dd>360.9<span class="u">億円</span></dd>
+          <dt>営業利益率</dt><dd>8.4<span class="u">%</span></dd>
+          <dt>純利益</dt><dd>229.0<span class="u">億円</span></dd>
+          <dt>店舗数</dt><dd>1,198<span class="u">店</span></dd>
+          <dt>客単価 YoY</dt><dd>+6.2<span class="u">%</span></dd>
+          <dt>客数 YoY</dt><dd>+5.5<span class="u">%</span></dd>
+        </dl>
+      </div>
+
+      <!-- KURA -->
+      <div class="co kura">
+        <div class="rank"><span>No. 2 / Challenger</span><span class="badge">KURA SUSHI</span></div>
+        <div class="brand">くら寿司</div>
+        <div class="parent">くら寿司株式会社 ／ 2695 ／ 決算期 2025/10</div>
+        <dl>
+          <dt>売上高</dt><dd>2,451.1<span class="u">億円</span></dd>
+          <dt>YoY</dt><dd>+4.3<span class="u">%</span></dd>
+          <dt>営業利益</dt><dd>54.6<span class="u">億円</span></dd>
+          <dt>営業利益率</dt><dd>2.2<span class="u">%</span></dd>
+          <dt>純利益</dt><dd>36.1<span class="u">億円</span></dd>
+          <dt>店舗数</dt><dd>687<span class="u">店</span></dd>
+          <dt>客単価 YoY</dt><dd>+3.1<span class="u">%</span></dd>
+          <dt>客数 YoY</dt><dd>▲4.7<span class="u">%</span></dd>
+        </dl>
+      </div>
+
+      <!-- KAPPA -->
+      <div class="co kappa">
+        <div class="rank"><span>No. 3 / Follower</span><span class="badge">KAPPA</span></div>
+        <div class="brand">かっぱ寿司</div>
+        <div class="parent">カッパ・クリエイト ／ 7421 ／ 決算期 2025/3</div>
+        <dl>
+          <dt>売上高</dt><dd>732.1<span class="u">億円</span></dd>
+          <dt>YoY</dt><dd>+1.4<span class="u">%</span></dd>
+          <dt>営業利益</dt><dd>14.3<span class="u">億円</span></dd>
+          <dt>営業利益率</dt><dd>2.0<span class="u">%</span></dd>
+          <dt>純利益</dt><dd>10.3<span class="u">億円</span></dd>
+          <dt>店舗数</dt><dd>295<span class="u">店</span></dd>
+          <dt>客単価 YoY</dt><dd>+7.5<span class="u">%</span></dd>
+          <dt>客数 YoY</dt><dd>▲10.2<span class="u">%</span></dd>
+        </dl>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────── SECTION 03 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">03</div>
+      <div class="t">
+        <h2>売上・営業利益 比較</h2>
+        <div class="sub">Revenue &amp; Operating Profit — Visualised</div>
+      </div>
+    </div>
+
+    <div class="twin">
+      <!-- SALES BAR -->
+      <div class="bar-card">
+        <div class="bar-title">売上高</div>
+        <div class="bar-unit">Revenue ／ 単位: 億円</div>
+        <div class="bars">
+          <div class="bar sushiro">
+            <span class="lab">スシロー</span>
+            <span class="track"><span class="fill" style="width: 100%;"></span></span>
+            <span class="val">4,295.7<span class="d up">▲ +19.0% YoY</span></span>
+          </div>
+          <div class="bar kura">
+            <span class="lab">くら寿司</span>
+            <span class="track"><span class="fill" style="width: 57%;"></span></span>
+            <span class="val">2,451.1<span class="d up">▲ +4.3% YoY</span></span>
+          </div>
+          <div class="bar kappa">
+            <span class="lab">かっぱ寿司</span>
+            <span class="track"><span class="fill" style="width: 17%;"></span></span>
+            <span class="val">732.1<span class="d up">▲ +1.4% YoY</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFIT BAR -->
+      <div class="bar-card">
+        <div class="bar-title">営業利益</div>
+        <div class="bar-unit">Operating Profit ／ 単位: 億円</div>
+        <div class="bars">
+          <div class="bar sushiro">
+            <span class="lab">スシロー</span>
+            <span class="track"><span class="fill" style="width: 100%;"></span></span>
+            <span class="val">360.9<span class="d up">▲ +54.4% YoY</span></span>
+          </div>
+          <div class="bar kura">
+            <span class="lab">くら寿司</span>
+            <span class="track"><span class="fill" style="width: 15.1%;"></span></span>
+            <span class="val">54.6<span class="d down">▼ −4.2% YoY</span></span>
+          </div>
+          <div class="bar kappa">
+            <span class="lab">かっぱ寿司</span>
+            <span class="track"><span class="fill" style="width: 3.9%;"></span></span>
+            <span class="val">14.3<span class="d down">▼ −15.3% YoY</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SECTION 04 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">04</div>
+      <div class="t">
+        <h2>収益性 ─ 営業利益率</h2>
+        <div class="sub">Operating Margin ／ 稼ぐ力の差</div>
+      </div>
+    </div>
+    <div class="margin-wrap">
+      <div class="m c1">
+        <div class="name">スシロー</div>
+        <div class="tag">Food &amp; Life Companies</div>
+        <div class="pct">8.4<sup>%</sup></div>
+        <div class="rank-mark">No. 1 ／ Best-in-class</div>
+      </div>
+      <div class="m c2">
+        <div class="name">くら寿司</div>
+        <div class="tag">Kura Sushi Inc.</div>
+        <div class="pct">2.2<sup>%</sup></div>
+        <div class="rank-mark">No. 2</div>
+      </div>
+      <div class="m c3">
+        <div class="name">かっぱ寿司</div>
+        <div class="tag">Kappa Create</div>
+        <div class="pct">2.0<sup>%</sup></div>
+        <div class="rank-mark">No. 3</div>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-family: var(--display); font-style:italic; font-size:14px; color: var(--ink-40); max-width:680px;">
+      スシローの営業利益率はくら寿司の約<strong style="color:var(--sushiro);font-weight:800;">3.8倍</strong>、かっぱ寿司の<strong style="color:var(--sushiro);font-weight:800;">4.2倍</strong>。売上規模の差以上に「稼ぐ力」の差が鮮明。
+    </p>
+  </section>
+
+  <!-- ─────────── SECTION 05 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">05</div>
+      <div class="t">
+        <h2>店舗ネットワーク</h2>
+        <div class="sub">Store Footprint ／ 1店舗あたり売上</div>
+      </div>
+    </div>
+    <div class="stores">
+
+      <div class="store-card sushiro">
+        <div class="name">スシロー</div>
+        <div class="count">1,198</div>
+        <div class="unit">店舗 ／ Stores (Global)</div>
+        <div class="dots" id="dots-sushiro"></div>
+        <div class="per">
+          <span class="k">1店舗あたり売上</span>
+          <span class="v">3.59<span style="font-size:11px;font-family:var(--mono);color:var(--ink-40);margin-left:4px;">億円</span></span>
+        </div>
+      </div>
+
+      <div class="store-card kura">
+        <div class="name">くら寿司</div>
+        <div class="count">687</div>
+        <div class="unit">店舗 ／ Stores (Global, Direct)</div>
+        <div class="dots" id="dots-kura"></div>
+        <div class="per">
+          <span class="k">1店舗あたり売上</span>
+          <span class="v">3.57<span style="font-size:11px;font-family:var(--mono);color:var(--ink-40);margin-left:4px;">億円</span></span>
+        </div>
+      </div>
+
+      <div class="store-card kappa">
+        <div class="name">かっぱ寿司</div>
+        <div class="count">295</div>
+        <div class="unit">店舗 ／ Stores (Domestic)</div>
+        <div class="dots" id="dots-kappa"></div>
+        <div class="per">
+          <span class="k">1店舗あたり売上</span>
+          <span class="v">2.48<span style="font-size:11px;font-family:var(--mono);color:var(--ink-40);margin-left:4px;">億円</span></span>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:28px; font-family: var(--display); font-style:italic; font-size:14px; color: var(--ink-40); max-width: 820px;">
+      注）スシローとくら寿司の1店舗あたり売上はほぼ拮抗。規模の差は店舗数の差に由来する一方、かっぱ寿司は<strong style="color:var(--kappa);font-weight:800;">1店舗あたりで約3割小さい</strong>──立地選定とオペレーションの効率化が課題。
+    </p>
+  </section>
+
+  <!-- ─────────── SECTION 06 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">06</div>
+      <div class="t">
+        <h2>客単価と客数の動き</h2>
+        <div class="sub">Per-Customer Spend &amp; Traffic — 1H FY2025</div>
+      </div>
+    </div>
+    <div class="cust-wrap">
+
+      <div class="cust-card">
+        <h3>客単価（前年同期比）</h3>
+        <div class="cap">Average Spend per Customer</div>
+        <div class="cust-list">
+          <div class="cust-row sushiro">
+            <span class="lab">スシロー</span>
+            <span class="viz">
+              <span class="center"></span>
+              <span class="arrow" style="left:50%; width:62%;">
+                <span class="line" style="flex:1;"></span>
+                <span class="head"></span>
+              </span>
+            </span>
+            <span class="val up">+6.2%<span class="t">YoY</span></span>
+          </div>
+          <div class="cust-row kura">
+            <span class="lab">くら寿司</span>
+            <span class="viz">
+              <span class="center"></span>
+              <span class="arrow" style="left:50%; width:31%;">
+                <span class="line" style="flex:1;"></span>
+                <span class="head"></span>
+              </span>
+            </span>
+            <span class="val up">+3.1%<span class="t">YoY</span></span>
+          </div>
+          <div class="cust-row kappa">
+            <span class="lab">かっぱ寿司</span>
+            <span class="viz">
+              <span class="center"></span>
+              <span class="arrow" style="left:50%; width:75%;">
+                <span class="line" style="flex:1;"></span>
+                <span class="head"></span>
+              </span>
+            </span>
+            <span class="val up">+7.5%<span class="t">YoY（最高）</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cust-card">
+        <h3>客数（前年同期比）</h3>
+        <div class="cap">Customer Traffic</div>
+        <div class="cust-list">
+          <div class="cust-row sushiro">
+            <span class="lab">スシロー</span>
+            <span class="viz">
+              <span class="center"></span>
+              <span class="arrow" style="left:50%; width:55%;">
+                <span class="line" style="flex:1;"></span>
+                <span class="head"></span>
+              </span>
+            </span>
+            <span class="val up">+5.5%<span class="t">集客も成長</span></span>
+          </div>
+          <div class="cust-row kura">
+            <span class="lab">くら寿司</span>
+            <span class="viz">
+              <span class="center"></span>
+              <span class="arrow left" style="right:50%; width:47%;">
+                <span class="head"></span>
+                <span class="line" style="flex:1;"></span>
+              </span>
+            </span>
+            <span class="val down">−4.7%<span class="t">集客減</span></span>
+          </div>
+          <div class="cust-row kappa">
+            <span class="lab">かっぱ寿司</span>
+            <span class="viz">
+              <span class="center"></span>
+              <span class="arrow left" style="right:50%; width:100%;">
+                <span class="head"></span>
+                <span class="line" style="flex:1;"></span>
+              </span>
+            </span>
+            <span class="val down">−10.2%<span class="t">値上げ吸収できず</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────── SECTION 07 ─────────── -->
+  <section class="s">
+    <div class="s-head">
+      <div class="num">07</div>
+      <div class="t">
+        <h2>インサイト</h2>
+        <div class="sub">Strategic Implications ／ 3 Key Reads</div>
+      </div>
+    </div>
+    <div class="insights">
+      <div class="ins c1">
+        <div class="tag">Winner's Logic</div>
+        <h3>スシローの勝因は「海外」。</h3>
+        <p class="dropcap">海外スシローが売上＋43％・利益2.3倍と増益の主エンジン。国内単価の引上げと客数増を両立し、連結営業利益率は8.4％と業界水準を大きく超える。今後も中国・アジアの出店が成長ドライバーになる見立て。</p>
+      </div>
+      <div class="ins c2">
+        <div class="tag">Inflection Point</div>
+        <h3>くら寿司、国内収益性が正念場。</h3>
+        <p class="dropcap">売上は過去最高を更新する一方、日本セグメントの経常利益は▲23％。原材料・人件費が吸収しきれていない。2026/10期は営業利益▲8％の減益見通しで、コスト構造と単価政策の再設計が急務。</p>
+      </div>
+      <div class="ins c3">
+        <div class="tag">Structural Risk</div>
+        <h3>かっぱ寿司、値上げと集客の難題。</h3>
+        <p class="dropcap">客単価＋7.5％は3社最高だが客数▲10％で相殺され減益着地。店舗あたり売上2.48億円は上位2社より3割小さく、規模の経済で不利。ブランド刷新と店舗生産性の改善が立て直しの鍵。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── FOOTER ─────────── -->
+  <footer class="colophon">
+    <div class="col">
+      <h4>一次情報</h4>
+      <ul>
+        <li>FOOD &amp; LIFE COMPANIES 2025/9期 決算短信</li>
+        <li>くら寿司 2025/10期 決算短信</li>
+        <li>カッパ・クリエイト 2025/3期 決算短信</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>二次情報</h4>
+      <ul>
+        <li>日本経済新聞 ／ 流通ニュース ／ 週刊SPA!</li>
+        <li>トラキャリ「Food &amp; Life 最高益の理由」</li>
+        <li>NewsPicks「くら寿司が追いつけない背中」</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>注記</h4>
+      <ul>
+        <li>数値は連結ベース、億円単位で四捨五入。</li>
+        <li>客単価・客数は公開IR資料および業界分析記事に基づく概数。</li>
+        <li>1店舗あたり売上＝売上高÷期末店舗数の単純計算。</li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="end">
+    <span>— END OF BRIEF —</span>
+    <span>Prepared by Claude ／ Layout: Editorial Mono No.01</span>
+  </div>
+
+</div>
+
+<script>
+  // Populate dot visualisation. 1 dot = ~5 stores
+  function populateDots(id, stores) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const total = 240; // grid slots (40 x 6)
+    const lit = Math.round(stores / 5);
+    let html = '';
+    for (let i = 0; i < total; i++) {
+      html += `<span class="${i < lit ? 'on' : ''}"></span>`;
+    }
+    el.innerHTML = html;
+  }
+  populateDots('dots-sushiro', 1198);
+  populateDots('dots-kura', 687);
+  populateDots('dots-kappa', 295);
+</script>
+</body>
+</html>

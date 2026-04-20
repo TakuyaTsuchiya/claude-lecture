@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SALOMON XT-6 — Technical Performance Footwear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;900&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+JP:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    --bg: #0b0b0b;
+    --bg-2: #0f0f0f;
+    --surface: #151515;
+    --ink: #ededea;
+    --muted: #6c6c68;
+    --line: #1e1e1e;
+    --line-2: #2a2a2a;
+    --accent: #e6241c;
+    --accent-2: #d6ff3d;
+    --warn: #ffb23f;
+    --ff-display: "Anton", "Archivo", sans-serif;
+    --ff-body: "Archivo", "Noto Sans JP", sans-serif;
+    --ff-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--ink); }
+  body {
+    font-family: var(--ff-body);
+    font-weight: 400;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+  }
+
+  .rails {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .rails span { border-left: 1px dashed rgba(255, 255, 255, 0.025); }
+  .rails span:last-child { border-right: 1px dashed rgba(255, 255, 255, 0.025); }
+
+  .wrap {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .topbar .brand { color: var(--ink); font-weight: 500; letter-spacing: 0.3em; }
+  .topbar nav { display: flex; gap: 32px; }
+  .topbar nav a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .topbar nav a:hover { color: var(--accent-2); }
+  .topbar .right { display: flex; gap: 24px; align-items: center; }
+  .live-dot {
+    width: 7px; height: 7px;
+    background: var(--accent-2);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    animation: pulse 1.4s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  .meta-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meta-strip .k { color: var(--muted); margin-bottom: 4px; }
+  .meta-strip .v { color: var(--ink); font-size: 12px; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 72px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    align-items: end;
+  }
+  .hero-left .eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-left .eyebrow::before {
+    content: "";
+    width: 28px; height: 1px;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .hero-left .jp {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 36px;
+    display: block;
+  }
+  .hero-left p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 320px;
+    margin-bottom: 32px;
+  }
+  .hero-left .spec-tiny {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 6px 16px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .hero-left .spec-tiny .v { color: var(--ink); }
+
+  .hero-center {
+    text-align: center;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .hero-center .stamp {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+  }
+  .hero-type {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 0.82;
+    letter-spacing: -0.02em;
+    font-size: clamp(8rem, 22vw, 22rem);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+  }
+  .hero-type .dash {
+    color: var(--accent);
+    display: inline-block;
+    transform: translateY(-0.12em);
+    margin: 0 -0.04em;
+  }
+  .hero-sub {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-right { text-align: right; }
+  .hero-right .code-block {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+    text-align: left;
+    border-left: 2px solid var(--accent);
+    padding-left: 12px;
+    white-space: pre-line;
+    line-height: 1.7;
+    max-width: 280px;
+    margin-left: auto;
+  }
+  .hero-right .price-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .hero-right .price {
+    font-family: var(--ff-display);
+    font-size: 72px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .hero-right .price sup {
+    font-size: 14px;
+    font-family: var(--ff-mono);
+    color: var(--muted);
+    margin-right: 4px;
+    letter-spacing: 0.1em;
+  }
+  .hero-right .currency {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 28px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    font-weight: 500;
+  }
+  .btn:hover {
+    background: #fff;
+    color: var(--bg);
+    transform: translateY(-2px);
+  }
+  .btn .arrow { font-family: var(--ff-display); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line-2);
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent-2); color: var(--accent-2); }
+
+  /* TICKER */
+  .ticker {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-2);
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--ff-display);
+    font-size: 96px;
+    line-height: 1;
+    padding: 18px 0;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: marquee 38s linear infinite;
+    padding-left: 100%;
+  }
+  .ticker-track span { margin: 0 28px; }
+  .ticker-track em { color: var(--accent); font-style: normal; }
+  .ticker-track .dot { color: var(--muted); margin: 0 22px; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  /* SCHEMATIC */
+  .schematic {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 72px;
+  }
+  .section-header .num {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+  }
+  .section-header .num em { color: var(--accent); font-style: normal; margin-right: 6px; }
+  .section-header h2 {
+    font-family: var(--ff-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .section-header .tag {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .schematic-stage {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 32px;
+    align-items: center;
+    min-height: 520px;
+  }
+  .schematic-shoe {
+    grid-column: 2;
+    position: relative;
+    width: 100%;
+    height: 480px;
+  }
+  .schematic-shoe svg { width: 100%; height: 100%; overflow: visible; }
+  .crosshair { position: absolute; inset: 0; pointer-events: none; }
+  .crosshair::before, .crosshair::after {
+    content: "";
+    position: absolute;
+    background: var(--line-2);
+  }
+  .crosshair::before { left: 0; right: 0; top: 50%; height: 1px; }
+  .crosshair::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+  .corner {
+    position: absolute;
+    width: 14px; height: 14px;
+    border: 1px solid var(--muted);
+  }
+  .corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+  .corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+  .corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+  .corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+  .callouts-left, .callouts-right {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    font-family: var(--ff-mono);
+  }
+  .callouts-left { grid-column: 1; text-align: right; }
+  .callouts-right { grid-column: 3; }
+
+  .callout { position: relative; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .callout .num {
+    font-family: var(--ff-display);
+    font-size: 42px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: 0;
+  }
+  .callout .title { color: var(--ink); font-size: 13px; letter-spacing: 0.15em; margin-bottom: 4px; }
+  .callout .desc {
+    color: var(--muted);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    line-height: 1.5;
+  }
+
+  /* SPECS */
+  .specs { padding: 100px 0; border-bottom: 1px solid var(--line); }
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .spec-cell {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 32px 24px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .spec-cell:nth-child(4n) { border-right: none; }
+  .spec-cell:hover { background: var(--surface); }
+  .spec-cell:hover .spec-num { color: var(--accent-2); }
+  .spec-num {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+  .spec-title {
+    font-family: var(--ff-display);
+    font-size: 34px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-top: 48px;
+  }
+  .spec-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-top: 12px; }
+
+  /* TERRAIN */
+  .terrain {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(circle at 20% 30%, rgba(230, 36, 28, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(214, 255, 61, 0.04) 0%, transparent 40%);
+  }
+  .terrain-header { text-align: center; margin-bottom: 80px; }
+  .terrain-header .eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .terrain-header h2 {
+    font-family: var(--ff-display);
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+  }
+  .terrain-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+    font-family: "Archivo", serif;
+    font-weight: 900;
+  }
+
+  .terrain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  .terrain-card {
+    background: var(--bg);
+    padding: 40px 32px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .terrain-card .badge {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--accent-2);
+    padding: 4px 10px;
+    border: 1px solid var(--accent-2);
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
+  .terrain-card h3 {
+    font-family: var(--ff-display);
+    font-size: 52px;
+    line-height: 0.95;
+    margin: 20px 0 14px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .terrain-card .jp {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .terrain-card p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+  .terrain-card .foot {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .terrain-card .foot .v { color: var(--ink); }
+
+  /* COLORWAYS */
+  .colorways { padding: 120px 0; border-bottom: 1px solid var(--line); }
+  .colorway-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .colorway { display: flex; flex-direction: column; gap: 20px; cursor: pointer; }
+  .colorway-swatch {
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+  .colorway:hover .colorway-swatch { transform: translateY(-8px); }
+  .colorway-swatch .upper { position: absolute; inset: 0 0 40% 0; }
+  .colorway-swatch .mid { position: absolute; inset: 60% 0 20% 0; }
+  .colorway-swatch .sole { position: absolute; inset: 80% 0 0 0; }
+  .colorway-swatch .label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .colorway-swatch .code {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+  }
+  .cw-phantom .upper { background: #1a1a1a; }
+  .cw-phantom .mid { background: #0a0a0a; }
+  .cw-phantom .sole { background: #e6241c; }
+  .cw-wren .upper { background: #5b4a38; }
+  .cw-wren .mid { background: #3e3326; }
+  .cw-wren .sole { background: #d6ff3d; }
+  .cw-safety .upper { background: #ed5b1e; }
+  .cw-safety .mid { background: #c94a14; }
+  .cw-safety .sole { background: #1a1a1a; }
+
+  .colorway-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .colorway-info .name {
+    font-family: var(--ff-display);
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .colorway-info .sub {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .colorway-info .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+
+  /* FIELD NOTES */
+  .notes {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .notes-left h2 {
+    font-family: var(--ff-display);
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+  }
+  .notes-left .kicker {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--accent);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .notes-left .jp {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    margin-top: 30px;
+  }
+  .notes-right { display: flex; flex-direction: column; gap: 32px; }
+  .note-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .note-item .ts {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+  .note-item h4 {
+    font-family: var(--ff-display);
+    font-size: 22px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .note-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* RELEASE */
+  .release {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    background: linear-gradient(180deg, transparent 0%, rgba(230, 36, 28, 0.04) 100%);
+  }
+  .release-stack { text-align: center; }
+  .release-stack .label {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .release-stack .date {
+    font-family: var(--ff-display);
+    font-size: clamp(6rem, 18vw, 18rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .release-stack .date .slash { color: var(--accent); }
+  .release-stack .sub {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 32px;
+    text-transform: uppercase;
+  }
+  .release-cta { margin-top: 48px; display: flex; justify-content: center; gap: 12px; }
+
+  /* FOOTER */
+  footer {
+    padding: 60px 0 40px;
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 64px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  footer .logo {
+    font-family: var(--ff-display);
+    font-size: 72px;
+    line-height: 0.9;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  footer .logo em { color: var(--accent); font-style: normal; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; color: var(--muted); }
+  footer ul li a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
+  footer ul li a:hover { color: var(--accent-2); }
+  footer h5 {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  /* REVEAL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 1.1s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  }
+  .reveal-1 { animation-delay: 0.15s; }
+  .reveal-2 { animation-delay: 0.3s; }
+  .reveal-3 { animation-delay: 0.45s; }
+  .reveal-4 { animation-delay: 0.6s; }
+  .reveal-5 { animation-delay: 0.75s; }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-type {
+    opacity: 0;
+    animation: heroLoad 1.4s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    animation-delay: 0.3s;
+  }
+  @keyframes heroLoad {
+    from { opacity: 0; letter-spacing: 0.2em; }
+    to { opacity: 1; letter-spacing: -0.02em; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-right { text-align: left; }
+    .hero-right .code-block { margin-left: 0; }
+    .hero-right .price-row { justify-content: flex-start; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .spec-cell:nth-child(4n) { border-right: 1px solid var(--line); }
+    .spec-cell:nth-child(2n) { border-right: none; }
+    .terrain-grid, .colorway-row, .notes, .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .schematic-stage { grid-template-columns: 1fr; }
+    .callouts-left, .callouts-right { grid-column: 1; text-align: left; }
+    .section-header { grid-template-columns: 1fr; gap: 20px; }
+    .section-header .tag { text-align: left; }
+    .meta-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    .topbar nav { display: none; }
+    .specs-grid { grid-template-columns: 1fr; }
+    .spec-cell { border-right: none !important; }
+    .meta-strip { grid-template-columns: 1fr; }
+    .ticker { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="rails">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <div class="brand">S A L O M O N &nbsp;&nbsp; — &nbsp;&nbsp; ADVANCED</div>
+    <nav>
+      <a href="#spec">Spec</a>
+      <a href="#terrain">Terrain</a>
+      <a href="#colorways">Colorways</a>
+      <a href="#release">Release</a>
+    </nav>
+    <div class="right">
+      <span><span class="live-dot"></span>IN STOCK — CHAMONIX</span>
+      <span>EN / JP</span>
+    </div>
+  </header>
+
+  <div class="meta-strip">
+    <div><div class="k">Model</div><div class="v">XT-6 Expanse</div></div>
+    <div><div class="k">Ref.</div><div class="v">L41219700 / AW-26</div></div>
+    <div><div class="k">Category</div><div class="v">Technical — Trail</div></div>
+    <div><div class="k">Origin</div><div class="v">Annecy, France — 47°54′N 6°07′E</div></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="eyebrow reveal reveal-1">Since 1947 / Made for the mountain</div>
+        <span class="jp reveal reveal-1">サロモン アドバンスド　テクニカル フットウェア</span>
+        <p class="reveal reveal-2">
+          An icon rebuilt from the laboratory of alpine science. Born for ultra-endurance
+          trail running. Reshaped for the city. Still uncompromising.
+        </p>
+        <div class="spec-tiny reveal reveal-3">
+          <div>Weight</div><div class="v">350G / US9</div>
+          <div>Drop</div><div class="v">9MM</div>
+          <div>Stack</div><div class="v">19/28MM</div>
+          <div>Midsole</div><div class="v">EnergyCell™ EVA</div>
+        </div>
+      </div>
+
+      <div class="hero-center">
+        <div class="stamp reveal reveal-1">◎ TECHNICAL PROFILE · 017 / 420</div>
+        <h1 class="hero-type">XT<span class="dash">–</span>6</h1>
+        <div class="hero-sub reveal reveal-4">
+          <span>TRAIL / URBAN</span>
+          <span>LEGACY 2013 → PRESENT</span>
+          <span>CHAPTER 06</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="code-block reveal reveal-2">&gt; SYS.STATUS
+  SENSIFIT™       [ ACTIVE ]
+  QUICKLACE™      [ ARMED  ]
+  CONTAGRIP® MA   [ ONLINE ]
+  AGILE CHASSIS   [ SYNC'D ]
+&gt; READY FOR TERRAIN</div>
+
+        <div class="price-row reveal reveal-3">
+          <span class="currency">JPY</span>
+          <div class="price"><sup>¥</sup>33,000</div>
+        </div>
+
+        <a href="#release" class="btn reveal reveal-4">
+          Acquire — AW/26
+          <span class="arrow">→</span>
+        </a>
+        <a href="#spec" class="btn-ghost reveal reveal-4">Spec Sheet</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>XT-6 EXPANSE</span><span class="dot">◯</span>
+    <span><em>AW / 26</em></span><span class="dot">◯</span>
+    <span>TRAIL ENGINEERED</span><span class="dot">◯</span>
+    <span>URBAN APPROVED</span><span class="dot">◯</span>
+    <span><em>CONTAGRIP®</em></span><span class="dot">◯</span>
+    <span>QUICKLACE™</span><span class="dot">◯</span>
+    <span>SINCE 1947</span><span class="dot">◯</span>
+    <span><em>A N N E C Y</em></span><span class="dot">◯</span>
+    <span>XT-6 EXPANSE</span><span class="dot">◯</span>
+    <span><em>AW / 26</em></span><span class="dot">◯</span>
+    <span>TRAIL ENGINEERED</span><span class="dot">◯</span>
+    <span>URBAN APPROVED</span><span class="dot">◯</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="schematic" id="spec">
+    <div class="section-header">
+      <div class="num"><em>§01</em> / SCHEMATIC VIEW</div>
+      <h2>Anatomy of<br>an outlier</h2>
+      <div class="tag">Fig. A — Lateral Projection</div>
+    </div>
+
+    <div class="schematic-stage">
+      <div class="callouts-left">
+        <div class="callout">
+          <div class="num">01</div>
+          <div class="title">Sensifit™ Cage</div>
+          <div class="desc">Ripstop + TPU overlays fuse to the lacing system to cradle the foot through uneven ground.</div>
+        </div>
+        <div class="callout">
+          <div class="num">02</div>
+          <div class="title">Mudguard Welding</div>
+          <div class="desc">Seamless thermo-bond toecap, welded not stitched. Water, scree, and Tuesday-night subway grit.</div>
+        </div>
+        <div class="callout">
+          <div class="num">03</div>
+          <div class="title">Collared Heel</div>
+          <div class="desc">Extended collar locks the ankle for descents. Quietly redraws the side profile.</div>
+        </div>
+      </div>
+
+      <div class="schematic-shoe">
+        <div class="crosshair"></div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" aria-label="XT-6 silhouette">
+          <defs>
+            <pattern id="tread" width="14" height="12" patternUnits="userSpaceOnUse">
+              <rect width="14" height="12" fill="#0f0f0f"/>
+              <circle cx="4" cy="6" r="1.4" fill="#e6241c"/>
+              <circle cx="10" cy="6" r="1.4" fill="#777"/>
+            </pattern>
+            <linearGradient id="upper" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#2a2a2a"/>
+              <stop offset="100%" stop-color="#111"/>
+            </linearGradient>
+          </defs>
+
+          <line x1="40" y1="340" x2="760" y2="340" stroke="#2a2a2a" stroke-dasharray="2 4"/>
+
+          <path d="M90,320 Q95,300 140,295 L640,295 Q720,297 720,330 L720,340 Q720,348 700,348 L110,348 Q80,348 80,335 Z"
+                fill="url(#tread)" stroke="#333" stroke-width="1"/>
+
+          <path d="M90,298 Q95,286 140,282 L640,282 Q715,284 720,305 L720,298 Q720,292 700,292 L110,292 Q85,292 85,305 Z"
+                fill="#ededea"/>
+
+          <path d="M140,280 Q155,225 230,195 Q300,165 400,160 Q510,155 580,175 Q640,195 660,230 Q672,255 660,285 L640,290 L140,290 Z"
+                fill="url(#upper)" stroke="#3a3a3a" stroke-width="1"/>
+
+          <path d="M595,178 Q635,165 660,198 Q668,218 660,238 L620,240 Q600,220 585,195 Z"
+                fill="#1a1a1a" stroke="#444"/>
+
+          <path d="M140,282 Q150,258 190,248 L220,272 L190,288 L140,288 Z"
+                fill="#0a0a0a" stroke="#555" stroke-width="1"/>
+
+          <g stroke="#e6241c" stroke-width="2.5" fill="none" opacity="0.95">
+            <path d="M240,250 Q245,215 290,210"/>
+            <path d="M290,250 Q295,205 345,200"/>
+            <path d="M340,248 Q345,200 400,195"/>
+            <path d="M395,250 Q405,205 460,205"/>
+            <path d="M450,255 Q465,215 525,218"/>
+          </g>
+
+          <g fill="#0a0a0a" stroke="#888" stroke-width="1">
+            <circle cx="240" cy="245" r="4"/>
+            <circle cx="290" cy="243" r="4"/>
+            <circle cx="340" cy="240" r="4"/>
+            <circle cx="395" cy="238" r="4"/>
+            <circle cx="450" cy="240" r="4"/>
+            <circle cx="510" cy="245" r="4"/>
+          </g>
+
+          <path d="M240,245 L295,212 L340,235 L395,205 L450,235 L510,215 L555,245"
+                stroke="#d6ff3d" stroke-width="2" fill="none" opacity="0.85"/>
+
+          <rect x="555" y="240" width="22" height="10" rx="2" fill="#e6241c"/>
+          <circle cx="566" cy="245" r="2" fill="#0a0a0a"/>
+
+          <g transform="translate(470,255)">
+            <path d="M0,0 Q8,-10 20,-6 Q28,-2 22,6 Q14,12 0,8 Z M4,2 Q12,-4 18,0 Q22,4 16,6 Q8,8 4,4 Z"
+                  fill="#ededea" opacity="0.8"/>
+          </g>
+
+          <rect x="645" y="212" width="22" height="10" rx="2" fill="#e6241c"/>
+
+          <g stroke="#555" stroke-width="1" fill="none">
+            <line x1="270" y1="230" x2="270" y2="100"/>
+            <circle cx="270" cy="100" r="3" fill="#e6241c" stroke="none"/>
+            <line x1="650" y1="220" x2="720" y2="150"/>
+            <circle cx="720" cy="150" r="3" fill="#e6241c" stroke="none"/>
+            <line x1="400" y1="330" x2="400" y2="390"/>
+            <circle cx="400" cy="390" r="3" fill="#e6241c" stroke="none"/>
+          </g>
+
+          <g font-family="JetBrains Mono, monospace" font-size="9" fill="#888" letter-spacing="1">
+            <text x="280" y="95">FIG.01 — SENSIFIT</text>
+            <text x="645" y="135">FIG.03 — HEEL</text>
+            <text x="340" y="390">FIG.04 — CONTAGRIP®</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="callouts-right">
+        <div class="callout">
+          <div class="num">04</div>
+          <div class="title">Contagrip® MA</div>
+          <div class="desc">Asymmetric lug pattern engineered for loose rock and wet pavement alike. 400+ km tested per prototype.</div>
+        </div>
+        <div class="callout">
+          <div class="num">05</div>
+          <div class="title">EnergyCell™</div>
+          <div class="desc">High-rebound EVA midsole dampens long-distance impact without turning to marshmallow at hour eight.</div>
+        </div>
+        <div class="callout">
+          <div class="num">06</div>
+          <div class="title">Quicklace™</div>
+          <div class="desc">A single Kevlar cord. One pull. Hand-free transition from climb to café.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specs">
+    <div class="section-header">
+      <div class="num"><em>§02</em> / FIELD SPECIFICATIONS</div>
+      <h2>Built for<br>the long carry.</h2>
+      <div class="tag">Tested — Chamonix to Shibuya</div>
+    </div>
+    <div class="specs-grid">
+      <div class="spec-cell">
+        <div class="spec-num">— 01 / UPPER</div>
+        <div><div class="spec-title">Welded<br>Ripstop</div>
+        <div class="spec-desc">Thermo-bonded TPU overlays eliminate stitch failure points common in trail use.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 02 / LACING</div>
+        <div><div class="spec-title">Kevlar<br>Quicklace</div>
+        <div class="spec-desc">Pull once. Rated for 60,000 cycles. Stores inside the sewn tongue pocket.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 03 / CHASSIS</div>
+        <div><div class="spec-title">Agile<br>Chassis</div>
+        <div class="spec-desc">Rigid midfoot plate resists torsion on rocky terrain without overriding ground feel.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 04 / OUTSOLE</div>
+        <div><div class="spec-title">Contagrip<br>MA</div>
+        <div class="spec-desc">Multi-directional 5mm lugs. Rubber compound tuned for mixed wet / dry surfaces.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 05 / MIDSOLE</div>
+        <div><div class="spec-title">Energy<br>Cell EVA</div>
+        <div class="spec-desc">Dual-density foam. Softer heel for impact, firmer forefoot for push-off.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 06 / INSOLE</div>
+        <div><div class="spec-title">Ortholite<br>Footbed</div>
+        <div class="spec-desc">Moisture-wicking, anti-microbial. Removable. Retains cushion over 100+ hours.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 07 / FIT</div>
+        <div><div class="spec-title">Sensi<br>Fit Cage</div>
+        <div class="spec-desc">Wraps midfoot across 360°. Reduces internal slippage on descent.</div></div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-num">— 08 / WEIGHT</div>
+        <div><div class="spec-title">350g<br>US9</div>
+        <div class="spec-desc">Engineered light — not lean. Durable for daily trail mileage.</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="terrain" id="terrain">
+  <div class="wrap">
+    <div class="terrain-header">
+      <div class="eyebrow">§03 — Domain / 地形</div>
+      <h2>One shoe.<br>Three <em>terrains.</em></h2>
+    </div>
+
+    <div class="terrain-grid">
+      <div class="terrain-card">
+        <span class="badge">MODE — 01</span>
+        <div>
+          <h3>Alpine<br>Trail</h3>
+          <div class="jp">アルパイン トレイル</div>
+          <p>Scree, mud, sub-alpine root systems. The chassis was calibrated against 2,400 km of Haute-Savoie ultra courses before release.</p>
+        </div>
+        <div class="foot"><span>Grade</span><span class="v">III — IV</span></div>
+      </div>
+      <div class="terrain-card">
+        <span class="badge">MODE — 02</span>
+        <div>
+          <h3>Urban<br>Grid</h3>
+          <div class="jp">アーバン グリッド</div>
+          <p>Wet granite. Rain-slick subway stairs. Unplanned 22 km detours through Shibuya or Kreuzberg. Equally at home.</p>
+        </div>
+        <div class="foot"><span>Grade</span><span class="v">I — II</span></div>
+      </div>
+      <div class="terrain-card">
+        <span class="badge">MODE — 03</span>
+        <div>
+          <h3>Mixed<br>Surface</h3>
+          <div class="jp">ミックス サーフェス</div>
+          <p>Transition day. Train commute, office morning, mountain evening. The XT-6 stops arguing with your schedule.</p>
+        </div>
+        <div class="foot"><span>Grade</span><span class="v">II — III</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="colorways" id="colorways">
+    <div class="section-header">
+      <div class="num"><em>§04</em> / COLORWAYS</div>
+      <h2>Three<br>palettes.</h2>
+      <div class="tag">AW / 26 — Limited Run</div>
+    </div>
+
+    <div class="colorway-row">
+      <div class="colorway">
+        <div class="colorway-swatch cw-phantom">
+          <div class="upper"></div><div class="mid"></div><div class="sole"></div>
+          <span class="label">CW / 001</span>
+          <span class="code">L41219700</span>
+        </div>
+        <div class="colorway-info">
+          <div>
+            <div class="name">Phantom</div>
+            <div class="sub">Black / Black / Red</div>
+          </div>
+          <div class="dot" style="background:#e6241c"></div>
+        </div>
+      </div>
+
+      <div class="colorway">
+        <div class="colorway-swatch cw-wren">
+          <div class="upper"></div><div class="mid"></div><div class="sole"></div>
+          <span class="label">CW / 002</span>
+          <span class="code">L41437200</span>
+        </div>
+        <div class="colorway-info">
+          <div>
+            <div class="name">Wren</div>
+            <div class="sub">Taupe / Walnut / Lime</div>
+          </div>
+          <div class="dot" style="background:#d6ff3d"></div>
+        </div>
+      </div>
+
+      <div class="colorway">
+        <div class="colorway-swatch cw-safety">
+          <div class="upper"></div><div class="mid"></div><div class="sole"></div>
+          <span class="label">CW / 003</span>
+          <span class="code">L41688104</span>
+        </div>
+        <div class="colorway-info">
+          <div>
+            <div class="name">Flare</div>
+            <div class="sub">Safety Orange / Jet</div>
+          </div>
+          <div class="dot" style="background:#ed5b1e"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes">
+    <div class="notes-left">
+      <div class="kicker">§05 / Field notes</div>
+      <h2>From the<br>laboratory.</h2>
+      <div class="jp">ラボラトリー ノート — アヌシー</div>
+    </div>
+    <div class="notes-right">
+      <div class="note-item">
+        <div class="ts">2013.04<br>ORIGIN</div>
+        <div>
+          <h4>Designed for UTMB</h4>
+          <p>The original XT-6 was engineered as a support shoe for athletes circling Mont Blanc. The sole was re-tooled three times before approval by the Annecy lab.</p>
+        </div>
+      </div>
+      <div class="note-item">
+        <div class="ts">2018.09<br>DRIFT</div>
+        <div>
+          <h4>Taken by the city</h4>
+          <p>Adopted by Tokyo's techwear circuit, then Paris, then Seoul. A trail shoe becomes a language the mountain never asked for.</p>
+        </div>
+      </div>
+      <div class="note-item">
+        <div class="ts">2023.11<br>RETURN</div>
+        <div>
+          <h4>Updated chassis</h4>
+          <p>Agile Chassis receives a carbon-reinforced midfoot plate. 12% lighter. Same silhouette. Same argument — technical first.</p>
+        </div>
+      </div>
+      <div class="note-item">
+        <div class="ts">2026.04<br>NOW</div>
+        <div>
+          <h4>AW/26 Expanse</h4>
+          <p>Re-released in three colorways for the autumn-winter carry. Stocked at select concepts — COMME, END., Union, Beams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="release" id="release">
+  <div class="wrap">
+    <div class="release-stack">
+      <div class="label">◎ Release — AW / 26</div>
+      <div class="date">04<span class="slash">/</span>26</div>
+      <div class="sub">Global drop · 04:00 UTC · Salomon Advanced · Select retailers worldwide</div>
+      <div class="release-cta">
+        <a href="#" class="btn">Notify me — Pair drop <span class="arrow">→</span></a>
+        <a href="#" class="btn-ghost">Full lookbook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="logo">SALO<em>—</em><br>MON<em>.</em></div>
+      </div>
+      <div>
+        <h5>// CATALOG</h5>
+        <ul>
+          <li><a href="#">XT-6 Expanse</a></li>
+          <li><a href="#">XT-Wings 2</a></li>
+          <li><a href="#">XT-Quest</a></li>
+          <li><a href="#">ACS Pro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>// SUPPORT</h5>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Care</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>// STUDIOS</h5>
+        <ul>
+          <li>Annecy, FR</li>
+          <li>Tokyo, JP</li>
+          <li>New York, US</li>
+          <li>Seoul, KR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Salomon Advanced — All systems nominal</div>
+      <div>Made on mountain time · 47°54′N 6°07′E</div>
+      <div>Ref. L41219700 / AW26 / 017–420</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
