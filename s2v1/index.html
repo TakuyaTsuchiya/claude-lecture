@@ -32,7 +32,6 @@
         <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">③</div>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div style="font-size:26pt; line-height:1.5;">「どう振る舞ってほしいか」を一度書けば毎回有効</div>
-          <div style="font-size:20pt; line-height:1.5; color:var(--color-sub);">例）一人称は「私」／文体は「ですます調」</div>
         </div>
       </div>
     </div>
@@ -40,12 +39,12 @@
 
   <!-- 3: まず3行でOK -->
   <section class="slide">
-    <div class="eyebrow">入門テンプレート</div>
+    <div class="eyebrow">書き始め</div>
     <h2 style="font-size:36pt; margin-bottom:32px;">まず 3行 でOK</h2>
     <div style="max-width:1040px; width:100%; text-align:left;">
-      <pre style="background:#f8f8f8; border:2px solid var(--color-line); border-radius:12px; padding:28px 36px; font-family:var(--font-mono); font-size:20pt; line-height:2.0; color:var(--color-text);">このプロジェクトは〇〇を目的としたWebアプリです。
-ですます調で。技術用語には補足説明を入れてください。
-よく使うファイルは「docs/company.md」に置いています。</pre>
+      <pre style="background:#f8f8f8; border:2px solid var(--color-line); border-radius:12px; padding:28px 36px; font-family:var(--font-mono); font-size:20pt; line-height:2.0; color:var(--color-text);">プロジェクト概要：〇〇を目的としたWebアプリです。
+説明スタンス：ですます調で。技術用語には補足説明を入れてください。
+参照ファイル：よく使う資料は「docs/company.md」に置いています。</pre>
       <div style="margin-top:24px; display:flex; flex-direction:column; gap:12px;">
         <div style="display:flex; gap:16px; align-items:baseline; font-size:20pt; color:var(--color-sub);">
           <span style="color:var(--color-accent); font-weight:700; min-width:28px;">①</span>プロジェクト概要 ── 何を作っているかを伝える
@@ -71,10 +70,6 @@
       <div style="font-size:24pt; line-height:1.6; color:var(--color-sub);">
         → 「最初のセットアップをする」という意味
       </div>
-      <div style="margin-top:20px; font-size:24pt; line-height:1.7;">
-        Claude Code がフォルダの中身を見て<br>
-        CLAUDE.md を自動で作ってくれる
-      </div>
     </div>
   </section>
 
@@ -93,7 +88,7 @@
       </div>
       <div style="display:flex; align-items:center; gap:28px;">
         <div style="font-size:36pt; font-weight:700; color:var(--color-accent); min-width:52px;">③</div>
-        <div style="font-size:26pt; line-height:1.5;">3行テンプレを追記して保存</div>
+        <div style="font-size:26pt; line-height:1.5;">3行の指示を追記して保存</div>
       </div>
     </div>
   </section>
@@ -122,7 +117,7 @@
     <div style="display:flex; flex-direction:column; gap:20px; text-align:left;">
       <div style="font-size:28pt; color:var(--color-sub);">長いほど AI は指示を守らなくなる</div>
       <div style="font-size:28pt; color:var(--color-sub);">目安は 200行以内</div>
-      <div style="font-size:28pt; color:var(--color-sub);">増えたら別ファイルに分けて呼び出す</div>
+      <div style="font-size:28pt; color:var(--color-sub);">増えたら <code style="font-family:var(--font-mono); font-size:24pt; background:#f0f0f0; padding:2px 10px; border-radius:6px;">.claude/rules/</code> に分割して呼び出す</div>
     </div>
   </section>
 
