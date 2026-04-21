@@ -16,7 +16,7 @@ S3では、Claude Codeを業務で使いこなすための2つの武器、Skills
 
 ## [P2] SkillsとMCPの違い
 
-Skillsに入る前に、MCPとの違いを整理しておきます。
+Agent Skills、通称Skillsに入る前に、MCPとの違いを整理しておきます。
 
 MCPはキッチンの道具に例えられます。包丁、オーブン、冷蔵庫——Claudeが使えるツールを追加する仕組みです。
 
