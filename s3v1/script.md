@@ -61,6 +61,8 @@ Skillをインストールすると、その専門家のレシピが手に入る
 
 > /plugin install shinkoku@shinkoku
 
+プラグインをリロードします。
+
 > /reload-plugins
 
 まず `/setup` で初期設定を行います。
