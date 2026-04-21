@@ -125,7 +125,8 @@ S3V1 / V2のようにSkillを実演する回で守ること。
 
 - **Skillはセッション開始時に読み込まれる**。作成直後の同じセッションでは動かない。一度セッションを終了して新セッションを開く必要がある。MCPと同じ制約。実演で必ず詰まるのでスライドまたはト書きで強調する
 - **Skillのトリガーは自然語、スラッシュコマンドではない**。`/skill-name`で呼び出せるわけではなく、descriptionに書いた発動文脈にClaudeが自動反応する。実演では事前に発動フレーズを決めておく（例：「月次レポートを作って」）
-- **skill-creatorのパッケージ名は環境依存**。`anthropic-skills:skill-creator`、`document-skills:skill-creator`など複数存在する。実演前に `/plugin list` 等で実コマンド名を確認する
+- **Skill Creatorのパッケージ名は `skill-creator@claude-plugins-official`**（PoC確認済み）。インストールは `claude` 起動後に `/plugin install skill-creator@claude-plugins-official` を一度実行。その後 `/reload-plugins` でリロードすれば同セッション内で使用可能。起動トリガーは「新しいSkillを作りたい」（自然語）
+- **`/plugin list` はCLI専用**。Claude Code デスクトップ版のチャット欄では認識されない。実演でデスクトップ版を使う場合はこのコマンドを台本に入れない
 
 ## MCP連携の動画を作るとき（必守）
 
