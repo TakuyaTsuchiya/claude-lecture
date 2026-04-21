@@ -37,7 +37,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 1. `s{N}v{N}/index.html` と `s{N}v{N}/script.md` を作成
 2. **ルートの `index.html` に該当モジュールのリンクを追加**（"coming soon" → 実リンクに差し替え）
 3. スクリーンショット検証（`node scripts/screenshot-slides.js`）
-4. 上記をまとめて1コミットでpush
+4. **台本とCLAUDE.mdの整合確認**：ツール名・手順（「再起動」vs「新セッション」等）がCLAUDE.mdの定義と一致しているかチェックする
+5. 上記をまとめて1コミットでpush
 
 ## スライドの技術構成
 
@@ -98,6 +99,8 @@ CSS変数は `:root` で定義済み。値を変えるときは `styles/slide.cs
 - `Claude.ai` — ブラウザで開くウェブ版
 - `Claude Code デスクトップ版` — Mac / Windows のデスクトップアプリ（`Claude Desktop` とは書かない）
 - `Claude Code CLI` — ターミナルで `claude` コマンドを実行する動作モード。Claude Code デスクトップ版の内蔵ターミナル／外部ターミナル（Terminal.app等）のどちらでも動く
+
+**対象者の呼び方**: 台本・スライドともに「**経営者**」を使う。「経営層」は使わない。
 
 **スラッシュコマンドの制約（必守）**: `/plugin`・`/mcp`・`/setup` などはすべて `claude` コマンド内専用。Claude Code デスクトップ版の**チャット欄**では認識されない（「ここでは認識されないコマンドです」と表示される）。実演で「設定のため `/plugin` を実行」と書くときは、必ずターミナル側で動作することを台本のト書きで明示する。
 
