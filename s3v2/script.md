@@ -40,7 +40,8 @@ Skillを作るためのSkillなので少しややこしいですが、Claude Cod
 
 （チャット欄に「新しいSkillを作りたい」と入力して送信）
 
-「新しいSkillを作りたい」と伝えます。
+/reload-pluginsでリロードします。
+これでSkill Creatorがインストールされましたので、新しいセッションで「新しいSkillを作りたい」と伝えます。
 するとSkill Creatorが自動で起動します。
 Claudeが文脈を読んで、必要なSkillを自律的に判断して呼び出しているのです。
 
