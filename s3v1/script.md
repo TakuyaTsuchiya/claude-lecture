@@ -8,7 +8,7 @@
 
 ## [P1] カバー — 確定申告Skillで学ぶAgent Skillsの極意
 
-S3では、Claude Codeを業務で使いこなすための2つの武器、SkillsとMCPをご紹介します。
+S3では、Claude Codeを業務で使いこなすための2つの武器、Agent SkillsとMCPをご紹介します。
 
 まずは「Skills」です。インストールするだけで、専門家のノウハウがそのまま再現される——その仕組みを、確定申告の自動化Skillを題材に体験していただきます。
 
