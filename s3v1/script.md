@@ -53,11 +53,11 @@ Skillをインストールすると、その専門家のレシピが手に入る
 
 （Claude Code CLIを起動）
 
-インストールは3ステップです。まずshinkokuのマーケットプレイスを追加します。
+インストールは3ステップです。まず、shinkokuが配布されているマーケットプレイスをClaude Codeに登録します。
 
 > /plugin marketplace add kazukinagata/shinkoku
 
-続いてインストールします。
+続いて、そこからshinkokuをインストールします。
 
 > /plugin install shinkoku@shinkoku
 
