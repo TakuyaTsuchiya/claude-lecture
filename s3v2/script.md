@@ -34,9 +34,9 @@ Skillを作るためのSkillなので少しややこしいですが、Claude Cod
 
 ## 【実演パート】月次レポートSkillを作る
 
-（スライドを閉じてClaude Code CLIのターミナル画面に切り替え）
+（スライドを閉じてClaude Code デスクトップ版の新しいセッションに切り替え）
 
-（`/document-skills:skill-creator` と入力して起動）
+（チャット欄に「新しいSkillを作りたい」と入力して送信）
 
 Skill Creatorを起動してClaude Codeと対話します。社長会議向け月次レポートを自動生成するSkillを作りたいこと、インプットは3ファイルで、アウトプットはシングルHTML形式TailwindCSSでスタイリングしたレポート、「社長会議向け月次レポートを作って」というフレーズでトリガーする——これを対話で答えます。
 
