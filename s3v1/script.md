@@ -14,7 +14,7 @@ S3では、Claude Codeを業務で使いこなすための2つの武器、Skills
 
 ---
 
-## [P2] SkillとMCPの違い
+## [P2] SkillsとMCPの違い
 
 Skillsに入る前に、MCPとの違いを整理しておきます。
 
