@@ -26,7 +26,7 @@
 ## [P3] Skill Creatorのしくみ
 
 Skillを作るためにはAnthropic社公式のSkill CreatorというSkillを使います。
-Skillを作るためのSkillなので少しややこしいですが、Claude Codeで対話しながらSkillを作ることができるのです。
+Skillを作るためのSkillなので少しややこしいですが、Claude Codeで対話しながらSkillを作ることができます。
 
 自分の作業手順をClaudeに対話で説明すれば、Skill仕様に変換してくれます。「何をさせたいか」「いつ動かすか」「何を出力するか」——この3つを答えるだけです。コードは書きません。
 
