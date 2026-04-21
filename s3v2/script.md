@@ -35,6 +35,8 @@ Skillを作るためのSkillなので少しややこしいですが、Claude Cod
 
 （スライドを閉じてClaude Code デスクトップ版の新しいセッションに切り替え）
 
+なお、Skill Creatorは事前にインストールが必要です。ターミナルで `/plugin install skill-creator@claude-plugins-official` を一度実行するだけです。
+
 （チャット欄に「新しいSkillを作りたい」と入力して送信）
 
 「新しいSkillを作りたい」と伝えます。
