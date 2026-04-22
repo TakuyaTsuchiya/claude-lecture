@@ -28,7 +28,7 @@
 
 プロンプトは、Claudeが理解しやすいように、見出しで区切って構造化したものを渡します。
 
-> \# 入力（demos/kintai-check/）
+> \# 入力
 > - timecard.xlsx（タイムカード 10名×3月分）
 > - applications.xlsx（申請 有給5・残業3・休出2）
 >
