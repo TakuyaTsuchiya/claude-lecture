@@ -45,7 +45,7 @@
   <!-- 3: アプローチ -->
   <section class="slide">
     <div class="eyebrow">APPROACH</div>
-    <h2 style="font-size:40pt;">80%を工程分割で再現＋20%を人間が監修</h2>
+    <h2 style="font-size:40pt;">80%を仕組み化して量産＋20%を人間が監修</h2>
     <div class="rule"></div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:32px;">
       <div style="background:#f5f0ed; border-radius:12px; padding:28px 28px; text-align:left;">
@@ -65,8 +65,8 @@
         </ul>
       </div>
     </div>
-    <div style="margin-top:28px; font-size:20pt; font-weight:700; text-align:center; color:var(--color-text);">
-      E-E-A-T（経験・専門性・権威性・信頼性）を満たす現実解
+    <div style="margin-top:24px; padding:18px 22px; background:#f5f0ed; border-radius:8px; font-size:18pt; color:var(--color-text); line-height:1.7; text-align:left;">
+      <strong style="color:var(--color-accent);">E-E-A-Tの4軸の分担</strong>　Claudeは<strong>専門性</strong>の骨格を、人間は<strong>経験（自社事例）・権威性（資格監修）・信頼性（現場の一次情報）</strong>を担う。合わせて4軸すべてが埋まる
     </div>
   </section>
 
@@ -116,51 +116,47 @@
   <!-- 5: プロンプト（実演） -->
   <section class="slide">
     <div class="eyebrow">PROMPT</div>
-    <h2 style="font-size:36pt;">Claude Codeへの依頼文</h2>
+    <h2 style="font-size:32pt;">Claude Codeへ渡す構造化したプロンプト</h2>
     <div class="rule"></div>
-    <pre style="font-family:var(--font-mono); font-size:15pt; line-height:1.6;
+    <pre style="font-family:var(--font-mono); font-size:14pt; line-height:1.55;
                 background:#1e1e2e; color:#cdd6f4; border-radius:10px;
-                padding:20px 24px; margin-top:16px; white-space:pre-wrap;
-                text-align:left;">「屋上防水工事 費用相場」でSEO記事を作ります。
+                padding:18px 32px; margin:10px -100px 0; white-space:pre-wrap;
+                text-align:left; align-self:stretch;">「屋上防水工事 費用相場」でSEO記事を作ります。
 outputに以下の5工程を順番に出力してください。
 
 ① 競合調査
-　01-competitor-analysis.md：WebSearchで上位10記事を調べて
-　見出し構成・強み・ギャップを比較表に。差別化方針まで書く
+　01-competitor-analysis.md：WebSearchで上位10記事を調べ、見出し構成・強み・ギャップを比較表に。差別化方針まで書く
 
 ② ニーズ分析
-　02-user-needs.md：①を読んで、ペルソナ別の疑問を
-　優先順位付きで整理
+　02-user-needs.md：①を読んで、ペルソナ別の疑問を優先順位付きで整理
 
 ③ 構成案
 　03-outline.md：②の疑問を全て包含するH2/H3構造を設計
 
 ④ 本文
-　04-body.md：③に沿って本文を執筆
-　（導入と冒頭H2は完成稿、残りは骨子）
+　04-body.md：③に沿って本文を執筆（導入と冒頭H2は完成稿、残りは骨子）
 
 ⑤ メタ生成
-　05-meta.md：④に対応するタイトル・ディスクリプション・
-　OGP・JSON-LDを生成</pre>
+　05-meta.md：④に対応するタイトル・ディスクリプション・OGP・JSON-LDを生成</pre>
   </section>
 
   <!-- 6: クロージング -->
   <section class="slide">
     <div class="eyebrow">CLOSING</div>
-    <h2 style="font-size:40pt;">バケツリレー式の工程分けは<br>長文コンテンツ全般に応用可</h2>
+    <h2 style="font-size:40pt;">バケツリレー式の工程分けは<br>長文コンテンツ全般に応用可能</h2>
     <div class="rule"></div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:36px;">
-      <div style="background:#f5f0ed; border-radius:10px; padding:24px 22px; text-align:left;">
-        <div style="font-size:19pt; font-weight:700; margin-bottom:10px;">今回やったこと</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+      <div style="background:#f5f0ed; border-radius:10px; padding:24px 22px;">
+        <div style="font-size:19pt; font-weight:700; margin-bottom:10px; text-align:center;">今回やったこと</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8; text-align:left;">
           5工程に分割して順番に実行<br>
           Markdownで前工程を受け渡し<br>
           WebSearchで一次情報を取得
         </div>
       </div>
-      <div style="background:#edf5ed; border-radius:10px; padding:24px 22px; text-align:left;">
-        <div style="font-size:19pt; font-weight:700; margin-bottom:10px;">他のコンテンツ制作にも応用</div>
-        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+      <div style="background:#edf5ed; border-radius:10px; padding:24px 22px;">
+        <div style="font-size:19pt; font-weight:700; margin-bottom:10px; text-align:center;">他のコンテンツ制作にも応用</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8; text-align:left;">
           提案書（調査→論点→構成→本文）<br>
           研修教材（対象分析→カリキュラム→本文）<br>
           ホワイトペーパー・取材記事・LP
@@ -168,7 +164,7 @@ outputに以下の5工程を順番に出力してください。
       </div>
     </div>
     <div style="margin-top:32px; font-size:21pt; font-weight:700; text-align:center; color:var(--color-text);">
-      80%の再現性＋20%の人間監修でE-E-A-Tを満たす
+      80%を仕組み化して量産＋20%の人間監修でE-E-A-Tを満たす
     </div>
   </section>
 
