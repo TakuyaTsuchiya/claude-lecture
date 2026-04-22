@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ドレミファエア 経営ダッシュボード 2026年4月</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent:   #1d4ed8;
+    --accent-lt:#dbeafe;
+    --red:      #dc2626;
+    --red-lt:   #fee2e2;
+    --yellow:   #d97706;
+    --yellow-lt:#fef3c7;
+    --green:    #16a34a;
+    --green-lt: #dcfce7;
+    --gray:     #6b7280;
+    --gray-lt:  #f3f4f6;
+    --text:     #111827;
+    --border:   #e5e7eb;
+  }
+
+  body {
+    font-family: "游ゴシック", "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: #f9fafb;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--accent);
+    color: #fff;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-size: 22px; font-weight: 700; letter-spacing: .04em; }
+  header .meta { font-size: 13px; opacity: .8; text-align: right; }
+  header .meta strong { display: block; font-size: 15px; opacity: 1; }
+
+  /* ── Layout ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 64px; }
+
+  section { margin-bottom: 40px; }
+  section > h2 {
+    font-size: 16px; font-weight: 700;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  /* ── KPI cards ── */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .kpi {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 18px;
+  }
+  .kpi .label { font-size: 12px; color: var(--gray); margin-bottom: 4px; }
+  .kpi .value { font-size: 26px; font-weight: 700; }
+  .kpi .sub   { font-size: 12px; color: var(--gray); margin-top: 2px; }
+  .kpi .delta { font-size: 13px; font-weight: 600; margin-top: 4px; }
+  .up   { color: var(--green); }
+  .down { color: var(--red);   }
+
+  /* ── Issue cards ── */
+  .issue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .issue {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px 20px;
+    border-left: 5px solid var(--gray);
+  }
+  .issue.high   { border-left-color: var(--red);    }
+  .issue.medium { border-left-color: var(--yellow);  }
+  .issue-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 2px 8px;
+    border-radius: 12px; white-space: nowrap;
+  }
+  .badge.high   { background: var(--red-lt);    color: var(--red);    }
+  .badge.medium { background: var(--yellow-lt); color: var(--yellow); }
+  .badge.low    { background: var(--gray-lt);   color: var(--gray);   }
+  .issue h3 { font-size: 15px; font-weight: 700; }
+  .issue p  { font-size: 13px; color: #374151; margin-top: 6px; }
+  .issue .linked-projects {
+    margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .proj-tag {
+    font-size: 11px; background: var(--accent-lt);
+    color: var(--accent); padding: 2px 8px;
+    border-radius: 12px; font-weight: 600;
+  }
+  .proj-tag.none {
+    background: var(--gray-lt); color: var(--gray);
+  }
+  .issue .source {
+    font-size: 11px; color: var(--gray); margin-top: 8px;
+  }
+
+  /* ── Project table ── */
+  table {
+    width: 100%; border-collapse: collapse;
+    background: #fff; border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  thead tr { background: var(--gray-lt); }
+  th { padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 700; color: var(--gray); }
+  td { padding: 12px 14px; font-size: 13px; border-top: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: #f9fafb; }
+
+  .status {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 2px 10px; border-radius: 12px;
+  }
+  .status.進行中 { background: var(--accent-lt); color: var(--accent); }
+  .status.計画中 { background: var(--gray-lt);   color: var(--gray);   }
+  .status.完了   { background: var(--green-lt);  color: var(--green);  }
+
+  .priority { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; }
+  .priority.高 { background: var(--red-lt);    color: var(--red);    }
+  .priority.中 { background: var(--yellow-lt); color: var(--yellow); }
+  .priority.低 { background: var(--gray-lt);   color: var(--gray);   }
+
+  .milestone-row { font-size: 12px; color: #374151; }
+  .milestone-row li { margin-bottom: 2px; }
+  .done { color: var(--green); }
+  .todo { color: var(--gray); }
+
+  .person-tag {
+    display: inline-block; font-size: 11px;
+    background: #f0f9ff; color: #0369a1;
+    padding: 1px 6px; border-radius: 10px; margin: 1px;
+  }
+
+  /* ── Matrix ── */
+  .matrix-wrap { overflow-x: auto; }
+  .matrix {
+    min-width: 700px;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .matrix th, .matrix td { padding: 10px 12px; border: 1px solid var(--border); font-size: 12px; }
+  .matrix thead th { background: var(--gray-lt); font-weight: 700; color: var(--gray); text-align: center; }
+  .matrix tbody th { background: #fff; font-weight: 600; text-align: left; }
+  .matrix td { text-align: center; }
+  .rel-primary   { font-size: 16px; }
+  .rel-secondary { font-size: 16px; color: var(--yellow); }
+  .rel-none      { color: #d1d5db; font-size: 12px; }
+
+  /* ── Footer ── */
+  .footnote { font-size: 12px; color: var(--gray); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>✈ ドレミファエア 経営ダッシュボード</h1>
+    <div style="font-size:13px;opacity:.75;margin-top:4px;">議事録データベース（2026年1〜3月）＋ プロジェクト管理データベース より自動生成</div>
+  </div>
+  <div class="meta">
+    <strong>2026年4月 経営会議 資料</strong>
+    作成日：2026年4月22日
+  </div>
+</header>
+
+<main>
+
+  <!-- ① KPI -->
+  <section>
+    <h2>直近3ヶ月 業績サマリー</h2>
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="label">売上（3月）</div>
+        <div class="value">51.3<span style="font-size:16px">億円</span></div>
+        <div class="delta up">▲ +8.8億 前月比</div>
+        <div class="sub">1月 48.2 → 2月 42.5 → 3月 51.3</div>
+      </div>
+      <div class="kpi">
+        <div class="label">営業利益（3月）</div>
+        <div class="value">4.8<span style="font-size:16px">億円</span></div>
+        <div class="delta up">▲ +3.6億 前月比</div>
+        <div class="sub">1月 3.1 → 2月 1.2 → 3月 4.8</div>
+      </div>
+      <div class="kpi">
+        <div class="label">座席利用率（3月）</div>
+        <div class="value">78.1<span style="font-size:16px">%</span></div>
+        <div class="delta up">▲ +9.8pt 前月比</div>
+        <div class="sub">1月 72.5% → 2月 68.3% → 3月 78.1%</div>
+      </div>
+      <div class="kpi">
+        <div class="label">燃油費（3月）</div>
+        <div class="value">13.2<span style="font-size:16px">億円</span></div>
+        <div class="delta down">▼ 高止まり継続</div>
+        <div class="sub">1月 12.8 → 2月 13.5 → 3月 13.2</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 経営課題 -->
+  <section>
+    <h2>経営課題（過去3ヶ月の議事録より抽出）</h2>
+    <div class="issue-grid">
+
+      <div class="issue high">
+        <div class="issue-header">
+          <span class="badge high">優先度：高</span>
+          <span class="badge" style="background:#fee2e2;color:#dc2626;">🔥 緊急</span>
+        </div>
+        <h3>LCC参入による価格競争リスク</h3>
+        <p>競合A社が7月にド（羽田-札幌）路線へ参入、片道1.5万円前後の低価格設定が見込まれる。最悪シナリオで客単価15%下落・営業利益▲2億円のインパクト。3月会議で差別化路線（定時運航率・サービス品質）を基本方針と承認。緊急対応プランを4月中に策定要。</p>
+        <div class="linked-projects">
+          <span>関連PJ：</span>
+          <span class="proj-tag">LCC対抗施策</span>
+          <span class="proj-tag">ドレミマイル リニューアル</span>
+        </div>
+        <div class="source">📋 1月・2月・3月 経営会議</div>
+      </div>
+
+      <div class="issue high">
+        <div class="issue-header">
+          <span class="badge high">優先度：高</span>
+        </div>
+        <h3>燃油費の高止まりと収益圧迫</h3>
+        <p>燃油費が月12〜14億円で推移し、通期営業利益見通しを13.0億円へ下方修正（期初比▲1.5億円）。2月に燃油ヘッジ比率60%を承認（年間1.2億円コスト増だが変動リスク抑制）。中長期的には省燃費機導入で年間1.5億円の削減効果を見込む。</p>
+        <div class="linked-projects">
+          <span>関連PJ：</span>
+          <span class="proj-tag">機材更新計画（省燃費機入れ替え）</span>
+        </div>
+        <div class="source">📋 1月・2月・3月 経営会議</div>
+      </div>
+
+      <div class="issue high">
+        <div class="issue-header">
+          <span class="badge high">優先度：高</span>
+          <span class="badge" style="background:#fce7f3;color:#9d174d;">⚠ デッドライン迫る</span>
+        </div>
+        <h3>シ（羽田-松山）就航リスク</h3>
+        <p>6月1日就航まで残り約40日。就航認可・GH委託先決定は完了済み。ただしパイロット不足によるシフト調整が難航しており、GW臨時便との兼ね合いも制約要因。プロモーション予算（1,200万円）の承認が本日の経営会議待ち。</p>
+        <div class="linked-projects">
+          <span>関連PJ：</span>
+          <span class="proj-tag">シ（羽田-松山）新路線就航プロジェクト</span>
+        </div>
+        <div class="source">📋 1月・3月 経営会議</div>
+      </div>
+
+      <div class="issue medium">
+        <div class="issue-header">
+          <span class="badge medium">優先度：中</span>
+        </div>
+        <h3>パイロット・客室乗務員の採用不足</h3>
+        <p>業界全体での人材獲得競争が激化し、採用応募数が前年比30%減。2月に技術職の初任給5%引き上げ＋入社支度金30万円を承認した結果、CA応募が回復傾向（8/12名内定）。パイロットは2/3名で目標未達。CA不足は夏までに解消見込みだが、シ路線就航・GW臨時便の運営に直結するリスク。</p>
+        <div class="linked-projects">
+          <span>関連PJ：</span>
+          <span class="proj-tag none">対応プロジェクト未設定</span>
+        </div>
+        <div class="source">📋 1月・2月・3月 経営会議</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ③ プロジェクト一覧 -->
+  <section>
+    <h2>プロジェクト進捗一覧</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>プロジェクト名</th>
+          <th>ステータス</th>
+          <th>優先度</th>
+          <th>期限</th>
+          <th>担当者</th>
+          <th>マイルストーン</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600">シ（羽田-松山）<br>新路線就航プロジェクト</td>
+          <td><span class="status 進行中">進行中</span></td>
+          <td><span class="priority 高">高</span></td>
+          <td style="font-weight:700;color:var(--red)">2026-06-01</td>
+          <td>
+            <span class="person-tag">田中一郎</span>
+            <span class="person-tag">鈴木正彦</span>
+            <span class="person-tag">伊藤健太</span>
+          </td>
+          <td>
+            <ul class="milestone-row" style="list-style:none">
+              <li class="done">✅ 国交省申請・認可取得</li>
+              <li class="done">✅ 松山空港GH委託先決定</li>
+              <li class="todo">⬜ プロモーション開始（4月下旬）</li>
+              <li class="todo">⬜ 早期予約受付（5月）</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">LCC対抗施策</td>
+          <td><span class="status 進行中">進行中</span></td>
+          <td><span class="priority 高">高</span></td>
+          <td>2026-06-30</td>
+          <td>
+            <span class="person-tag">田中一郎</span>
+            <span class="person-tag">伊藤健太</span>
+            <span class="person-tag">渡辺由美</span>
+          </td>
+          <td>
+            <ul class="milestone-row" style="list-style:none">
+              <li class="done">✅ 差別化方針承認（3月）</li>
+              <li class="todo">⬜ 法人50社ニーズ調査（4月中）</li>
+              <li class="todo">⬜ 緊急対応プラン策定（4月中）</li>
+              <li class="todo">⬜ ドレミビジネスパス企画確定</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">機材更新計画<br>（省燃費機入れ替え）</td>
+          <td><span class="status 計画中">計画中</span></td>
+          <td><span class="priority 高">高</span></td>
+          <td>2029-03-31</td>
+          <td>
+            <span class="person-tag">鈴木正彦</span>
+            <span class="person-tag">佐藤花子</span>
+          </td>
+          <td>
+            <ul class="milestone-row" style="list-style:none">
+              <li class="done">✅ 計画承認（3月経営会議）</li>
+              <li class="todo">⬜ 1号機導入（2026年秋・ド路線）</li>
+              <li class="todo">⬜ 3機追加（2027年）</li>
+              <li class="todo">⬜ 全機入れ替え完了（2028-29年）</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">ドレミマイル リニューアル</td>
+          <td><span class="status 計画中">計画中</span></td>
+          <td><span class="priority 中">中</span></td>
+          <td>2026-07-01</td>
+          <td>
+            <span class="person-tag">伊藤健太</span>
+          </td>
+          <td>
+            <ul class="milestone-row" style="list-style:none">
+              <li class="done">✅ IT見積り取得（2,400万円・4ヶ月）</li>
+              <li class="todo">⬜ 予算承認（本日経営会議）</li>
+              <li class="todo">⬜ 開発着手（承認後即）</li>
+              <li class="todo">⬜ 有効期限延長・交換先拡大 リリース</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ④ 紐づけマトリクス -->
+  <section>
+    <h2>課題 × プロジェクト 対応マトリクス</h2>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th style="text-align:left;min-width:180px">経営課題</th>
+            <th>シ路線就航<br>PJ</th>
+            <th>LCC対抗<br>施策</th>
+            <th>機材更新<br>計画</th>
+            <th>ドレミマイル<br>リニューアル</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>LCC参入・価格競争リスク</th>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-primary" title="主担当">🔵</span></td>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-secondary" title="サポート">🟡</span></td>
+          </tr>
+          <tr>
+            <th>燃油費高止まり・収益圧迫</th>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-primary" title="主担当">🔵</span></td>
+            <td><span class="rel-none">—</span></td>
+          </tr>
+          <tr>
+            <th>シ路線就航リスク</th>
+            <td><span class="rel-primary" title="主担当">🔵</span></td>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-none">—</span></td>
+          </tr>
+          <tr>
+            <th>パイロット・CA採用不足</th>
+            <td><span class="rel-secondary" title="影響あり">🟡</span></td>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-none">—</span></td>
+            <td><span class="rel-none">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote">🔵 主対応プロジェクト　🟡 間接的に関連　— 関連なし</p>
+    <p class="footnote" style="margin-top:6px;color:var(--red);font-weight:600">⚠ 「パイロット・CA採用不足」に直接対応するプロジェクトが未設定です。人材確保を独立したプロジェクトとして立ち上げることを検討してください。</p>
+  </section>
+
+  <!-- ⑤ 本日の決議事項 -->
+  <section>
+    <h2>本日の経営会議 確認・決議事項</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>議題</th>
+          <th>関連課題</th>
+          <th>期待アクション</th>
+          <th>期限</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>シ路線プロモーション予算（1,200万円）承認</td>
+          <td>シ路線就航リスク</td>
+          <td>本日承認 → 4月下旬開始</td>
+          <td style="font-weight:700;color:var(--red)">本日</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>ドレミマイル リニューアル予算（2,400万円）承認</td>
+          <td>LCC対抗・価格競争</td>
+          <td>本日承認 → 即開発着手</td>
+          <td style="font-weight:700;color:var(--red)">本日</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>LCC対抗 緊急対応プランの進捗確認</td>
+          <td>LCC参入リスク</td>
+          <td>4月末までに完成・共有</td>
+          <td>2026-04-30</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>採用強化プロジェクト 立ち上げ検討</td>
+          <td>人材不足</td>
+          <td>担当者アサイン・目標設定</td>
+          <td>次回経営会議</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+</body>
+</html>
