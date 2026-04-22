@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S4V3 【経営者向け】Slack・Notion MCPから週次サマリー自動生成しよう</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1 style="font-size:56pt;">【経営者向け】<br>Slack・Notion MCPから<br>週次サマリー自動生成しよう</h1>
+  </section>
+
+  <!-- 2: 月曜朝問題 -->
+  <section class="slide">
+    <div class="eyebrow">MONDAY MORNING</div>
+    <h2 style="font-size:44pt;">月曜朝、先週の全体像が掴めない</h2>
+    <div class="rule"></div>
+    <div style="font-size:22pt; color:var(--color-sub); margin-top:28px; line-height:1.7;">
+      Slackを延々スクロールし、Notionの議事録を開き直し、<br>
+      頭の中で時系列に並べ直す——毎週月曜の消耗。
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px;">
+      <div style="background:#f5f0ed; border-radius:10px; padding:24px 24px;">
+        <div style="font-size:14pt; font-weight:700; color:var(--color-accent); letter-spacing:.1em; margin-bottom:8px;">経営者にとって</div>
+        <div style="font-size:22pt; font-weight:700; line-height:1.5;">先週の全体像が<br>月曜朝に1枚で届く</div>
+      </div>
+      <div style="background:#edeef5; border-radius:10px; padding:24px 24px;">
+        <div style="font-size:14pt; font-weight:700; color:var(--color-accent); letter-spacing:.1em; margin-bottom:8px;">現場にとって</div>
+        <div style="font-size:22pt; font-weight:700; line-height:1.5;">週次報告資料の<br>作り直しから解放される</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: 複合プロンプトの4要素＋全文 -->
+  <section class="slide">
+    <div class="eyebrow">PROMPT</div>
+    <h2 style="font-size:36pt;">複合プロンプトの4要素</h2>
+    <div class="rule"></div>
+    <div style="display:grid; grid-template-columns:320px 1fr; gap:32px; margin-top:24px;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">① 情報源指定</div>
+          <div style="font-size:16pt; color:var(--color-sub);">SlackとNotionのどこを見るか</div>
+        </div>
+        <div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">② 集約軸</div>
+          <div style="font-size:16pt; color:var(--color-sub);">誰向けに、何を束ねるか</div>
+        </div>
+        <div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">③ 出力構造</div>
+          <div style="font-size:16pt; color:var(--color-sub);">4層構造のHTMLに整える</div>
+        </div>
+        <div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">④ 優先度指定</div>
+          <div style="font-size:16pt; color:var(--color-sub);">顧客声のチャネルを最優先</div>
+        </div>
+      </div>
+      <div style="background:#faf7f5; border-left:4px solid var(--color-accent); padding:20px 22px; font-size:17pt; line-height:1.75; color:#1a1a1a;">
+        過去1週間のSlackの<b>#startup-*全チャネル</b>と<b>Notionの経営会議議事録DB</b>を統合し、<b>CEO向け週次サマリーHTML</b>を<b>4層構造（顧客対応動向→社内進捗→経営方針→示唆）</b>で出力してください。<b>#startup-cs-supportと#startup-sales-voiceから顧客声を優先抽出</b>してください。
+      </div>
+    </div>
+  </section>
+
+  <!-- 4: Closing -->
+  <section class="slide cover">
+    <h1 style="font-size:60pt;">複数のMCPが束なって<br>組織の週次が1枚になる</h1>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script src="../styles/slide.js"></script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('a')) show(i + 1);
+  });
+</script>
+</body>
+</html>
