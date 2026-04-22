@@ -62,7 +62,7 @@ Notionの経営会議議事録データベースの3件です。
 
 （Claudeが`slack_read_channel`を6チャネル並列で呼び出し、`notion-fetch`で議事録DBを取得する）
 
-Slack 6チャネル31件とNotion議事録3件、合わせて34件を約40秒で集約します。
+SlackとNotionのMCPツールを使って、CEO向け週次サマリーレポートを生成してもらいます。
 
 （生成が完了したら、作成されたHTMLファイルをブラウザで開く）
 
