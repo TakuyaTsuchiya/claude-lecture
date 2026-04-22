@@ -44,24 +44,35 @@
     <div style="display:grid; grid-template-columns:320px 1fr; gap:32px; margin-top:24px;">
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div>
-          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">① 情報源指定</div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">① 情報ソース</div>
           <div style="font-size:16pt; color:var(--color-sub);">SlackとNotionのどこを見るか</div>
         </div>
         <div>
-          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">② 集約軸</div>
-          <div style="font-size:16pt; color:var(--color-sub);">誰向けに、何を束ねるか</div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">② まとめる目的</div>
+          <div style="font-size:16pt; color:var(--color-sub);">誰向けの、何のためのまとめか</div>
         </div>
         <div>
-          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">③ 出力構造</div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">③ 出力の形式</div>
           <div style="font-size:16pt; color:var(--color-sub);">4層構造のHTMLに整える</div>
         </div>
         <div>
-          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">④ 優先度指定</div>
+          <div style="font-size:20pt; font-weight:700; color:var(--color-accent);">④ 優先度</div>
           <div style="font-size:16pt; color:var(--color-sub);">顧客声のチャネルを最優先</div>
         </div>
       </div>
-      <div style="background:#faf7f5; border-left:4px solid var(--color-accent); padding:20px 22px; font-size:17pt; line-height:1.75; color:#1a1a1a;">
-        過去1週間のSlackの<b>#startup-*全チャネル</b>と<b>Notionの経営会議議事録DB</b>を統合し、<b>CEO向け週次サマリーHTML</b>を<b>4層構造（顧客対応動向→社内進捗→経営方針→示唆）</b>で出力してください。<b>#startup-cs-supportと#startup-sales-voiceから顧客声を優先抽出</b>してください。
+      <div style="background:#faf7f5; border-left:4px solid var(--color-accent); padding:18px 22px; font-family:var(--font-mono); font-size:14pt; line-height:1.55; color:#1a1a1a;">
+        <div style="color:var(--color-accent); font-weight:700;"># タスク</div>
+        <div>CEO向け週次サマリーHTMLを生成</div>
+        <div style="color:var(--color-accent); font-weight:700; margin-top:8px;">## 情報ソース</div>
+        <div>- Slack：#startup-*全チャネル（過去1週間）</div>
+        <div>- Notion：経営会議議事録DB（過去1週間）</div>
+        <div style="color:var(--color-accent); font-weight:700; margin-top:8px;">## 目的</div>
+        <div>CEOが月曜朝に先週の全体像を把握する</div>
+        <div style="color:var(--color-accent); font-weight:700; margin-top:8px;">## 出力形式</div>
+        <div>4層HTML（顧客声→社内進捗→経営判断→示唆）</div>
+        <div style="color:var(--color-accent); font-weight:700; margin-top:8px;">## 優先度</div>
+        <div>#startup-cs-support / #startup-sales-voice</div>
+        <div>から顧客声を最優先で抽出</div>
       </div>
     </div>
   </section>
