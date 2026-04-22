@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ミゾグチ・ガーデンホテル 研修ポータル</title>
+<style>
+  :root {
+    --accent: #c15f3c;
+    --bg: #f5f5f0;
+    --card-bg: #fff;
+    --text: #1a1a1a;
+    --sub: #555;
+    --muted: #888;
+    --success: #2a8a4a;
+    --border: #e0e0d8;
+    --radius: 10px;
+    --font: "Noto Sans JP", "游ゴシック", "Yu Gothic", YuGothic, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* ─── Header ─── */
+  header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .logo { font-size: 18px; font-weight: 700; letter-spacing: .05em; }
+  header .logo span { color: var(--accent); }
+  header nav { display: flex; gap: 8px; }
+  header nav button {
+    background: none; border: none; color: #ccc; font-size: 14px;
+    padding: 6px 14px; border-radius: 6px; cursor: pointer; font-family: var(--font);
+  }
+  header nav button:hover { background: #333; color: #fff; }
+  header nav button.active { background: var(--accent); color: #fff; }
+
+  /* ─── Main layout ─── */
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+  /* ─── Page title ─── */
+  .page-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .page-sub { font-size: 15px; color: var(--sub); margin-bottom: 28px; }
+
+  /* ─── Category cards (top) ─── */
+  .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+  .category-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 24px; cursor: pointer;
+    transition: box-shadow .15s, transform .15s;
+  }
+  .category-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+  .category-card .cat-icon { font-size: 36px; margin-bottom: 14px; }
+  .category-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .category-card p { font-size: 14px; color: var(--sub); line-height: 1.6; }
+  .category-card .cat-meta { margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .category-card .cat-progress {
+    margin-top: 10px; height: 6px; background: #e8e8e0;
+    border-radius: 3px; overflow: hidden;
+  }
+  .category-card .cat-progress-bar { height: 100%; background: var(--accent); border-radius: 3px; }
+
+  /* ─── Course list (category page) ─── */
+  .breadcrumb { font-size: 14px; color: var(--muted); margin-bottom: 16px; cursor: pointer; }
+  .breadcrumb span { color: var(--accent); text-decoration: underline; }
+  .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .course-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden; cursor: pointer;
+    transition: box-shadow .15s, transform .15s;
+  }
+  .course-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+  .course-thumb {
+    height: 130px; background: #ddd;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; position: relative;
+  }
+  .course-thumb .badge {
+    position: absolute; top: 8px; right: 8px;
+    background: var(--success); color: #fff;
+    font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 700;
+  }
+  .course-thumb .badge.new { background: var(--accent); }
+  .course-body { padding: 16px; }
+  .course-body h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+  .course-body p { font-size: 13px; color: var(--sub); line-height: 1.6; }
+  .course-body .duration { margin-top: 10px; font-size: 12px; color: var(--muted); }
+
+  /* ─── Course detail ─── */
+  .detail-layout { display: grid; grid-template-columns: 1fr 340px; gap: 28px; }
+  .detail-main {}
+  .detail-video {
+    background: #222; border-radius: var(--radius);
+    height: 320px; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 24px; color: #fff; font-size: 48px;
+    flex-direction: column; gap: 12px;
+  }
+  .detail-video p { font-size: 16px; color: #aaa; }
+  .detail-title { font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+  .detail-desc { font-size: 15px; color: var(--sub); line-height: 1.8; margin-bottom: 20px; }
+  .detail-points { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+  .detail-points h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .detail-points ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .detail-points li { font-size: 14px; color: var(--sub); padding-left: 20px; position: relative; }
+  .detail-points li::before { content: "✓"; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+
+  .detail-sidebar {}
+  .detail-cta {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; margin-bottom: 20px; text-align: center;
+  }
+  .detail-cta .status-badge {
+    display: inline-block; padding: 6px 16px; border-radius: 20px;
+    font-size: 14px; font-weight: 700; margin-bottom: 16px;
+  }
+  .detail-cta .status-badge.completed { background: #d4f0dc; color: var(--success); }
+  .detail-cta .status-badge.not-started { background: #f0e8e4; color: var(--accent); }
+  .detail-cta button {
+    width: 100%; padding: 14px; border: none; border-radius: 8px;
+    font-size: 16px; font-weight: 700; cursor: pointer; font-family: var(--font);
+    background: var(--accent); color: #fff;
+  }
+  .detail-cta button:hover { opacity: .9; }
+  .detail-cta button.done { background: #2a8a4a; }
+  .detail-other { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+  .detail-other h4 { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .detail-other-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border); cursor: pointer;
+  }
+  .detail-other-item:last-child { border-bottom: none; }
+  .detail-other-item .mini-icon { font-size: 22px; width: 36px; text-align: center; }
+  .detail-other-item .mini-title { font-size: 14px; font-weight: 600; }
+  .detail-other-item .mini-sub { font-size: 12px; color: var(--muted); }
+  .detail-other-item .mini-check { margin-left: auto; font-size: 18px; }
+
+  /* ─── Dashboard ─── */
+  .dash-section-title { font-size: 19px; font-weight: 700; margin-bottom: 16px; margin-top: 32px; }
+  .dash-section-title:first-child { margin-top: 0; }
+  .matrix-wrap { overflow-x: auto; }
+  .matrix {
+    width: 100%; border-collapse: collapse; background: var(--card-bg);
+    border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+    font-size: 14px;
+  }
+  .matrix th {
+    background: #1a1a1a; color: #fff; padding: 12px 14px;
+    text-align: left; white-space: nowrap; font-weight: 600;
+  }
+  .matrix td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .matrix tr:last-child td { border-bottom: none; }
+  .matrix tr:hover td { background: #fafaf7; }
+  .matrix td.staff-name { font-weight: 700; white-space: nowrap; }
+  .cell-done {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; background: #d4f0dc;
+    border-radius: 6px; color: var(--success); font-size: 16px; font-weight: 700;
+  }
+  .cell-not {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; background: #f5f0ed;
+    border-radius: 6px; color: #bbb; font-size: 16px;
+  }
+  .matrix th.cat-header {
+    background: #2e2e2e; text-align: center; font-size: 13px; color: #ddd;
+    border-left: 2px solid #555;
+  }
+  .progress-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .progress-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 24px;
+  }
+  .progress-card .staff { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .progress-card .pct { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .progress-card .bar { margin-top: 10px; height: 8px; background: #e8e8e0; border-radius: 4px; overflow: hidden; }
+  .progress-card .bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+
+  /* ─── Utility ─── */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ミゾグチ・<span>ガーデンホテル</span> 研修ポータル</div>
+  <nav>
+    <button class="active" onclick="showPage('top')">ホーム</button>
+    <button onclick="showPage('dashboard')">ダッシュボード</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ─── TOP PAGE ─── -->
+  <div id="page-top">
+    <div class="page-title">研修カテゴリ</div>
+    <div class="page-sub">全3カテゴリ・9本の教材を用意しています。受講状況はダッシュボードで確認できます。</div>
+    <div class="category-grid">
+      <div class="category-card" onclick="showCategory(0)">
+        <div class="cat-icon">🛏️</div>
+        <h3>客室清掃の基本</h3>
+        <p>ベッドメイキングからバスルーム清掃、チェックアウト後の点検まで、ハウスキーピングの基本を学ぶ。</p>
+        <div class="cat-meta">教材 3本</div>
+        <div class="cat-progress"><div class="cat-progress-bar" style="width:33%"></div></div>
+      </div>
+      <div class="category-card" onclick="showCategory(1)">
+        <div class="cat-icon">🧼</div>
+        <h3>衛生管理・感染症対策</h3>
+        <p>正しい手洗い・消毒手順、リネン管理、ゴミ分別など、ホテルの衛生基準を実践的に習得する。</p>
+        <div class="cat-meta">教材 3本</div>
+        <div class="cat-progress"><div class="cat-progress-bar" style="width:67%"></div></div>
+      </div>
+      <div class="category-card" onclick="showCategory(2)">
+        <div class="cat-icon">⭐</div>
+        <h3>ハウスキーピング応用</h3>
+        <p>クレーム対応、多言語コミュニケーション、業務改善提案など、即戦力を目指す応用スキルを学ぶ。</p>
+        <div class="cat-meta">教材 3本</div>
+        <div class="cat-progress"><div class="cat-progress-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CATEGORY PAGE ─── -->
+  <div id="page-category" class="hidden">
+    <div class="breadcrumb" onclick="showPage('top')">← <span>ホーム</span></div>
+    <div class="page-title" id="cat-title"></div>
+    <div class="page-sub" id="cat-sub"></div>
+    <div class="course-grid" id="course-grid"></div>
+  </div>
+
+  <!-- ─── COURSE DETAIL PAGE ─── -->
+  <div id="page-detail" class="hidden">
+    <div class="breadcrumb" id="detail-breadcrumb"></div>
+    <div class="detail-layout">
+      <div class="detail-main">
+        <div class="detail-video">
+          <span>▶</span>
+          <p>動画プレースホルダー</p>
+        </div>
+        <div class="detail-title" id="detail-title"></div>
+        <div class="detail-desc" id="detail-desc"></div>
+        <div class="detail-points">
+          <h4>この教材で学ぶこと</h4>
+          <ul id="detail-points"></ul>
+        </div>
+      </div>
+      <div class="detail-sidebar">
+        <div class="detail-cta">
+          <div class="status-badge not-started" id="detail-status-badge">未受講</div>
+          <button id="detail-btn" onclick="toggleComplete()">受講を開始する</button>
+        </div>
+        <div class="detail-other">
+          <h4>このカテゴリの教材</h4>
+          <div id="detail-other-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── DASHBOARD PAGE ─── -->
+  <div id="page-dashboard" class="hidden">
+    <div class="page-title">受講ダッシュボード</div>
+    <div class="page-sub">スタッフ3名の受講状況を一覧で確認できます。</div>
+
+    <div class="progress-summary">
+      <div class="progress-card">
+        <div class="staff">田中 さくら</div>
+        <div class="pct" id="pct-tanaka">—</div>
+        <div class="bar"><div class="bar-fill" id="bar-tanaka" style="width:0%"></div></div>
+      </div>
+      <div class="progress-card">
+        <div class="staff">山田 けんじ</div>
+        <div class="pct" id="pct-yamada">—</div>
+        <div class="bar"><div class="bar-fill" id="bar-yamada" style="width:0%"></div></div>
+      </div>
+      <div class="progress-card">
+        <div class="staff">グエン ティ・マイ</div>
+        <div class="pct" id="pct-nguyen">—</div>
+        <div class="bar"><div class="bar-fill" id="bar-nguyen" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <div class="dash-section-title">受講状況マトリクス</div>
+    <div class="matrix-wrap">
+      <table class="matrix" id="matrix"></table>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ─── データ ───────────────────────────────────────────────
+const CATEGORIES = [
+  {
+    id: 0, icon: "🛏️",
+    name: "客室清掃の基本",
+    desc: "ハウスキーピングの基礎スキルを体系的に習得します。",
+    courses: [
+      {
+        id: "c0-0", icon: "🛏️", title: "ベッドメイキングの手順",
+        duration: "約12分",
+        desc: "シーツ・ピローケース・デュベカバーの正しい装着から、仕上げのしわ取りまでを映像で確認します。チェックリストと照らし合わせながら標準手順を身につけます。",
+        points: ["シーツの装着順と引っ張り方のポイント", "枕・デュベの仕上げ検査基準", "ダブル・ツインルームごとの対応差異", "所要時間の目安と効率化のコツ"],
+        completed: { tanaka: true, yamada: false, nguyen: false }
+      },
+      {
+        id: "c0-1", icon: "🚿", title: "バスルーム清掃の基本",
+        duration: "約15分",
+        desc: "洗面台・トイレ・浴槽・シャワーエリアの清掃順序と使用薬剤の選定基準を学びます。清掃漏れを防ぐチェックポイントも確認します。",
+        points: ["清掃順序（上から下・奥から手前）", "薬剤の種類と使い分け", "アメニティ補充の標準数量", "清掃後の目視チェック項目"],
+        completed: { tanaka: false, yamada: false, nguyen: false }
+      },
+      {
+        id: "c0-2", icon: "🔍", title: "チェックアウト後の点検方法",
+        duration: "約10分",
+        desc: "忘れ物・破損・追加消耗品の確認手順と、フロントへの報告ルールを学びます。点検表の記入方法と保管ルールも確認します。",
+        points: ["忘れ物の発見・保管・報告フロー", "備品破損の記録と報告手順", "消耗品在庫の補充基準", "清掃完了の報告タイミング"],
+        completed: { tanaka: false, yamada: true, nguyen: false }
+      }
+    ]
+  },
+  {
+    id: 1, icon: "🧼",
+    name: "衛生管理・感染症対策",
+    desc: "ホテルの衛生基準に沿った正しい手順と習慣を身につけます。",
+    courses: [
+      {
+        id: "c1-0", icon: "🖐️", title: "手洗い・消毒の正しい手順",
+        duration: "約8分",
+        desc: "WHOが推奨する6ステップの手洗い手順と、アルコール消毒の正しい使い方を映像で確認します。手洗いのタイミング一覧も習得します。",
+        points: ["6ステップ手洗い手順の実演", "アルコール消毒との使い分け基準", "手洗いが必要な作業タイミング一覧", "手荒れ予防とハンドケアの基本"],
+        completed: { tanaka: true, yamada: true, nguyen: true }
+      },
+      {
+        id: "c1-1", icon: "🧺", title: "リネン類の扱いと汚染防止",
+        duration: "約12分",
+        desc: "使用済みリネンの分類・搬送・洗濯フローを学びます。汚染リネンの隔離方法と感染防止のための個人防護装備（PPE）の着脱手順も確認します。",
+        points: ["使用済みリネンの分類と搬送ルート", "汚染リネンの隔離・ダブルバッグ手順", "PPEの正しい着脱順序", "洗濯後の品質チェック基準"],
+        completed: { tanaka: true, yamada: true, nguyen: false }
+      },
+      {
+        id: "c1-2", icon: "♻️", title: "ゴミ分別と廃棄物管理",
+        duration: "約9分",
+        desc: "館内のゴミ分類ルール（一般・資源・感染性廃棄物）と搬送経路を習得します。分別ミスの事例とその影響も紹介します。",
+        points: ["館内ゴミ4分類と識別ラベル", "感染性廃棄物（シャープ類）の専用容器", "搬送経路と保管エリアのルール", "分別ミスが起こりやすいケースと予防策"],
+        completed: { tanaka: false, yamada: true, nguyen: true }
+      }
+    ]
+  },
+  {
+    id: 2, icon: "⭐",
+    name: "ハウスキーピング応用",
+    desc: "現場で即戦力になるための応用スキルを習得します。",
+    courses: [
+      {
+        id: "c2-0", icon: "💬", title: "クレーム対応の基本",
+        duration: "約14分",
+        desc: "お客様からのクレームを受けた際の第一声・傾聴・解決策提示・フォローアップの流れを、ロールプレイ映像で学びます。",
+        points: ["クレーム受付時の第一声のポイント", "傾聴と謝罪の正しい姿勢", "解決できる範囲と上長エスカレーション基準", "クレーム記録と再発防止の報告フォーマット"],
+        completed: { tanaka: false, yamada: false, nguyen: false }
+      },
+      {
+        id: "c2-1", icon: "🌐", title: "多言語コミュニケーション入門",
+        duration: "約18分",
+        desc: "英語・中国語・ベトナム語での基本フレーズ（挨拶・依頼・謝罪）を学びます。翻訳アプリの活用方法と、言語ギャップが生じた際の対応手順も習得します。",
+        points: ["英語・中国語・ベトナム語の基本フレーズ30選", "翻訳アプリの活用シーンと注意点", "非言語コミュニケーション（ジェスチャー）の活用", "文化的背景を踏まえた接客マインド"],
+        completed: { tanaka: false, yamada: false, nguyen: false }
+      },
+      {
+        id: "c2-2", icon: "💡", title: "業務改善提案の出し方",
+        duration: "約11分",
+        desc: "日常業務で気づいた問題を上長に提案するための「気づきシート」の書き方と、チームミーティングでの発表方法を学びます。",
+        points: ["気づきシートの5項目（現状・問題・原因・提案・効果）", "数字を使った説得力のある提案方法", "チームミーティングでの発表の流れ", "実際に採用された改善提案の事例紹介"],
+        completed: { tanaka: false, yamada: false, nguyen: false }
+      }
+    ]
+  }
+];
+
+const STAFF = [
+  { key: "tanaka",  name: "田中 さくら" },
+  { key: "yamada",  name: "山田 けんじ" },
+  { key: "nguyen",  name: "グエン ティ・マイ" }
+];
+
+// ─── State ───────────────────────────────────────────────
+let currentPage = "top";
+let currentCatIdx = 0;
+let currentCourseIdx = 0;
+let currentStaff = "tanaka"; // viewing as
+
+// ─── Navigation ──────────────────────────────────────────
+function showPage(name) {
+  ["top","category","detail","dashboard"].forEach(p => {
+    document.getElementById("page-" + p).classList.toggle("hidden", p !== name);
+  });
+  document.querySelectorAll("header nav button").forEach(btn => btn.classList.remove("active"));
+  if (name === "top") document.querySelectorAll("header nav button")[0].classList.add("active");
+  if (name === "dashboard") document.querySelectorAll("header nav button")[1].classList.add("active");
+  currentPage = name;
+  if (name === "dashboard") renderDashboard();
+}
+
+function showCategory(catIdx) {
+  currentCatIdx = catIdx;
+  const cat = CATEGORIES[catIdx];
+  document.getElementById("cat-title").textContent = cat.name;
+  document.getElementById("cat-sub").textContent = cat.desc;
+  renderCourseGrid(cat);
+  showPage("category");
+}
+
+function showCourse(catIdx, courseIdx) {
+  currentCatIdx = catIdx;
+  currentCourseIdx = courseIdx;
+  const cat = CATEGORIES[catIdx];
+  const course = cat.courses[courseIdx];
+
+  // breadcrumb
+  document.getElementById("detail-breadcrumb").innerHTML =
+    `← <span onclick="showCategory(${catIdx})" style="color:var(--accent);text-decoration:underline;cursor:pointer;">
+      ${cat.name}</span>`;
+
+  document.getElementById("detail-title").textContent = course.title;
+  document.getElementById("detail-desc").textContent = course.desc;
+
+  const ul = document.getElementById("detail-points");
+  ul.innerHTML = course.points.map(p => `<li>${p}</li>`).join("");
+
+  const done = course.completed[currentStaff];
+  const badge = document.getElementById("detail-status-badge");
+  const btn = document.getElementById("detail-btn");
+  if (done) {
+    badge.textContent = "受講済み"; badge.className = "status-badge completed";
+    btn.textContent = "受講済みにする（取消）"; btn.className = "done";
+  } else {
+    badge.textContent = "未受講"; badge.className = "status-badge not-started";
+    btn.textContent = "受講済みにする"; btn.className = "";
+  }
+
+  // other courses in category
+  const list = document.getElementById("detail-other-list");
+  list.innerHTML = cat.courses.map((c, i) => {
+    const isDone = c.completed[currentStaff];
+    return `<div class="detail-other-item" onclick="showCourse(${catIdx},${i})">
+      <div class="mini-icon">${c.icon}</div>
+      <div><div class="mini-title">${c.title}</div><div class="mini-sub">${c.duration}</div></div>
+      <div class="mini-check">${isDone ? "✅" : "○"}</div>
+    </div>`;
+  }).join("");
+
+  showPage("detail");
+}
+
+function toggleComplete() {
+  const course = CATEGORIES[currentCatIdx].courses[currentCourseIdx];
+  course.completed[currentStaff] = !course.completed[currentStaff];
+  showCourse(currentCatIdx, currentCourseIdx);
+}
+
+// ─── Render helpers ───────────────────────────────────────
+function renderCourseGrid(cat) {
+  const grid = document.getElementById("course-grid");
+  grid.innerHTML = cat.courses.map((c, i) => {
+    const done = c.completed[currentStaff];
+    return `<div class="course-card" onclick="showCourse(${cat.id},${i})">
+      <div class="course-thumb" style="background:${thumbColor(cat.id)}">
+        ${c.icon}
+        ${done ? '<span class="badge">受講済</span>' : ''}
+      </div>
+      <div class="course-body">
+        <h4>${c.title}</h4>
+        <p>${c.desc.slice(0,60)}…</p>
+        <div class="duration">⏱ ${c.duration}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function thumbColor(catId) {
+  return ["#e8e0d4","#d4e8d4","#d4dce8"][catId] || "#ddd";
+}
+
+function renderDashboard() {
+  // summary cards
+  STAFF.forEach(s => {
+    const total = CATEGORIES.flatMap(c => c.courses).length;
+    const done = CATEGORIES.flatMap(c => c.courses).filter(c => c.completed[s.key]).length;
+    const pct = Math.round(done / total * 100);
+    document.getElementById("pct-" + s.key).textContent = pct + "%";
+    document.getElementById("bar-" + s.key).style.width = pct + "%";
+  });
+
+  // matrix
+  const allCourses = CATEGORIES.flatMap(c => c.courses);
+  const table = document.getElementById("matrix");
+
+  // header
+  let headerRow = `<tr><th style="min-width:100px;">スタッフ</th>`;
+  CATEGORIES.forEach(cat => {
+    cat.courses.forEach((c, i) => {
+      const label = i === 0 ? `<div style='font-size:11px;color:#aaa;margin-bottom:4px;'>${cat.name}</div>${c.title}` : c.title;
+      headerRow += `<th class="cat-header" style="${i===0?'border-left:2px solid #555':''}; white-space:nowrap; font-size:12px; min-width:120px;">${label}</th>`;
+    });
+  });
+  headerRow += "</tr>";
+
+  // rows
+  const bodyRows = STAFF.map(s => {
+    let row = `<tr><td class="staff-name">${s.name}</td>`;
+    CATEGORIES.forEach(cat => {
+      cat.courses.forEach((c, i) => {
+        const done = c.completed[s.key];
+        row += `<td style="text-align:center;${i===0?'border-left:2px solid #e0e0d8':''}">
+          ${done
+            ? '<span class="cell-done">✓</span>'
+            : '<span class="cell-not">—</span>'}
+        </td>`;
+      });
+    });
+    row += "</tr>";
+    return row;
+  }).join("");
+
+  table.innerHTML = `<thead>${headerRow}</thead><tbody>${bodyRows}</tbody>`;
+}
+</script>
+</body>
+</html>
