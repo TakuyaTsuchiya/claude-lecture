@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S4V2 【バックオフィス向け】勤怠突合チェックを自動化しよう</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1 style="font-size:68pt;">【バックオフィス向け】<br>勤怠突合チェックを<br>自動化しよう</h1>
+  </section>
+
+  <!-- 2: 課題 -->
+  <section class="slide">
+    <div class="eyebrow">BACKGROUND</div>
+    <h2 style="font-size:40pt;">月100件超の目視突合が毎月来る</h2>
+    <div class="rule"></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; margin-top:36px;">
+      <div>
+        <div style="font-size:28pt; font-weight:700; color:var(--color-accent);">01</div>
+        <div style="font-size:20pt; font-weight:700; margin:8px 0 6px;">申請件数が増え続ける</div>
+        <div style="font-size:18pt; color:var(--color-sub);">有給・残業・休日出勤の申請が積み上がり、月100件を超える会社も多い</div>
+      </div>
+      <div>
+        <div style="font-size:28pt; font-weight:700; color:var(--color-accent);">02</div>
+        <div style="font-size:20pt; font-weight:700; margin:8px 0 6px;">確認はすべて手作業</div>
+        <div style="font-size:18pt; color:var(--color-sub);">タイムカードと申請書を1件ずつ目視で照合する。月500分が吹き飛ぶ</div>
+      </div>
+      <div>
+        <div style="font-size:28pt; font-weight:700; color:var(--color-accent);">03</div>
+        <div style="font-size:20pt; font-weight:700; margin:8px 0 6px;">ミスが見えにくい</div>
+        <div style="font-size:18pt; color:var(--color-sub);">見落としは承認後に発覚する。差し戻しのコストが大きく、追跡も困難</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: ハイブリッド運用 -->
+  <section class="slide">
+    <div class="eyebrow">APPROACH</div>
+    <h2 style="font-size:40pt;">80%自動仕分け＋20%人間判断が現実解</h2>
+    <div class="rule"></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:36px;">
+      <div style="background:#f5f0ed; border-radius:12px; padding:28px 28px;">
+        <div style="font-size:22pt; font-weight:700; margin-bottom:12px; color:var(--color-accent);">AIが引き受ける</div>
+        <ul style="font-size:19pt; color:var(--color-sub); line-height:1.9; margin:0; padding-left:1.2em;">
+          <li>時間差・日付差・打刻有無のフラグ立て</li>
+          <li>全件の一次仕分け（承認可 / 要確認）</li>
+          <li>申請漏れ疑いの自動検出</li>
+        </ul>
+      </div>
+      <div style="background:#edf5ed; border-radius:12px; padding:28px 28px;">
+        <div style="font-size:22pt; font-weight:700; margin-bottom:12px; color:#2d7a3a;">人間が判断する</div>
+        <ul style="font-size:19pt; color:var(--color-sub); line-height:1.9; margin:0; padding-left:1.2em;">
+          <li>要確認の数件だけに集中</li>
+          <li>コンテキスト・例外の判断</li>
+          <li>最終承認印を押す</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:32px; font-size:22pt; font-weight:700; text-align:center; color:var(--color-text);">
+      目視突合 <span style="color:var(--color-accent);">500分</span> → AI一次チェック＋人間最終判定 <span style="color:#2d7a3a;">約30分</span>
+    </div>
+  </section>
+
+  <!-- 4: 今日のゴール -->
+  <section class="slide">
+    <div class="eyebrow">GOAL</div>
+    <h2 style="font-size:36pt;">2つのExcelからHTMLチェックレポートを作る</h2>
+    <div class="rule"></div>
+    <div style="display:grid; grid-template-columns:1fr 48px 1fr; align-items:center; gap:24px; margin-top:40px;">
+      <div style="background:#f3f4f6; border-radius:12px; padding:28px 24px;">
+        <div style="font-size:19pt; font-weight:700; margin-bottom:16px; color:var(--color-text);">入力</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:2;">
+          📊 timecard.xlsx<br>
+          <span style="font-size:15pt; margin-left:1em;">10名 × 2026年3月分</span><br>
+          📋 applications.xlsx<br>
+          <span style="font-size:15pt; margin-left:1em;">有給5・残業3・休日出勤2（計10件）</span>
+        </div>
+      </div>
+      <div style="font-size:32pt; text-align:center; color:var(--color-accent);">→</div>
+      <div style="background:#f0fdf4; border-radius:12px; padding:28px 24px; border:2px solid #bbf7d0;">
+        <div style="font-size:19pt; font-weight:700; margin-bottom:16px; color:#15803d;">出力</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:2;">
+          🌐 check-report.html<br>
+          <span style="font-size:16pt; margin-left:1em;">✅ 承認可 <strong style="color:#15803d;">8</strong>件</span><br>
+          <span style="font-size:16pt; margin-left:1em;">⚠️ 要確認 <strong style="color:#c2410c;">2</strong>件</span><br>
+          <span style="font-size:16pt; margin-left:1em;">🔍 申請漏れ疑い <strong style="color:#7c3aed;">1</strong>件</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: プロンプト（実演） -->
+  <section class="slide">
+    <div class="eyebrow">PROMPT</div>
+    <h2 style="font-size:36pt;">Claude Codeへの依頼文</h2>
+    <div class="rule"></div>
+    <pre style="font-family:var(--font-mono); font-size:18pt; line-height:1.7;
+                background:#1e1e2e; color:#cdd6f4; border-radius:10px;
+                padding:28px 32px; margin-top:28px; white-space:pre-wrap;
+                text-align:left;">demos/kintai-check/ にある
+timecard.xlsx（タイムカード：10名×2026年3月分）と
+applications.xlsx（勤怠申請：有給5件・残業3件・休日出勤2件）を突合して、
+申請ごとに ✅承認可 / ⚠️要確認 で仕分けした
+HTMLレポートを output/check-report.html として生成してください。
+非営業日に申請なしで打刻がある「申請漏れ疑い」も別枠で出してください。</pre>
+  </section>
+
+  <!-- 6: クロージング -->
+  <section class="slide">
+    <div class="eyebrow">CLOSING</div>
+    <h2 style="font-size:40pt;">構造化データの突合は<br>Claude Codeの得意パターン</h2>
+    <div class="rule"></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:36px;">
+      <div style="background:#f5f0ed; border-radius:10px; padding:24px 22px;">
+        <div style="font-size:19pt; font-weight:700; margin-bottom:10px;">今回やったこと</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+          Excel 2枚を渡すだけ<br>
+          差分を数値と根拠で指摘<br>
+          HTMLレポートとして出力
+        </div>
+      </div>
+      <div style="background:#edf5ed; border-radius:10px; padding:24px 22px;">
+        <div style="font-size:19pt; font-weight:700; margin-bottom:10px;">他の業務にも応用できる</div>
+        <div style="font-size:18pt; color:var(--color-sub); line-height:1.8;">
+          契約書 × 請求書の突合<br>
+          受注データ × 在庫の照合<br>
+          予算 × 実績の差異分析
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:36px; font-size:21pt; font-weight:700; text-align:center; color:var(--color-text);">
+      「何と何を突合して、どう仕分けしたいか」を伝えるだけ
+    </div>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script src="../styles/slide.js"></script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('a')) show(i + 1);
+  });
+</script>
+</body>
+</html>

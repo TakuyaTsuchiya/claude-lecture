@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>勤怠突合チェックレポート｜2026年3月度｜○△商事</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+         margin: 0; padding: 0; background: #f5f6fa; color: #1f2330; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  .hero { background: linear-gradient(135deg, #2d4e8c, #1a2f57); color: #fff;
+          padding: 36px 40px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+  .hero h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: .02em; }
+  .hero .sub { opacity: .85; font-size: 14px; }
+  .kpi-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+             margin-top: -22px; padding: 0 16px; position: relative; z-index: 2; }
+  .kpi { background: #fff; border-radius: 12px; padding: 18px 20px;
+         box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+  .kpi .label { font-size: 12px; color: #6b7280; margin-bottom: 6px; letter-spacing: .04em; }
+  .kpi .value { font-size: 30px; font-weight: 700; line-height: 1; }
+  .kpi.ok .value { color: #15803d; }
+  .kpi.warn .value { color: #c2410c; }
+  .kpi.miss .value { color: #7c3aed; }
+  .kpi.total .value { color: #1f2937; }
+  .section { background: #fff; border-radius: 12px; padding: 28px 32px; margin-top: 28px;
+             box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+  .section h2 { margin: 0 0 4px; font-size: 18px; color: #1f2937;
+                border-left: 4px solid #2d4e8c; padding-left: 12px; }
+  .hint { font-size: 13px; color: #6b7280; margin: 6px 0 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: #f3f4f6; color: #4b5563; text-align: left; padding: 10px 12px;
+        border-bottom: 2px solid #e5e7eb; font-weight: 600; }
+  td { padding: 12px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  .row-warn { background: #fffbeb; }
+  .row-warn td.cell-detail { color: #9a3412; }
+  .cell-id { font-family: "SF Mono", Menlo, monospace; font-size: 12px; color: #6b7280; }
+  .muted { color: #9ca3af; font-size: 11px; }
+  .badge { display: inline-block; padding: 4px 10px; border-radius: 999px;
+            font-size: 12px; font-weight: 600; letter-spacing: .02em; }
+  .badge-ok { background: #dcfce7; color: #15803d; }
+  .badge-warn { background: #ffedd5; color: #c2410c; }
+  .footer { text-align: center; color: #9ca3af; font-size: 12px; padding: 26px 0; }
+  .summary-note { background: #eff6ff; border-left: 4px solid #3b82f6;
+                   padding: 14px 18px; margin-top: 16px; border-radius: 6px;
+                   font-size: 13px; color: #1e3a8a; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>勤怠突合チェックレポート</h1>
+      <div class="sub">対象期間：2026年3月｜会社：○△商事（架空）｜対象申請：10件</div>
+    </div>
+
+    <div class="kpi-bar">
+      <div class="kpi total"><div class="label">申請総数</div><div class="value">10</div></div>
+      <div class="kpi ok"><div class="label">✅ 承認可</div><div class="value">8</div></div>
+      <div class="kpi warn"><div class="label">⚠️ 要確認</div><div class="value">2</div></div>
+      <div class="kpi miss"><div class="label">申請漏れ疑い</div><div class="value">1</div></div>
+    </div>
+
+    <section class="section">
+      <h2>申請明細（承認可・要確認の仕分け）</h2>
+      <p class="hint">申請10件それぞれに対し、タイムカード上の打刻と突合した結果を示しています。要確認は人間側で最終判定をお願いします。</p>
+      <table class="detail-table">
+        <thead>
+          <tr>
+            <th style="width:70px;">申請ID</th>
+            <th style="width:130px;">氏名</th>
+            <th style="width:90px;">種別</th>
+            <th style="width:140px;">対象日／範囲</th>
+            <th style="width:90px;">判定</th>
+            <th>差分根拠</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn">
+            <td class="cell-id">A001</td>
+            <td>田中 太郎<br><span class="muted">E001</span></td>
+            <td>有給休暇</td>
+            <td>2026-03-10<br><span class="muted">終日</span></td>
+            <td><span class="badge badge-warn">⚠️ 要確認</span></td>
+            <td class="cell-detail"><strong>有給申請日に出勤打刻あり</strong><br>有給申請（終日）に対し、09:00-18:00の打刻が残っています。有給を取り下げるか、実績を修正する必要があります。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A002</td>
+            <td>グエン ティ ハン<br><span class="muted">E003</span></td>
+            <td>有給休暇</td>
+            <td>2026-03-05<br><span class="muted">終日</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>打刻なし・整合</strong><br>有給申請の対象日に打刻はありません。申請内容どおりです。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A003</td>
+            <td>高橋 直樹<br><span class="muted">E006</span></td>
+            <td>有給休暇</td>
+            <td>2026-03-18<br><span class="muted">終日</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>打刻なし・整合</strong><br>有給申請の対象日に打刻はありません。申請内容どおりです。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A004</td>
+            <td>伊藤 翔<br><span class="muted">E008</span></td>
+            <td>有給休暇</td>
+            <td>2026-03-24<br><span class="muted">終日</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>打刻なし・整合</strong><br>有給申請の対象日に打刻はありません。申請内容どおりです。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A005</td>
+            <td>小林 大輔<br><span class="muted">E010</span></td>
+            <td>有給休暇</td>
+            <td>2026-03-27<br><span class="muted">終日</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>打刻なし・整合</strong><br>有給申請の対象日に打刻はありません。申請内容どおりです。</td>
+          </tr>
+          <tr class="row-warn">
+            <td class="cell-id">A006</td>
+            <td>山田 花子<br><span class="muted">E002</span></td>
+            <td>残業</td>
+            <td>2026-03-12<br><span class="muted">18:00〜20:00</span></td>
+            <td><span class="badge badge-warn">⚠️ 要確認</span></td>
+            <td class="cell-detail"><strong>残業時間の差異</strong><br>申請2時間00分 vs 実打刻超過0時間30分（差90分）。申請修正または打刻の補正が必要です。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A007</td>
+            <td>グエン ティ ハン<br><span class="muted">E003</span></td>
+            <td>残業</td>
+            <td>2026-03-11<br><span class="muted">18:00〜19:00</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>申請時間と実績が整合</strong><br>申請1時間00分 vs 実打刻超過1時間00分（差0分、許容内）。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A008</td>
+            <td>佐藤 健一<br><span class="muted">E004</span></td>
+            <td>残業</td>
+            <td>2026-03-17<br><span class="muted">18:00〜20:00</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>申請時間と実績が整合</strong><br>申請2時間00分 vs 実打刻超過1時間45分（差15分、許容内）。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A009</td>
+            <td>鈴木 美咲<br><span class="muted">E005</span></td>
+            <td>休日出勤</td>
+            <td>2026-03-21<br><span class="muted">09:00〜17:00</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>申請時刻と実打刻が整合</strong><br>申請09:00-17:00 vs 実打刻09:15-16:45（差±15分、許容内）。</td>
+          </tr>
+          <tr class="row-ok">
+            <td class="cell-id">A010</td>
+            <td>中村 優子<br><span class="muted">E009</span></td>
+            <td>休日出勤</td>
+            <td>2026-03-07<br><span class="muted">10:00〜15:00</span></td>
+            <td><span class="badge badge-ok">✅ 承認可</span></td>
+            <td class="cell-detail"><strong>申請時刻と実打刻が整合</strong><br>申請10:00-15:00 vs 実打刻10:00-15:00（差±0分、許容内）。</td>
+          </tr></tbody>
+      </table>
+    </section>
+    <section class="section">
+      <h2>申請漏れの疑い（打刻側から検出）</h2>
+      <p class="hint">非営業日（土日・祝日）に打刻があり、対応する休日出勤申請が見当たらない行です。</p>
+      <table class="detail-table">
+        <thead>
+          <tr><th>氏名</th><th>対象日</th><th>実打刻</th><th>検出内容</th></tr>
+        </thead>
+        <tbody>
+              <tr class="row-warn">
+                <td>渡辺 さくら<br><span class="muted">E007</span></td>
+                <td>2026-03-14（土）</td>
+                <td>09:00〜14:00</td>
+                <td><strong>休日出勤申請なしで打刻あり</strong><br>非営業日の打刻に対して申請が見当たりません。本人と上長に事後申請の要否を確認してください。</td>
+              </tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>運用メモ</h2>
+      <div class="summary-note">
+        <strong>100%自動化は幻想。80%自動仕分け＋20%人間判定が現実解。</strong><br>
+        AIは時間差・日付差・打刻有無のフラグ立てを引き受け、最終承認印は人間が押す運用を推奨します。
+        月100件×5分＝500分の目視突合を、要確認数件×6分＝約30分に圧縮できる想定です。
+      </div>
+    </section>
+
+    <div class="footer">
+      Generated by Claude Code｜データはすべて架空、機微情報（マイナンバー・住所・生年月日）は題材から除外済み
+    </div>
+  </div>
+</body>
+</html>
