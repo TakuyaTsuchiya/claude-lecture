@@ -16,7 +16,7 @@ S5はClaude Codeでアプリの開発を行います。
 
 ## [P2] GitHubはコードのクラウド保管庫
 
-今日はGitHubのアカウントを作り、GitHubとClaude Codeをつなぎ、ローカルで作ってリポジトリを送信してリモートのGitHubと同期する練習をします。一度やってしまえば、次からは「push して」と頼むだけで、Claude Codeがすべて実行してくれます。
+今日はGitHubのアカウントを作り、GitHubとClaude Codeをつなぎ、ローカルで作ったリポジトリを送信してリモートのGitHubと同期する練習をします。一度やってしまえば、次からは「push して」と頼むだけで、Claude Codeがすべて実行してくれます。
 
 ---
 
