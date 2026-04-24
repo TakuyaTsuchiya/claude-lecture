@@ -94,8 +94,6 @@ spec.mdも画面構成とCRUD操作が書かれていて、このまま実装に
 
 続いて、GitHubへのプッシュもClaude Codeに頼みます。
 
-（念のためターミナルで `gh auth status` を実行し、push先のアカウントが想定通りか確認。違う場合は `gh auth switch` で切り替え）
-
 > 実装が終わりましたので、GitHubにpushしてください。
 
 （Claude Codeがpushを実行）
