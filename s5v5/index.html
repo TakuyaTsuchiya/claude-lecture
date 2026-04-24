@@ -12,80 +12,106 @@
 
   <!-- 1: Cover -->
   <section class="slide cover active">
-    <h1>経費管理アプリの<br>フロントエンドを<br>作ろう</h1>
+    <h1 style="font-size:72pt;">経費管理アプリの<br>フロントエンドを作ろう</h1>
   </section>
 
   <!-- 2: 今日やること -->
   <section class="slide">
     <div class="eyebrow">TODAY'S GOAL</div>
-    <h2>スペック駆動で<br>アプリ開発を体験する</h2>
+    <h2>アプリのスペック駆動開発を体験する</h2>
     <div class="rule"></div>
-    <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1000px; margin:40px auto 0; color:var(--color-text);">
-      <li>アプリ開発用のCLAUDE.mdを書く</li>
-      <li>spec.md（仕様書）を書いて、画面と機能を決める</li>
-      <li>Claude Codeと協働でアプリを組み上げる</li>
+    <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1100px; margin:40px auto 0; color:var(--color-text);">
+      <li><strong style="color:var(--color-accent);">設計</strong>　CLAUDE.mdとspec.mdをClaude Codeで生成する</li>
+      <li><strong style="color:var(--color-accent);">開発</strong>　CLAUDE.mdとspec.mdを元に経費管理アプリを生成する</li>
     </ol>
   </section>
 
-  <!-- 3: WHY — 月額SaaSの仕組みを学ぶ -->
+  <!-- 3: BUT WHY — SaaS機能の核 -->
   <section class="slide">
-    <div class="eyebrow">WHY</div>
-    <h2>月額SaaSの仕組みを<br>自作して学ぶ</h2>
+    <div class="eyebrow">BUT WHY DO WE MAKE APP FOR?</div>
+    <h2>SaaS機能の核<br>データのCRUDを学ぶ</h2>
     <div class="rule"></div>
     <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:32px; width:100%; max-width:1200px;">
-      <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:32px 24px; background:#fafafa; text-align:center;">
+      <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:32px 18px; background:#fafafa; text-align:center;">
         <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">経費管理SaaS</div>
-        <div style="font-size:28pt; line-height:1.6; color:var(--color-text); font-weight:500;">月額数千円〜</div>
+        <div style="font-size:20pt; line-height:1.7; color:var(--color-text); font-weight:500;">機能の核はCRUD<br>（Create, Read, Update, Delete）<br>＝作成、読み取り、更新、削除</div>
       </div>
       <div style="display:flex; align-items:center; justify-content:center; min-width:80px;">
         <div style="font-size:52pt; color:var(--color-accent); font-weight:700;">→</div>
       </div>
-      <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:32px 24px; background:#fafafa; text-align:center;">
-        <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">自作アプリ</div>
-        <div style="font-size:28pt; line-height:1.6; color:var(--color-text); font-weight:500;">1時間で<br>動くものが完成</div>
+      <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:32px 18px; background:#fafafa; text-align:center;">
+        <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">Claude Codeデモ</div>
+        <div style="font-size:22pt; line-height:1.6; color:var(--color-text); font-weight:500;">手元で動くものを作り、<br>機能と仕組みを理解する</div>
       </div>
-    </div>
-    <div style="margin-top:28px; font-size:20pt; color:var(--color-sub); text-align:center;">
-      機能の核はCRUD（Create, Read, Update, Delete）。
     </div>
   </section>
 
-  <!-- 4: アプリ開発用 CLAUDE.md -->
+  <!-- 4: CLAUDE.md の基本7項目 -->
   <section class="slide">
     <div class="eyebrow">CLAUDE.md</div>
-    <h2>アプリ開発用CLAUDE.mdに書くこと</h2>
+    <h2>基本の7項目<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">用途に合わせて改変する</span></h2>
     <div class="rule"></div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px 40px; max-width:1200px; margin:32px auto 0; text-align:left; font-size:22pt; line-height:1.5;">
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <div style="min-width:32px; height:32px; border-radius:6px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">1</div>
-        <div><strong>技術スタック</strong><br><span style="font-size:18pt; color:var(--color-sub);">HTML / JS / Tailwind CDN</span></div>
+    <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:10px; max-width:1240px; margin:32px auto 0; text-align:center;">
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">1</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">技術<br>スタック</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">どの言語・<br>ライブラリ</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）HTML,<br>Next.js</div>
       </div>
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <div style="min-width:32px; height:32px; border-radius:6px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">2</div>
-        <div><strong>ディレクトリ構成</strong><br><span style="font-size:18pt; color:var(--color-sub);">どのファイルに何を書くか</span></div>
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">2</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">ファイル<br>構成</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">どこに<br>何を書くか</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）index.html<br>app.js</div>
       </div>
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <div style="min-width:32px; height:32px; border-radius:6px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">3</div>
-        <div><strong>コーディング規約</strong><br><span style="font-size:18pt; color:var(--color-sub);">命名・関数の長さ・ID規約</span></div>
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">3</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">コード<br>規約</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">命名・<br>長さのルール</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）1関数<br>50行以内</div>
       </div>
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <div style="min-width:32px; height:32px; border-radius:6px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">4</div>
-        <div><strong>データ構造</strong><br><span style="font-size:18pt; color:var(--color-sub);">何を持つオブジェクトか</span></div>
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">4</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">データの<br>形</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">何を保存するか<br>何を扱うか</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）金額・日付<br>費目・用途</div>
       </div>
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <div style="min-width:32px; height:32px; border-radius:6px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">5</div>
-        <div><strong>デザイン規約</strong><br><span style="font-size:18pt; color:var(--color-sub);">配色・レイアウト・角丸</span></div>
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">5</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">デザイン<br>ルール</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">色・余白・<br>レイアウト</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）白基調・<br>角丸8px</div>
       </div>
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <div style="min-width:32px; height:32px; border-radius:6px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">6</div>
-        <div><strong>やってはいけないこと</strong><br><span style="font-size:18pt; color:var(--color-sub);">npm禁止・外部API禁止 等</span></div>
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">6</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">禁止<br>事項</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">やらないことを<br>先に決める</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）npm禁止<br>外部API禁止</div>
+      </div>
+      <div>
+        <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:8px; background:var(--color-accent-soft); color:var(--color-accent); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:18pt;">7</div>
+        <div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:8px;">作業<br>フロー</div>
+        <div style="font-size:14pt; color:var(--color-sub); line-height:1.5;">実装〜確認の<br>進め方</div>
+        <div style="margin-top:8px; font-size:13pt; color:var(--color-accent); line-height:1.4;">例）動作確認<br>→ push</div>
       </div>
     </div>
   </section>
 
-  <!-- 5: PROMPT -->
+  <!-- 5: PROMPT ① — DESIGN -->
   <section class="slide">
-    <div class="eyebrow">PROMPT</div>
+    <div class="eyebrow">PROMPT ① — CLAUDE.md/spec.md 生成プロンプト（一部）</div>
+    <pre style="font-family:var(--font-mono); font-size:20pt; line-height:1.7; text-align:left; background:#f7f7f7; padding:36px 44px; border-radius:8px; max-width:1200px; white-space:pre-wrap; color:var(--color-text);">経費管理アプリを作ります。
+いきなり実装せず、
+CLAUDE.md と spec.md を先に書いてください。
+
+画面：左に一覧、右に詳細のツーカラム
+保存：ブラウザの localStorage
+技術：HTML + JS + Tailwind CDN のみ</pre>
+  </section>
+
+  <!-- 6: PROMPT ② — BUILD -->
+  <section class="slide">
+    <div class="eyebrow">PROMPT ② — アプリをビルドするプロンプト</div>
     <pre style="font-family:var(--font-mono); font-size:22pt; line-height:1.8; text-align:left; background:#f7f7f7; padding:40px 48px; border-radius:8px; max-width:1200px; white-space:pre-wrap; color:var(--color-text);">CLAUDE.md と spec.md を読んで、
 経費管理アプリを実装してください。
 
@@ -96,9 +122,20 @@ index.html / app.js / styles.css の
 実装が終わったらGitHubにプッシュしてください。</pre>
   </section>
 
-  <!-- 6: Closing -->
-  <section class="slide cover">
-    <h1>SaaSのフロント、<br>完成しました</h1>
+  <!-- 7: TEMPLATE — CLAUDE.mdの基本の形 -->
+  <section class="slide">
+    <div class="eyebrow">TEMPLATE</div>
+    <h2>CLAUDE.mdの基本の形</h2>
+    <div class="rule"></div>
+    <pre style="font-family:var(--font-mono); font-size:18pt; line-height:1.8; text-align:left; background:#f7f7f7; padding:32px 44px; border-radius:8px; max-width:1100px; margin:24px auto 0; white-space:pre-wrap; color:var(--color-text);"># プロジェクト名 — 　例）超重要プロジェクト
+
+## 技術スタック — 言語・フレームワーク・主要ライブラリ
+## ファイル構成 — ディレクトリと主要ファイルの役割
+## コード規約 — 関数の長さ・命名・禁止する書き方
+## データの形 — 扱うデータ項目と保存先
+## デザインルール — 配色・余白・角丸・フォント
+## 禁止事項 — やらないことを先に明記
+## 作業フロー — 変更前 → 実装 → 動作確認</pre>
   </section>
 
 </div>
