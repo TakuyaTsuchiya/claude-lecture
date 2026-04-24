@@ -12,18 +12,17 @@
 
   <!-- 1: Cover -->
   <section class="slide cover active">
-    <h1>名刺管理アプリの<br>フロントエンドを<br>作ろう</h1>
+    <h1 style="font-size:72pt;">名刺管理アプリの<br>フロントエンドを作ろう</h1>
   </section>
 
   <!-- 2: 今日やること -->
   <section class="slide">
     <div class="eyebrow">TODAY'S GOAL</div>
-    <h2>スペック駆動で<br>アプリ開発を体験する</h2>
+    <h2>アプリのスペック駆動開発を体験する</h2>
     <div class="rule"></div>
-    <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1000px; margin:40px auto 0; color:var(--color-text);">
-      <li>アプリ開発用のCLAUDE.mdを書く</li>
-      <li>spec.md（仕様書）を書いて、画面と機能を決める</li>
-      <li>Claude Codeと協働でアプリを組み上げる</li>
+    <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1100px; margin:40px auto 0; color:var(--color-text);">
+      <li><strong style="color:var(--color-accent);">設計</strong>　CLAUDE.mdとspec.mdをClaude Codeで生成する</li>
+      <li><strong style="color:var(--color-accent);">開発</strong>　CLAUDE.mdとspec.mdを元に名刺管理アプリを生成する</li>
     </ol>
   </section>
 
@@ -50,7 +49,7 @@
   <!-- 4: CLAUDE.md の基本7項目 -->
   <section class="slide">
     <div class="eyebrow">CLAUDE.md</div>
-    <h2>基本の7項目<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">用途に合わせて取捨選択する</span></h2>
+    <h2>基本の7項目<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">用途に合わせて改変する</span></h2>
     <div class="rule"></div>
     <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:10px; max-width:1240px; margin:32px auto 0; text-align:center;">
       <div>
@@ -100,7 +99,7 @@
 
   <!-- 5: PROMPT ① — DESIGN -->
   <section class="slide">
-    <div class="eyebrow">PROMPT ① — DESIGN</div>
+    <div class="eyebrow">PROMPT ① — CLAUDE.mdとspec.mdを生成するプロンプト</div>
     <pre style="font-family:var(--font-mono); font-size:20pt; line-height:1.7; text-align:left; background:#f7f7f7; padding:36px 44px; border-radius:8px; max-width:1200px; white-space:pre-wrap; color:var(--color-text);">名刺管理アプリを作ります。
 いきなり実装せず、
 CLAUDE.md と spec.md を先に書いてください。
@@ -112,7 +111,7 @@ CLAUDE.md と spec.md を先に書いてください。
 
   <!-- 6: PROMPT ② — BUILD -->
   <section class="slide">
-    <div class="eyebrow">PROMPT ② — BUILD</div>
+    <div class="eyebrow">PROMPT ② — アプリをビルドするプロンプト</div>
     <pre style="font-family:var(--font-mono); font-size:22pt; line-height:1.8; text-align:left; background:#f7f7f7; padding:40px 48px; border-radius:8px; max-width:1200px; white-space:pre-wrap; color:var(--color-text);">CLAUDE.md と spec.md を読んで、
 名刺管理アプリを実装してください。
 
