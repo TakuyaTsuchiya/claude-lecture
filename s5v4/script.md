@@ -92,11 +92,17 @@ spec.mdも画面構成とCRUD操作が書かれていて、このまま実装に
 
 続いて、GitHubへのプッシュもClaude Codeに頼みます。
 
+（念のためターミナルで `gh auth status` を実行し、push先のアカウントが想定通りか確認。違う場合は `gh auth switch` で切り替え）
+
 > 実装が終わりましたので、GitHubにpushしてください。
 
 （Claude Codeがpushを実行）
 
-GitHubへプッシュすると、Vercelで自動デプロイが走り、URLが発行されます。
+リポジトリができましたので、S5V2でやったのと同じ手順で、このリポジトリをVercelに連携します。
+
+（Vercelダッシュボード → Add New → Project → 今作ったリポジトリを選択 → Import → Deploy）
+
+ビルドが終わるとURLが発行されます。一度Importしてしまえば、次からはpushだけで自動デプロイされます。
 
 （発行されたURLを開く）
 
