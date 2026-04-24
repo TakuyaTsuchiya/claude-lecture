@@ -1,0 +1,12 @@
+body {
+  font-family: "游ゴシック", "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
