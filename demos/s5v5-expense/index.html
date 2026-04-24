@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>経費管理</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-stone-50 text-stone-900 min-h-screen">
+
+<div class="max-w-6xl mx-auto px-6 py-10">
+
+  <header class="mb-8 flex items-center gap-3">
+    <div class="w-2 h-8 rounded" style="background:#c15f3c"></div>
+    <h1 class="text-2xl font-bold">経費管理</h1>
+  </header>
+
+  <!-- ツーカラム本体 -->
+  <div class="grid grid-cols-[380px_1fr] gap-6">
+
+    <!-- 左ペイン: 一覧 -->
+    <aside class="flex flex-col gap-3">
+      <!-- サマリ -->
+      <div class="bg-white rounded-lg border border-stone-200 px-4 py-3 flex items-end justify-between">
+        <div>
+          <div class="text-xs text-stone-500">合計</div>
+          <div id="sum-total" class="text-xl font-bold">¥0</div>
+        </div>
+        <div class="text-right text-xs">
+          <div class="text-stone-500">申請中 <span id="sum-pending" class="text-stone-900 font-semibold">0</span> 件</div>
+          <div class="text-stone-500">精算済 <span id="sum-settled" class="text-stone-900 font-semibold">0</span> 件</div>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        id="search-input"
+        placeholder="メモ・カテゴリで検索"
+        class="w-full px-4 py-3 rounded-lg border border-stone-200 bg-white focus:outline-none focus:border-stone-400 text-sm"
+      >
+      <button id="btn-new" class="w-full px-4 py-3 rounded-lg text-white font-semibold text-sm" style="background:#c15f3c">
+        ＋ 新規登録
+      </button>
+      <div id="card-list" class="flex flex-col gap-2 overflow-y-auto" style="max-height:65vh"></div>
+      <div id="empty-list" class="hidden text-center py-8 text-stone-500 text-sm">
+        該当する経費はありません
+      </div>
+    </aside>
+
+    <!-- 右ペイン: 空/詳細/フォーム -->
+    <main class="bg-white rounded-lg border border-stone-200 min-h-[520px] p-8">
+
+      <!-- モード1: 空状態 -->
+      <section id="pane-empty" class="pane h-full flex items-center justify-center text-stone-400 text-sm">
+        左から経費を選んでください
+      </section>
+
+      <!-- モード2: 詳細 -->
+      <section id="pane-detail" class="pane hidden">
+        <div class="flex justify-end gap-2 mb-6">
+          <button id="btn-edit" class="px-4 py-2 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-sm">編集</button>
+          <button id="btn-delete" class="px-4 py-2 rounded-lg border border-red-200 text-red-600 bg-white hover:bg-red-50 text-sm">削除</button>
+        </div>
+        <div class="flex gap-4 items-start mb-8">
+          <div class="w-1 h-16 rounded" style="background:#c15f3c"></div>
+          <div class="flex-1">
+            <div id="d-amount" class="text-3xl font-bold mb-1"></div>
+            <div class="flex items-center gap-3">
+              <span id="d-category" class="text-stone-700"></span>
+              <span class="text-stone-300">•</span>
+              <span id="d-date" class="text-stone-500 text-sm"></span>
+              <span id="d-status" class="ml-2"></span>
+            </div>
+          </div>
+        </div>
+        <dl class="grid grid-cols-[100px_1fr] gap-y-3 gap-x-4 text-sm mb-6">
+          <dt class="text-stone-500">メモ</dt>
+          <dd id="d-memo" class="whitespace-pre-wrap"></dd>
+          <dt class="text-stone-500">登録日時</dt>
+          <dd id="d-created" class="text-stone-500"></dd>
+        </dl>
+        <div class="pt-4 border-t border-stone-100">
+          <button id="btn-toggle-status" class="px-4 py-2 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-sm"></button>
+        </div>
+      </section>
+
+      <!-- モード3: フォーム -->
+      <section id="pane-form" class="pane hidden">
+        <div class="flex items-center justify-between mb-6">
+          <h2 id="form-title" class="text-lg font-semibold"></h2>
+          <button id="btn-cancel" class="text-stone-600 hover:text-stone-900 text-sm">キャンセル</button>
+        </div>
+        <form id="form" class="space-y-5">
+          <div class="grid grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-semibold mb-2">日付 <span class="text-red-500">*</span></label>
+              <input type="date" name="date" required class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:outline-none focus:border-stone-400">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">カテゴリ <span class="text-red-500">*</span></label>
+              <select name="category" required class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:outline-none focus:border-stone-400 bg-white">
+                <option value="交通費">交通費</option>
+                <option value="会議費">会議費</option>
+                <option value="接待費">接待費</option>
+                <option value="消耗品">消耗品</option>
+                <option value="通信費">通信費</option>
+                <option value="その他">その他</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">金額 <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-500">¥</span>
+              <input type="number" name="amount" required min="1" step="1" placeholder="1280" class="w-full pl-8 pr-4 py-3 rounded-lg border border-stone-200 focus:outline-none focus:border-stone-400">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">メモ</label>
+            <textarea name="memo" rows="4" placeholder="用途や訪問先など" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:outline-none focus:border-stone-400 resize-none"></textarea>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="w-full py-3 rounded-lg text-white font-semibold" style="background:#c15f3c">保存</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
