@@ -28,7 +28,7 @@ Table Editorでデータベースを作り、Authenticationでログイン等の
 
 ## 【実演パート】アカウント作成 → プロジェクト作成 → 管理画面ツアー
 
-（ブラウザでこちらのページを開く）
+（ブラウザで https://supabase.com/ を開く）
 
 Supabaseの公式サイトにアクセスし、右上のStart your projectをクリックします。GitHubのアカウントを既に持っているので、Continue with GitHubを選びます。権限の確認画面が出たらAuthorizeを押してください。
 
