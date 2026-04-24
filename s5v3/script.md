@@ -30,7 +30,7 @@ Table Editorでデータベースを作り、Authenticationでログイン等の
 
 （ブラウザで https://supabase.com/ を開く）
 
-Supabaseの公式サイトにアクセスし、右上のStart your projectをクリックします。GitHubのアカウントを既に持っているので、Continue with GitHubを選びます。権限の確認画面が出たらAuthorizeを押してください。
+Supabaseの公式サイトにアクセスし、Start your projectをクリックします。Continue with GitHubを選びます。権限の確認画面が出たらAuthorizeを押してください。
 
 （ダッシュボードに入る）
 
