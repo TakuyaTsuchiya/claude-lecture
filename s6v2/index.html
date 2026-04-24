@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S6V2 経費管理アプリにDB接続して永続化しよう</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1 style="font-size:64pt;">経費管理アプリに<br>DB接続して永続化しよう</h1>
+  </section>
+
+  <!-- 2: TODAY'S GOAL -->
+  <section class="slide">
+    <div class="eyebrow">TODAY'S GOAL</div>
+    <h2>SQLで集計する力を知る</h2>
+    <div class="rule"></div>
+    <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1100px; margin:40px auto 0; color:var(--color-text);">
+      <li><strong style="color:var(--color-accent);">Supabase接続</strong>　localStorageをSupabaseに置き換える</li>
+      <li><strong style="color:var(--color-accent);">SQL集計</strong>　カテゴリ別の合計を1行のSQLで出す</li>
+    </ol>
+  </section>
+
+  <!-- 3: WHY — SQL集計の価値 -->
+  <section class="slide">
+    <div class="eyebrow">BUT WHY SQL?</div>
+    <h2>Excelのピボットテーブル<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">それがSQLでは1行で書ける</span></h2>
+    <div class="rule"></div>
+    <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:32px; width:100%; max-width:1200px;">
+      <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:32px 22px; background:#fafafa; text-align:center;">
+        <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">Excel</div>
+        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">ピボットテーブル</div>
+        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">毎回ドラッグで<br>項目を並べる</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; min-width:80px;">
+        <div style="font-size:52pt; color:var(--color-accent); font-weight:700;">→</div>
+      </div>
+      <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:32px 22px; background:#fafafa; text-align:center;">
+        <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">SQL</div>
+        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">GROUP BY 1行</div>
+        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">何度でも再実行<br>コードで残せる</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4: HOW — GROUP BYのイメージ -->
+  <section class="slide">
+    <div class="eyebrow">HOW</div>
+    <h2>GROUP BY のしくみ</h2>
+    <div class="rule"></div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:20px; max-width:1240px; margin:28px auto 0;">
+      <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:20px; background:#fafafa;">
+        <div style="font-size:15pt; color:var(--color-sub); letter-spacing:0.15em; font-weight:700; margin-bottom:12px; text-align:center;">expenses テーブル</div>
+        <table style="width:100%; font-size:14pt; border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--color-line);">
+              <th style="padding:6px; text-align:left; font-weight:700;">category</th>
+              <th style="padding:6px; text-align:right; font-weight:700;">amount</th>
+            </tr>
+          </thead>
+          <tbody style="color:var(--color-text);">
+            <tr><td style="padding:4px 6px;">交通費</td><td style="padding:4px 6px; text-align:right;">1,280</td></tr>
+            <tr><td style="padding:4px 6px;">会議費</td><td style="padding:4px 6px; text-align:right;">4,500</td></tr>
+            <tr><td style="padding:4px 6px;">交通費</td><td style="padding:4px 6px; text-align:right;">820</td></tr>
+            <tr><td style="padding:4px 6px;">接待費</td><td style="padding:4px 6px; text-align:right;">18,600</td></tr>
+            <tr><td style="padding:4px 6px;">会議費</td><td style="padding:4px 6px; text-align:right;">2,200</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:36pt; color:var(--color-accent); font-weight:700;">→</div>
+      <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:20px; background:#fafafa;">
+        <div style="font-size:15pt; color:var(--color-accent); letter-spacing:0.15em; font-weight:700; margin-bottom:12px; text-align:center;">GROUP BY category</div>
+        <table style="width:100%; font-size:15pt; border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--color-line);">
+              <th style="padding:6px; text-align:left; font-weight:700;">category</th>
+              <th style="padding:6px; text-align:right; font-weight:700;">SUM(amount)</th>
+            </tr>
+          </thead>
+          <tbody style="color:var(--color-text);">
+            <tr><td style="padding:6px;">交通費</td><td style="padding:6px; text-align:right;">2,100</td></tr>
+            <tr><td style="padding:6px;">会議費</td><td style="padding:6px; text-align:right;">6,700</td></tr>
+            <tr><td style="padding:6px;">接待費</td><td style="padding:6px; text-align:right;">18,600</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <pre style="font-family:var(--font-mono); font-size:16pt; line-height:1.5; text-align:left; background:#f7f7f7; padding:18px 28px; border-radius:8px; max-width:800px; margin:24px auto 0; color:var(--color-text);">SELECT category, SUM(amount)
+FROM expenses
+GROUP BY category;</pre>
+  </section>
+
+  <!-- 5: TEMPLATE — 集計パターン3つ -->
+  <section class="slide">
+    <div class="eyebrow">TEMPLATE</div>
+    <h2>集計の基本3パターン</h2>
+    <div class="rule"></div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; max-width:1240px; margin:28px auto 0;">
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:22px 18px; background:#fafafa;">
+        <div style="font-size:22pt; font-weight:700; color:var(--color-accent); margin-bottom:10px; text-align:center;">SUM</div>
+        <div style="font-size:16pt; color:var(--color-text); text-align:center; line-height:1.5; font-weight:500;">合計</div>
+        <div style="margin-top:8px; font-size:14pt; color:var(--color-sub); text-align:center; line-height:1.5;">カテゴリ別の<br>金額合計</div>
+      </div>
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:22px 18px; background:#fafafa;">
+        <div style="font-size:22pt; font-weight:700; color:var(--color-accent); margin-bottom:10px; text-align:center;">COUNT</div>
+        <div style="font-size:16pt; color:var(--color-text); text-align:center; line-height:1.5; font-weight:500;">件数</div>
+        <div style="margin-top:8px; font-size:14pt; color:var(--color-sub); text-align:center; line-height:1.5;">ステータス別の<br>申請件数</div>
+      </div>
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:22px 18px; background:#fafafa;">
+        <div style="font-size:22pt; font-weight:700; color:var(--color-accent); margin-bottom:10px; text-align:center;">AVG</div>
+        <div style="font-size:16pt; color:var(--color-text); text-align:center; line-height:1.5; font-weight:500;">平均</div>
+        <div style="margin-top:8px; font-size:14pt; color:var(--color-sub); text-align:center; line-height:1.5;">月ごとの<br>平均金額</div>
+      </div>
+    </div>
+    <pre style="font-family:var(--font-mono); font-size:16pt; line-height:1.7; text-align:left; background:#f7f7f7; padding:22px 34px; border-radius:8px; max-width:1000px; margin:26px auto 0; color:var(--color-text);">SELECT category, SUM(amount) FROM expenses GROUP BY category;
+SELECT status, COUNT(*)     FROM expenses GROUP BY status;
+SELECT date, AVG(amount)    FROM expenses GROUP BY date;</pre>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script src="../styles/slide.js"></script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', () => show(i + 1));
+</script>
+
+</body>
+</html>
