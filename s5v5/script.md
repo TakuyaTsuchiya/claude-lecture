@@ -41,7 +41,7 @@ spec.mdにはアプリの画面構成、CRUD操作フロー、データ項目、
 
 （Claude Codeにプロンプトを投入。CLAUDE.mdとspec.mdが生成されていく）
 
-（生成されたCLAUDE.mdとspec.mdを画面で確認）
+CLAUDE.mdとspec.mdが完成しました。
 
 続いて、先ほど作った2枚のドキュメントをもとに、実装を依頼します。
 
@@ -56,9 +56,17 @@ spec.mdにはアプリの画面構成、CRUD操作フロー、データ項目、
 
 アプリの詳細は全部CLAUDE.mdとspec.mdに書いてあるので、ここでは「実装して」と頼むだけで済みます。
 
-(Claude Codeにプロンプトを投入。実装とGitHubへのpushまで一気に進む)
+(Claude Codeにプロンプトを投入)
 
-pushが終わったら、S5V2でやったのと同じ手順で、このリポジトリをVercelに連携します。
+実装がスタートしました。
+
+（実装が進み、アプリ完成 → GitHubへpushが進行）
+
+アプリが完成しまして、その後にGitHubへプッシュしております。
+
+GitHubへのプッシュが完了しました。この後はVercelに登録します。
+
+pushが終わったら、以前と同じ手順で、このリポジトリをVercelに連携します。
 
 Vercelダッシュボード → Add New → Project → 今作ったリポジトリを選択 → Import → Deploy。
 

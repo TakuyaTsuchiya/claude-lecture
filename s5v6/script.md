@@ -66,7 +66,7 @@ spec.mdにはアプリの画面構成、CRUD操作フロー、データ項目、
 
 (Claude Codeにプロンプトを投入。実装とGitHubへのpushまで一気に進む)
 
-実装が終わったら、以前と同じ手順で、このリポジトリをVercelに連携します。
+pushが終わったら、以前と同じ手順で、このリポジトリをVercelに連携します。
 
 Vercelダッシュボード → Add New → Project → 今作ったリポジトリを選択 → Import → Deploy。
 
