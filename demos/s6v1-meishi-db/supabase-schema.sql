@@ -15,9 +15,16 @@ create table if not exists contacts (
   created_at timestamptz not null default now()
 );
 
--- RLS を無効化（Publishable keyで読み書きするため）
--- 本番運用では Row Level Security のポリシーを作ることが推奨
+-- RLS を無効化（学習用：Publishable key だけで読み書きできる最小構成）
 alter table contacts disable row level security;
+
+-- ▼▼▼ 本番運用ではこちらに切り替える（RLS有効＋ポリシー） ▼▼▼
+-- alter table contacts enable row level security;
+-- create policy "anon read"   on contacts for select to anon using (true);
+-- create policy "anon insert" on contacts for insert to anon with check (true);
+-- create policy "anon update" on contacts for update to anon using (true);
+-- create policy "anon delete" on contacts for delete to anon using (true);
+-- ▲▲▲ 上記は「誰でも全操作可」の最小ポリシー例。実際は認証ユーザーのみ等の制約をかける ▲▲▲
 
 -- 初期データ 3件
 insert into contacts (name, company, title, email, phone, memo) values
