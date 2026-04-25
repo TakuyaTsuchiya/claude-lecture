@@ -57,7 +57,8 @@ s6v1-meishi-db/
   - 更新: `.from('contacts').update({...}).eq('id', id).select().single()`
   - 削除: `.from('contacts').delete().eq('id', id)`
 - Publishable key は公開前提の鍵だが、リポジトリに含めない実務習慣
-- RLS はテーブル作成時に `DISABLE` する（本番運用ではポリシーを作ることが推奨）
+- RLS を有効化し、Publishable keyから全操作を許可するポリシー4つ（select/insert/update/delete）を設定する（教材用の最小権限）
+- 本番運用では認証済みユーザーのみ等の厳密な制約をかける
 
 ---
 
