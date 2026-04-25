@@ -70,7 +70,7 @@ Claude Codeに`.env`ファイルの作成を頼みます。先ほどコピーし
 
 （Claude Codeが`.env`を作成）
 
-続いてClaude Codeで、アプリデータの保存場所を、localStorageからSupabaseに変えます。プロンプトは長いので概要欄に貼っておきます。
+.envファイルが完成しました。続いてClaude Codeで、アプリデータの保存場所を、localStorageからSupabaseに変えます。プロンプトは長いので概要欄に貼っておきます。
 
 > これから名刺管理アプリにデータベース連携を追加します。
 > 今はlocalStorageで動いていますが、Supabaseに接続して「ブラウザを閉じても消えない」永続化に置き換えます。
