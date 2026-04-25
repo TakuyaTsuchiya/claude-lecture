@@ -87,7 +87,7 @@ Claude Codeによるコードの書き換えが行われています。
 
 次にVercel側へ鍵を登録します。`.env`ファイルは`.gitignore`でGitHubに送っていないので、本番のVercel側にも同じ鍵を別途登録する必要があります。
 
-Vercelダッシュボード → 該当プロジェクト → Settings → Environments → Production → Add Environment Variable。`VITE_SUPABASE_URL`を入力し、Add Another をクリックして`VITE_SUPABASE_PUBLISHABLE_KEY`も入力、Sensitive はONのまま Save で保存します。
+Vercelダッシュボード → 該当プロジェクト → Settings → Environments → Production → Add Environment Variable。`VITE_SUPABASE_URL`を入力し、Add Another をクリックして`VITE_SUPABASE_PUBLISHABLE_KEY`も入力、Sensitive はONのまま Save で保存し、Redeployします。
 
 （Claude Codeに画面切り替え）
 
