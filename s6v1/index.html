@@ -99,6 +99,30 @@ supabase.from('contacts').update({...}).eq('id', id); // Update
 supabase.from('contacts').delete().eq('id', id);      // Delete</pre>
   </section>
 
+  <!-- 6: SECURITY — 本番ではRLSが必須 -->
+  <section class="slide">
+    <div class="eyebrow">SECURITY</div>
+    <h2>本番ではRLSが必須</h2>
+    <div class="rule"></div>
+    <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:24px; width:100%; max-width:1200px;">
+      <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:28px 22px; background:#fafafa; text-align:center;">
+        <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:16px;">RLS なし</div>
+        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">誰でも全データ操作可能</div>
+        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">Publishable keyは公開鍵<br>ブラウザで丸見え</div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; min-width:80px;">
+        <div style="font-size:52pt; color:var(--color-accent); font-weight:700;">→</div>
+      </div>
+      <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:28px 22px; background:#fafafa; text-align:center;">
+        <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:16px;">RLS + ポリシー</div>
+        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">行ごとに権限を制御</div>
+        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">「誰がどの操作を<br>許されるか」のルール</div>
+      </div>
+    </div>
+    <pre style="font-family:var(--font-mono); font-size:16pt; line-height:1.5; text-align:left; background:#f7f7f7; padding:18px 28px; border-radius:8px; max-width:1000px; margin:24px auto 0; color:var(--color-text);">alter table contacts enable row level security;
+create policy "anon read" on contacts for select to anon using (true);</pre>
+  </section>
+
 </div>
 
 <div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>

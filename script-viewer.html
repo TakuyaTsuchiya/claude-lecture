@@ -190,10 +190,10 @@
       const bodyEl = document.createElement('div');
       bodyEl.className = 'scene-body';
       scene.body.forEach(el => {
-        // ト書き判定：「（」で始まり「）」で終わる段落を緑色にする
+        // ト書き判定：「画面」を含むト書き（画面切替系）を緑色にする
         if (el.tagName === 'P') {
           const text = el.textContent.trim();
-          if (text.startsWith('（') && text.endsWith('）')) {
+          if (text.startsWith('（') && text.endsWith('）') && text.includes('画面')) {
             el.classList.add('stage');
           }
         }
