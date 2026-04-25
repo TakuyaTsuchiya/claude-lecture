@@ -70,14 +70,18 @@ Claude Codeに`.env`ファイルの作成を頼みます。先ほどコピーし
 
 （Claude Codeが`.env`を作成）
 
-.envファイルが完成しました。続いてClaude Codeで、アプリデータの保存場所を、localStorageからSupabaseに変えます。プロンプトは長いので概要欄に貼っておきます。
+.envファイルが完成しました。Viteを導入しますか？と聞かれますので、次のプロンプトを入れます。
+
+続いてClaude Codeで、アプリデータの保存場所を、localStorageからSupabaseに変えます。こちらがViteを導入するプロンプトです。プロンプトは長いので概要欄に貼っておきます。
 
 > これから名刺管理アプリにデータベース連携を追加します。
 > 今はlocalStorageで動いていますが、Supabaseに接続して「ブラウザを閉じても消えない」永続化に置き換えます。
 > Viteを導入し、`.env`で鍵を管理し、`app.js`のlocalStorage処理をSupabase呼び出しに書き換えてください。
 > 完了後、`npm install`と`npm run dev`で動作確認できる状態にしてください。
 
-（Claude Codeにプロンプトを投入、コードの書き換えが完了する）
+Claude Codeによるコードの書き換えが行われています。
+
+少し時間がかかりましたが、CLAUDE.mdが更新され、`.env`がVite経由で正しく注入されました。Supabaseと接続され、動作確認もされました。
 
 （Vercelへ画面切り替えて、環境変数を登録する）
 
