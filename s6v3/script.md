@@ -63,7 +63,7 @@ CREATE TABLE deals (
 
 （Run → テーブル作成完了）
 
-Settings → APIからProject URLとanon keyをコピーします。
+Settings → APIからProject URLとPublishable keyをコピーします。
 
 （画面を顧客アプリのリポジトリに切り替え）
 
@@ -87,9 +87,9 @@ Settings → APIからProject URLとanon keyをコピーします。
 
 この顧客に紐付いていた商談も、自動的に消えました。アプリ側では顧客の`delete`を呼んだだけですが、データベース側で連鎖して商談も削除されています。
 
-最後にGitHubにプッシュし、Vercelに環境変数を登録してデプロイします。
+最後にVercel側で環境変数を登録してから、GitHubにプッシュします。pushの前に環境変数を登録しておけば、デプロイが一発で成功します。
 
-（push → Vercel → Deploy）
+（Vercel → Settings → Environment Variables に2つ登録 → `git push` → Deploy）
 
 本番でもリレーション付きの顧客管理アプリが動作しています。
 

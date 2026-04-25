@@ -35,7 +35,7 @@
 
 2つ目は**Vite + .env**。Viteは現代の標準的なビルドツールで、`.env`というファイルに書いた鍵をブラウザに安全に渡してくれます。`.env`は`.gitignore`でGitHubには送らないようにします。鍵は家の鍵と同じで、SNSに載せてはいけません。
 
-3つ目は**Vercel環境変数**。本番の公開サーバーでも同じ鍵が必要です。Vercelの設定画面に登録します。初回のデプロイはこの登録を忘れてビルドが失敗しやすい、よくある詰まりどころです。あえて失敗させて、そこから復旧する流れを体験します。
+3つ目は**Vercel環境変数**。本番の公開サーバーでも同じ鍵が必要です。Vercelの設定画面に登録します。**この登録を忘れたままGitHubにプッシュするとビルドが失敗する**ので、push前に必ず登録しておきます。
 
 ---
 
@@ -66,7 +66,7 @@ Claude Codeが、Vite導入、Supabase SDK追加、`.env.example`作成、`app.j
 
 （処理完了）
 
-ローカルで動作確認します。`.env`にコピーしたURLとanon keyを貼って、`npm run dev`を実行します。
+ローカルで動作確認します。`.env`にコピーしたURLとPublishable keyを貼って、`npm run dev`を実行します。
 
 （開発サーバーが立ち上がり、ブラウザで名刺アプリが表示される）
 
@@ -74,17 +74,19 @@ Claude Codeが、Vite導入、Supabase SDK追加、`.env.example`作成、`app.j
 
 （リロードで確認）
 
-次はGitHubにプッシュして、本番にデプロイします。
+次にVercel側へ鍵を登録します。`.env`ファイルは`.gitignore`でGitHubに送っていないので、本番のVercel側にも同じ鍵を別途登録する必要があります。
+
+（Vercelダッシュボード → 該当プロジェクト → Settings → Environment Variables）
+
+ここで`VITE_SUPABASE_URL`と`VITE_SUPABASE_PUBLISHABLE_KEY`の2つを登録します。**この登録を忘れたままGitHubにプッシュするとビルドが失敗するので、push前に必ず登録します**。
+
+（環境変数を登録）
+
+登録ができたら、GitHubにプッシュします。
 
 （`git push`）
 
-Vercelの画面を見ると、自動でビルドが始まっていますが、**失敗しました**。ログを確認すると、環境変数が見つからないというエラーです。ローカルでは`.env`を読んでいましたが、`.env`は`.gitignore`でGitHubに送っていないので、Vercel側には鍵が届いていません。
-
-対処します。Settings → Environment Variables に、`VITE_SUPABASE_URL`と`VITE_SUPABASE_ANON_KEY`の2つを登録して、再デプロイします。
-
-（環境変数を登録 → Redeploy）
-
-今度はビルドが成功しました。発行されたURLを開きます。
+Vercelが自動でビルドを開始し、デプロイが成功します。発行されたURLを開きます。
 
 （本番URLを開き、名刺アプリが表示される）
 

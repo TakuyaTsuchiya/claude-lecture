@@ -15,7 +15,7 @@ create table if not exists contacts (
   created_at timestamptz not null default now()
 );
 
--- RLS を無効化（anon keyで読み書きするため）
+-- RLS を無効化（Publishable keyで読み書きするため）
 -- 本番運用では Row Level Security のポリシーを作ることが推奨
 alter table contacts disable row level security;
 

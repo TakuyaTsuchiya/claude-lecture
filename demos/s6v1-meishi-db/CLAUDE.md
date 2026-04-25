@@ -27,7 +27,7 @@ s6v1-meishi-db/
 ├── package.json            # Vite / @supabase/supabase-js の依存
 ├── vite.config.js          # Vite 設定
 ├── supabase-schema.sql     # Supabase用 CREATE TABLE / INSERT SQL
-├── .env                    # Supabase URL と anon key（Git除外）
+├── .env                    # Supabase URL と Publishable key（Git除外）
 ├── .env.example            # .env のサンプル
 ├── .gitignore              # node_modules / dist / .env を除外
 ├── CLAUDE.md               # 本ファイル
@@ -41,22 +41,22 @@ s6v1-meishi-db/
 
 ## 3. 環境変数 / 鍵の管理
 
-- `.env` に `VITE_SUPABASE_URL` と `VITE_SUPABASE_ANON_KEY` を書く
+- `.env` に `VITE_SUPABASE_URL` と `VITE_SUPABASE_PUBLISHABLE_KEY` を書く
 - `VITE_` プレフィックスを付けると Vite がブラウザに露出させてくれる
 - `.env` は `.gitignore` に入れるため GitHub には送られない
 - Vercel 本番では「Environment Variables」画面で同じ2つのキーを登録する
-- **初回デプロイは環境変数未登録で失敗する**のが仕様（自然発生の山場）
+- **push前にVercel側で環境変数を登録**しておく（登録忘れだとビルド失敗するため）
 - `.env.example` は共有用のサンプル（中身はダミー）
 
 ## 4. Supabase 接続
 
-- `app.js` 冒頭で `createClient(URL, ANON_KEY)` を呼んでクライアントを取得
+- `app.js` 冒頭で `createClient(URL, PUBLISHABLE_KEY)` を呼んでクライアントを取得
 - CRUD は以下で実装
   - 一覧取得: `.from('contacts').select('*').order('created_at', { ascending: false })`
   - 作成: `.from('contacts').insert({...}).select().single()`
   - 更新: `.from('contacts').update({...}).eq('id', id).select().single()`
   - 削除: `.from('contacts').delete().eq('id', id)`
-- anon key は公開前提の鍵だが、リポジトリに含めない実務習慣
+- Publishable key は公開前提の鍵だが、リポジトリに含めない実務習慣
 - RLS はテーブル作成時に `DISABLE` する（本番運用ではポリシーを作ることが推奨）
 
 ---
@@ -127,7 +127,7 @@ s6v1-meishi-db/
 
 ## 8. やってはいけないこと
 
-- **anon key を `index.html` や `app.js` に直書き**（`.env` 経由で読む）
+- **Publishable key を `index.html` や `app.js` に直書き**（`.env` 経由で読む）
 - **Service role key をブラウザに露出**（絶対禁止）
 - フレームワーク導入（React / Vue など）
 - サーバーサイドコード追加（Node.js Express 等）

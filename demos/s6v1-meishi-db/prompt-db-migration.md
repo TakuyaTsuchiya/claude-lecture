@@ -20,10 +20,10 @@
 - `vite` と `@supabase/supabase-js` を依存に追加
 - `index.html` の `<script>` を `type="module"` に変更
 - `.gitignore` に `node_modules/`, `dist/`, `.env`, `.env.local` を追加
-- `.env.example` を作成（`VITE_SUPABASE_URL` と `VITE_SUPABASE_ANON_KEY` のサンプル）
+- `.env.example` を作成（`VITE_SUPABASE_URL` と `VITE_SUPABASE_PUBLISHABLE_KEY` のサンプル）
 
 ### 2. Supabase 接続への書き換え
-- `app.js` 冒頭で `createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)` を呼ぶ
+- `app.js` 冒頭で `createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY)` を呼ぶ
 - `localStorage` の `load/save/seed` を Supabase の `select/insert/update/delete` に置き換え
 - データ構造は snake_case（`id`, `name`, `company`, `title`, `email`, `phone`, `memo`, `created_at`）
 - 一覧は `created_at` の降順で取得
@@ -32,7 +32,7 @@
 ### 3. Supabase SQL を生成
 `supabase-schema.sql` として以下を含めて保存：
 - `CREATE TABLE contacts`（id uuid pk default gen_random_uuid(), name text not null, company text not null, title/email/phone/memo text, created_at timestamptz not null default now()）
-- `ALTER TABLE contacts DISABLE ROW LEVEL SECURITY`（anon key で読み書きするため。本番運用ではポリシーを作ることが推奨）
+- `ALTER TABLE contacts DISABLE ROW LEVEL SECURITY`（Publishable key で読み書きするため。本番運用ではポリシーを作ることが推奨）
 - 初期データ 3件の INSERT（山田 太郎／佐藤 花子／鈴木 次郎）
 
 ### 4. CLAUDE.md / spec.md の更新
