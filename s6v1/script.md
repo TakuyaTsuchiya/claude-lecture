@@ -56,7 +56,7 @@
 
 （SQLを貼り付けて Run）
 
-テーブルが作成され、初期データの3件も投入されました。
+Supabaseにテーブルが作成され、初期データの3件も投入されました。
 
 Settings → API に移動して、Project URL と Publishable key をコピーします。この2つが、アプリからSupabaseに接続するための鍵です。
 
