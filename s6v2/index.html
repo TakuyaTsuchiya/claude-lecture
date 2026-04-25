@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S6V2 経費管理アプリにデータベースを接続して永続化しよう</title>
+<title>S6V2 経費管理アプリにデータベースを接続して集計しよう</title>
 <link rel="stylesheet" href="../styles/slide.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
   <!-- 2: TODAY'S GOAL -->
   <section class="slide">
     <div class="eyebrow">TODAY'S GOAL</div>
-    <h2>SQLで集計する力を知る</h2>
+    <h2>永続化→SQLで集計しよう</h2>
     <div class="rule"></div>
     <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1100px; margin:40px auto 0; color:var(--color-text);">
       <li><strong style="color:var(--color-accent);">Supabase接続</strong>　localStorageをSupabaseに置き換える</li>
@@ -29,21 +29,20 @@
   <!-- 3: WHY — SQL集計の価値 -->
   <section class="slide">
     <div class="eyebrow">BUT WHY SQL?</div>
-    <h2>Excelのピボットテーブル<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">それがSQLでは1行で書ける</span></h2>
+    <h2>SQLなら1行で集計できる</h2>
     <div class="rule"></div>
     <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:32px; width:100%; max-width:1200px;">
       <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:32px 22px; background:#fafafa; text-align:center;">
-        <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">Excel</div>
-        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">ピボットテーブル</div>
-        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">毎回ドラッグで<br>項目を並べる</div>
+        <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">localStorage</div>
+        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">集計できない</div>
       </div>
       <div style="display:flex; align-items:center; justify-content:center; min-width:80px;">
         <div style="font-size:52pt; color:var(--color-accent); font-weight:700;">→</div>
       </div>
       <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:32px 22px; background:#fafafa; text-align:center;">
         <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">SQL</div>
-        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">GROUP BY 1行</div>
-        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">何度でも再実行<br>コードで残せる</div>
+        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">GROUP BY で1発</div>
+        <div style="margin-top:14px; font-size:16pt; line-height:1.7; color:var(--color-sub);">何度でも再実行</div>
       </div>
     </div>
   </section>
