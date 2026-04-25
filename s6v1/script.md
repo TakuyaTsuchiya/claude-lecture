@@ -79,11 +79,11 @@ Claude Codeに`.env`ファイルの作成を頼みます。先ほどコピーし
 
 （Claude Codeにプロンプトを投入、コードの書き換えが完了する）
 
+（Vercelへ画面切り替えて、環境変数を登録する）
+
 次にVercel側へ鍵を登録します。`.env`ファイルは`.gitignore`でGitHubに送っていないので、本番のVercel側にも同じ鍵を別途登録する必要があります。
 
 Vercelダッシュボード → 該当プロジェクト → Settings → Environment Variables。ここで、`VITE_SUPABASE_URL`と`VITE_SUPABASE_PUBLISHABLE_KEY`の2つを登録します。
-
-（Vercelへ画面切り替えて、環境変数を登録する）
 
 （Claude Codeに画面切り替え）
 
