@@ -50,7 +50,7 @@ s6v1-meishi-db/
 
 ## 4. Supabase 接続
 
-- `app.js` 冒頭で `createClient(URL, PUBLISHABLE_KEY)` を呼んでクライアントを取得
+- `app.js` 冒頭で `createClient(URL, PUBLISHABLE_KEY)` を呼んで接続を取得
 - CRUD は以下で実装
   - 一覧取得: `.from('contacts').select('*').order('created_at', { ascending: false })`
   - 作成: `.from('contacts').insert({...}).select().single()`
