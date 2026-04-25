@@ -1,4 +1,4 @@
-# S6V4 台本 — BACKSTAGE社のCLAUDE.mdテンプレート大公開
+# S6V4A 台本 — BACKSTAGE社のCLAUDE.mdテンプレート大公開（エンジニア向け）
 
 - **想定尺**: 約5分
 - **実演**: なし（座学）
