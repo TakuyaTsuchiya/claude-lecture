@@ -81,6 +81,7 @@
   }
   .scene-body p { margin: 12px 0; }
   .scene-body p:first-child { margin-top: 0; }
+  .scene-body p.stage { color: #2e7d32; }
   .scene-body strong { color: var(--color-text); }
   .scene-body blockquote {
     border-left: 4px solid var(--color-accent);
@@ -188,7 +189,16 @@
 
       const bodyEl = document.createElement('div');
       bodyEl.className = 'scene-body';
-      scene.body.forEach(el => bodyEl.appendChild(el));
+      scene.body.forEach(el => {
+        // ト書き判定：「（」で始まり「）」で終わる段落を緑色にする
+        if (el.tagName === 'P') {
+          const text = el.textContent.trim();
+          if (text.startsWith('（') && text.endsWith('）')) {
+            el.classList.add('stage');
+          }
+        }
+        bodyEl.appendChild(el);
+      });
 
       row.appendChild(labelEl);
       row.appendChild(bodyEl);
