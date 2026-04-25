@@ -31,7 +31,10 @@
     <div class="eyebrow">BUT WHY DB?</div>
     <h2>データをブラウザの外へ<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">それが「永続化」の本当の意味</span></h2>
     <div class="rule"></div>
-    <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:32px; width:100%; max-width:1200px;">
+    <div style="font-size:19pt; color:var(--color-text); max-width:1100px; margin:16px auto 0; line-height:1.7; text-align:center;">
+      永続化とは、一時的なメモリ上のデータを<strong style="color:var(--color-accent);">ストレージに保存</strong>し、<strong style="color:var(--color-accent);">恒久的に存続</strong>させること
+    </div>
+    <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:22px; width:100%; max-width:1200px;">
       <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:32px 22px; background:#fafafa; text-align:center;">
         <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:20px;">前回まで</div>
         <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">ブラウザの中だけ<br>（localStorage）</div>
@@ -54,22 +57,26 @@
     <h2>バックエンド 3点セット</h2>
     <div class="rule"></div>
     <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; max-width:1240px; margin:32px auto 0;">
-      <div style="border:2px solid var(--color-line); border-radius:12px; padding:28px 20px; background:#fafafa; text-align:center;">
-        <div style="font-size:52pt; line-height:1; margin-bottom:14px;">🗄️</div>
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:28px 20px; background:#fafafa; text-align:center; display:flex; flex-direction:column;">
+        <div style="height:80px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;">
+          <span style="font-size:54pt; line-height:1;">🗄️</span>
+        </div>
         <div style="font-size:20pt; font-weight:700; color:var(--color-accent); margin-bottom:10px;">Supabase</div>
         <div style="font-size:16pt; line-height:1.6; color:var(--color-text); font-weight:500;">クラウドの<br>データベース</div>
         <div style="margin-top:10px; font-size:14pt; color:var(--color-sub); line-height:1.5;">テーブルを作る<br>SQLで扱える</div>
       </div>
-      <div style="border:2px solid var(--color-line); border-radius:12px; padding:28px 20px; background:#fafafa; text-align:center;">
-        <div style="margin-bottom:14px; height:56px; display:flex; align-items:center; justify-content:center;">
-          <img src="../assets/vite-logo.svg" alt="Vite" style="height:56px; width:auto;">
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:28px 20px; background:#fafafa; text-align:center; display:flex; flex-direction:column;">
+        <div style="height:80px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;">
+          <img src="../assets/vite-logo.svg" alt="Vite" style="height:64px; width:auto;">
         </div>
         <div style="font-size:20pt; font-weight:700; color:var(--color-accent); margin-bottom:10px;">Vite + .env</div>
         <div style="font-size:16pt; line-height:1.6; color:var(--color-text); font-weight:500;">鍵をローカルで<br>安全に管理</div>
         <div style="margin-top:10px; font-size:14pt; color:var(--color-sub); line-height:1.5;">.envは .gitignore<br>でGitに送らない</div>
       </div>
-      <div style="border:2px solid var(--color-line); border-radius:12px; padding:28px 20px; background:#fafafa; text-align:center;">
-        <div style="font-size:52pt; line-height:1; margin-bottom:14px;">☁️</div>
+      <div style="border:2px solid var(--color-line); border-radius:12px; padding:28px 20px; background:#fafafa; text-align:center; display:flex; flex-direction:column;">
+        <div style="height:80px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;">
+          <span style="font-size:54pt; line-height:1;">☁️</span>
+        </div>
         <div style="font-size:20pt; font-weight:700; color:var(--color-accent); margin-bottom:10px;">Vercel環境変数</div>
         <div style="font-size:16pt; line-height:1.6; color:var(--color-text); font-weight:500;">本番サーバーに<br>同じ鍵を登録</div>
         <div style="margin-top:10px; font-size:14pt; color:var(--color-sub); line-height:1.5;">初回デプロイは<br>登録忘れで失敗する</div>
