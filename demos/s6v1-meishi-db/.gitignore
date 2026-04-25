@@ -20,3 +20,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# PoC ローカル検証用（教材コードではない）
+test-crud.mjs
