@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S6V3 顧客管理アプリにデータベースを接続して永続化しよう</title>
+<title>S6V3 顧客管理アプリにデータベースを接続してリレーション設計をしよう</title>
 <link rel="stylesheet" href="../styles/slide.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
 
   <!-- 1: Cover -->
   <section class="slide cover active">
-    <h1 style="font-size:64pt;">顧客管理アプリに<br>データベースを接続して<br>永続化しよう</h1>
+    <h1 style="font-size:64pt;">顧客管理アプリに<br>データベースを接続して<br>リレーション設計をしよう</h1>
   </section>
 
   <!-- 2: TODAY'S GOAL -->
   <section class="slide">
     <div class="eyebrow">TODAY'S GOAL</div>
-    <h2>永続化→テーブルを分けて<br>関連付けよう</h2>
+    <h2>テーブルを分けて関連付ける</h2>
     <div class="rule"></div>
     <ol style="font-size:28pt; line-height:2; text-align:left; max-width:1100px; margin:40px auto 0; color:var(--color-text);">
       <li><strong style="color:var(--color-accent);">Supabase接続</strong>　localStorageをSupabaseに置き換える</li>
@@ -29,7 +29,7 @@
   <!-- 3: WHY — テーブル分割の価値 -->
   <section class="slide">
     <div class="eyebrow">BUT WHY 2 TABLES?</div>
-    <h2>Excelのシート分け<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">それがSQLでは「リレーション」</span></h2>
+    <h2>SQLの「リレーション」<br><span style="font-size:26pt; color:var(--color-sub); font-weight:500;">Excelで言うとシート分け</span></h2>
     <div class="rule"></div>
     <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:32px; width:100%; max-width:1200px;">
       <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:28px 22px; background:#fafafa; text-align:center;">
@@ -50,7 +50,7 @@
 
   <!-- 4: HOW — 1対多のリレーション -->
   <section class="slide">
-    <div class="eyebrow">BACKEND</div>
+    <div class="eyebrow">ONE-TO-MANY</div>
     <h2>1対多のリレーション</h2>
     <div class="rule"></div>
     <div style="display:flex; align-items:center; justify-content:center; gap:28px; max-width:1240px; margin:32px auto 0;">
