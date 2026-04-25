@@ -99,7 +99,7 @@ GROUP BY status;
 
 （Vercelへ画面切り替えて、環境変数を登録する）
 
-最後にVercel側に環境変数を登録します。Vercelダッシュボード → 該当プロジェクト → Settings → Environments → Production → Add Environment Variable。`VITE_SUPABASE_URL`と`VITE_SUPABASE_PUBLISHABLE_KEY`の2つを登録し、Sensitive はONのまま Save で保存し、Redeployします。
+最後にVercel側に環境変数を登録します。`VITE_SUPABASE_URL`と`VITE_SUPABASE_PUBLISHABLE_KEY`の2つをVercelに登録して、Redeployします。
 
 （Claude Codeに画面切り替え）
 
