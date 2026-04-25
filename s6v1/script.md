@@ -56,7 +56,7 @@ SQLが生成されました。この生成されたSQLをコピーして、Supab
 
 （SQLを貼り付けて Run）
 
-Supabaseにテーブルが作成され、初期データの3件も投入されました。
+成功しました。Supabaseにテーブルが作成され、初期データの3件も投入されました。
 
 Project Overview の Copy メニューから、Project URL と Publishable key をひとつひとつコピーします。この2つが、アプリからSupabaseに接続するための鍵です。
 
