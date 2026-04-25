@@ -39,7 +39,7 @@
 
 ## 【実演パート】テーブル作成 → Supabase接続 → Vercel環境変数登録
 
-（画面をClaude Codeに切り替え、前回までの名刺アプリのリポジトリを開く）
+（Claude Codeに画面切り替え、前回までの名刺アプリのリポジトリを開く）
 
 まずClaude Codeに、テーブル定義のSQLを生成させて、Supabaseにテーブルを作ります。テーブルがあれば、アプリのデータをそこに保存できます。プロンプトは概要欄に貼っておきます。
 
@@ -50,7 +50,7 @@
 
 （Claude CodeがSQLを生成）
 
-（画面をSupabaseダッシュボードに切り替え）
+（Supabaseに画面切り替え）
 
 生成されたSQLをコピーして、SupabaseのSQL Editorに貼り付け、Runをクリックします。
 
@@ -60,7 +60,7 @@
 
 Settings → API に移動して、Project URL と Publishable key をコピーします。この2つが、アプリからSupabaseに接続するための鍵です。
 
-（画面をClaude Codeに切り替え）
+（Claude Codeに画面切り替え）
 
 Claude Codeに`.env`ファイルの作成を頼みます。先ほどコピーした鍵もチャットに貼って渡します。
 
@@ -85,15 +85,21 @@ Vercelダッシュボード → 該当プロジェクト → Settings → Enviro
 
 （Vercelへ画面切り替えて、環境変数を登録する）
 
-（画面をClaude Codeに切り替え）
+（Claude Codeに画面切り替え）
 
 登録ができたらClaude Codeに「GitHubにプッシュして」と頼みます。
 
 （Claude Codeにプロンプト投入、`git push`が走る）
 
+（Vercelに画面切り替え）
+
 Vercelが自動でビルドを開始し、デプロイが成功します。発行されたURLを開きます。
 
-（画面を本番URLに切り替え、名刺アプリが表示される）
+（本番URLに画面切り替え、名刺アプリが表示される）
+
+新規登録、編集、削除を一通り試します。
+
+（新規登録 → 編集 → 削除を実演）
 
 本番でもSupabaseに接続できており、CRUDがすべて機能しています。
 
