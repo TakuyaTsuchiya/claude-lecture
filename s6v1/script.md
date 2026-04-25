@@ -13,7 +13,7 @@
 
 ## [P2] TODAY'S GOAL — アプリを「永続化」する
 
-流れは2ステップです。まずテーブル設計、データを保存する箱を作ります。次にSupabase接続、localStorageの処理をSupabaseに置き換えます。
+流れは2ステップです。まずテーブル設計、データを保存する箱を作ります。次にアプリとSupabaseを接続します。データ保存処理をlocalStorageからSupabaseに置き換えます。
 
 ---
 
