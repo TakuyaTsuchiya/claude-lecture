@@ -58,7 +58,7 @@
 
 Supabaseにテーブルが作成され、初期データの3件も投入されました。
 
-ダッシュボード上部の Copy メニューから、Project URL と Publishable key をひとつひとつコピーします。この2つが、アプリからSupabaseに接続するための鍵です。
+Project Overview の Copy メニューから、Project URL と Publishable key をひとつひとつコピーします。この2つが、アプリからSupabaseに接続するための鍵です。
 
 （Claude Codeに画面切り替え）
 
