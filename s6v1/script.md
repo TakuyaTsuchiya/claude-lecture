@@ -52,7 +52,7 @@ S6ではいよいよアプリにバックエンドを実装します。この動
 
 （Supabaseに画面切り替え）
 
-生成されたSQLをコピーして、SupabaseのSQL Editorに貼り付け、Runをクリックします。
+SQLが生成されました。この生成されたSQLをコピーして、SupabaseのSQL Editorに貼り付け、Runをクリックします。
 
 （SQLを貼り付けて Run）
 
