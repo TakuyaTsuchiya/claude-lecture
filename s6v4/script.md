@@ -14,7 +14,7 @@
 
 ## [P2] AGENDA
 
-今日のアジェンダはこの3つです。1つ目、BACKSTAGE社が公開しているCLAUDE.mdの中身。2つ目、人とClaude Codeの作業分担。3つ目、フォローしている情報源。どれもBACKSTAGE社の実際の運用なのでClaude Codeの使い方の参考にしてください。
+今回のアジェンダはこの3つです。1つ目、BACKSTAGE社が公開しているCLAUDE.mdの中身。2つ目、人とClaude Codeの作業分担。3つ目、フォローしている情報源。どれもBACKSTAGE社の実際の運用なのでClaude Codeの使い方の参考にしてください。
 
 ---
 
