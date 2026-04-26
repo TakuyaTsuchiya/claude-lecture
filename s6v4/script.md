@@ -54,7 +54,7 @@ AIが担うのは、API呼び出し、CLI操作、コード編集、ファイル
 
 3つ目は、BACKSTAGE社のエンジニアがフォローしている情報源です。
 
-サイトは3つ。Zenn、Qiita、そしてBACKSTAGE社のZennパブリケーションです。BACKSTAGE社のパブリケーションは今後記事を充実させていく予定とのこと、要チェックです。
+Webサイトは3つで、Zenn、Qiita、BACKSTAGE Tech Blogです。BACKSTAGE Tech Blogは今後記事を充実させていく予定とのこと、要チェックです。
 
 Xでフォローしている人は4アカウント。
 
