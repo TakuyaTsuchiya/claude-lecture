@@ -1,4 +1,4 @@
-# S6V4 台本 — BACKSTAGEに学ぶClaude Codeの活用
+# S6V4 台本 — BACKSTAGE社に学ぶClaude Codeの活用
 
 - **想定尺**: 約7分（4字/秒・約1,680字）
 - **対象**: AIの技術に興味がある方
