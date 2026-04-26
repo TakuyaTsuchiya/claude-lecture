@@ -58,15 +58,13 @@ Webサイトは3つで、Zenn、Qiita、BACKSTAGE Tech Blogです。BACKSTAGE Te
 
 Xでフォローしている人は4アカウント。
 
-@AI_masaou さん、AI駆動開発の解説で知られる方です。Claude CodeやCodexの最新情報、YouTubeの解説も配信しています。
+まずはまさおさん。AI駆動開発の解説で知られる方です。Claude CodeやCodexの最新情報、YouTubeの解説も配信しています。
 
-@d_1d2d さん、海外AI情報の日本語まとめで定評があります。
+dさん。海外AI情報の日本語まとめで定評があります。
 
-@ctgptlb さん、AGIラボ。ChatGPT、Gemini、Claude、AIツール全般を広く扱います。
+AGIラボさん。ChatGPT、Gemini、Claude、AIツール全般を広く扱います。
 
-@harumak_11 さん、Haruki Yanoさん。設計と実践寄りの技術ブログを発信しています。
-
-サイトと人、それぞれ役割が違います。記事を検索して読むときはZennとQiita、流れてくる最新動向を拾うときはX。組み合わせて使っていきます。
+Haruma-Kさん。設計と実践寄りの技術ブログを発信しています。
 
 ---
 
