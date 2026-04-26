@@ -14,7 +14,7 @@
 
 ## [P2] AGENDA
 
-どれもBACKSTAGE社が実際に使っている運用そのものです。自分のCLAUDE.mdや日々のAIとの付き合い方を見直す土台にしてください。
+どれもBACKSTAGE社の実際の運用なのでClaude Codeの使い方の参考にしてください。
 
 ---
 
