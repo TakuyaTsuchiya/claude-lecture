@@ -101,6 +101,60 @@
     font-style: italic;
   }
 
+  /* 修了課題セクション */
+  .completion h3 {
+    font-size: 17pt;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 32px 0 14px;
+  }
+  .completion h2 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 20px;
+  }
+  .completion p,
+  .completion li {
+    font-size: 14pt;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+  .completion p {
+    margin-bottom: 16px;
+  }
+  .completion ol,
+  .completion ul {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  .completion li {
+    margin-bottom: 8px;
+  }
+  .completion table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    background: #fff;
+    font-size: 13pt;
+  }
+  .completion th,
+  .completion td {
+    border: 1px solid var(--color-line);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .completion th {
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .completion strong {
+    font-weight: 700;
+  }
+
   @media (max-width: 600px) {
     .page { padding: 32px 16px 80px; }
     .site-title { font-size: 24pt; }
@@ -404,6 +458,106 @@
           <a class="btn btn-script" href="script-viewer.html?src=s6v5/script.md">台本</a>
         </div>
       </li>
+    </ul>
+  </div>
+
+  <!-- 修了課題 -->
+  <div class="section-group completion">
+    <div class="section-label">FINAL</div>
+    <h2>修了課題: 自分のために何か1つ、ツールかアプリを作ってみよう</h2>
+
+    <p>ここまでで、Claude Codeでできることを広く見てきました。仕上げに、自分のために何か1つ、ツールかアプリを作ってみましょう。</p>
+
+    <p>あなた自身が「これ、面倒だな」「こうだったらいいのに」と感じている問題への解決であればテーマは自由です。生活のため、子どものため、仕事のため、用途は問いません。</p>
+
+    <h3>条件</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問題意識</td>
+          <td>業務 or 生活で、<strong>自分が実際に感じている課題</strong>から出発すること</td>
+        </tr>
+        <tr>
+          <td>問題の大きさ</td>
+          <td>問いません（「ちょっと面倒」レベルで十分です）</td>
+        </tr>
+        <tr>
+          <td>形式</td>
+          <td>便利ツール・アプリ・自動化スクリプト、何でも可</td>
+        </tr>
+        <tr>
+          <td>NG①</td>
+          <td>講座で扱った例のコピペ（自分の文脈に置き換えてください）</td>
+        </tr>
+        <tr>
+          <td>NG②</td>
+          <td>機密情報・個人情報の混入（業務データは仮データに、生活のものでも氏名・住所等は伏せてください）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>提出内容</h3>
+
+    <ol>
+      <li><strong>解決したかった問題</strong>: どんな小さな問題でもOK（1〜2行）</li>
+      <li><strong>成果物のURL</strong>: GitHubリポジトリ or Vercelデプロイ先</li>
+      <li><strong>詰まった点と解決方法</strong>: ここがメインです。Claudeとどう対話して乗り越えたか（1〜5行）</li>
+    </ol>
+
+    <h3>ルーブリック（自己チェック用）</h3>
+
+    <p>採点ではなく、<strong>「良い提出」の目安</strong>として使ってください。修了は提出確認のみで認定します。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>観点</th>
+          <th>修了ライン（必須）</th>
+          <th>良い提出</th>
+          <th>事例紹介候補</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>問題意識</strong></td>
+          <td>自分の問題から出発している</td>
+          <td>問題の背景・なぜ困っていたかが具体的</td>
+          <td>他の受講生にも共感される普遍的な問題</td>
+        </tr>
+        <tr>
+          <td><strong>解決の着地</strong></td>
+          <td>動くものができている</td>
+          <td>自分の問題を実際に解決できている</td>
+          <td>提出後も自分で使い続けたいと思える</td>
+        </tr>
+        <tr>
+          <td><strong>Claude Codeの活用</strong></td>
+          <td>Claude Codeを使って作っている</td>
+          <td>プロンプトの工夫・反復の跡が見える</td>
+          <td>動画では扱っていない使い方を発見している</td>
+        </tr>
+        <tr>
+          <td><strong>振り返り</strong></td>
+          <td>詰まった点を1つ以上書いている</td>
+          <td>詰まった点と解決の対話プロセスが追える</td>
+          <td>他の受講生のヒントになる学びが言語化されている</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>運用</h3>
+
+    <ul>
+      <li><strong>提出確認のみで修了</strong>: 合否判定はありません</li>
+      <li><strong>事後、事例として紹介したい場合のみ個別連絡</strong>: 上記「事例紹介候補」に該当する提出が対象</li>
+      <li>提出を確認したら修了処理します。お疲れさまでした!</li>
     </ul>
   </div>
 
