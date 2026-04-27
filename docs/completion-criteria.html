@@ -1,8 +1,8 @@
-<h2>修了課題: 自分のために何か1つ、ツールかアプリを作ってみよう</h2>
+<h2>修了課題: 自分のために何か1つ作ってみよう</h2>
 
-<p>ここまでで、Claude Codeでできることを広く見てきました。仕上げに、自分のために何か1つ、ツールかアプリを作ってみましょう。</p>
+<p>ここまでで、Claude Codeでできることを広く見てきました。仕上げに、自分のために何か1つ作ってみましょう。</p>
 
-<p>あなた自身が「これ、面倒だな」「こうだったらいいのに」と感じている問題への解決であればテーマは自由です。生活のため、子どものため、仕事のため、用途は問いません。</p>
+<p>あなた自身が「これ、面倒だな」「こうだったらいいのに」と感じている問題への解決であればテーマは自由です。生活のため、子どものため、仕事のため、用途は問いません。<strong>便利ツール・自動化スクリプト・アプリ、形式も問いません。</strong></p>
 
 <h3>条件</h3>
 
@@ -24,7 +24,7 @@
     </tr>
     <tr>
       <td>形式</td>
-      <td>便利ツール・アプリ・自動化スクリプト、何でも可</td>
+      <td>便利ツール・自動化スクリプト・アプリ、何でも可</td>
     </tr>
     <tr>
       <td>NG①</td>
@@ -37,11 +37,47 @@
   </tbody>
 </table>
 
+<h3>提出方法（修了されたパスによって2通り）</h3>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>修了パス</th>
+      <th>提出方法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>S4まで修了</strong></td>
+      <td>成果物のスクリーンショット（動作している画面）をLMSに添付</td>
+    </tr>
+    <tr>
+      <td><strong>S5以降を修了</strong></td>
+      <td>GitHubリポジトリ（<strong>Private</strong>）+ レビュアーアカウント <code>aiplus-reviewer</code> をRead権限のCollaboratorとして招待。アプリの場合はVercelデプロイ先も併記</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>S5以降パスの方へ: Collaborator招待の手順</h4>
+
+<ol>
+  <li>GitHubで自分のリポジトリを開く</li>
+  <li>Settings → Collaborators → <strong>Add people</strong></li>
+  <li><code>aiplus-reviewer</code> を入力し、<strong>Read</strong> 権限で招待</li>
+</ol>
+
+<h4>S5以降パスの方へ: 環境変数の取り扱い</h4>
+
+<ul>
+  <li>APIキー等は <code>.env</code> で管理し、<code>.gitignore</code> に <code>.env</code> を含めてGitにコミットしないこと</li>
+  <li>Vercelに登録する際は <strong>Sensitive にチェック</strong>を入れること</li>
+</ul>
+
 <h3>提出内容</h3>
 
 <ol>
   <li><strong>解決したかった問題</strong>: どんな小さな問題でもOK（1〜2行）</li>
-  <li><strong>成果物のURL</strong>: GitHubリポジトリ or Vercelデプロイ先</li>
+  <li><strong>成果物</strong>: 上記「提出方法」のパス別の形式で</li>
   <li><strong>詰まった点と解決方法</strong>: ここがメインです。Claudeとどう対話して乗り越えたか（1〜5行）</li>
 </ol>
 
