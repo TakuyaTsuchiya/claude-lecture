@@ -20,25 +20,28 @@
     <div class="eyebrow">WHY</div>
     <h2>鍵の漏えいは現実に起きる</h2>
     <div class="rule"></div>
-    <div style="display:flex; align-items:stretch; justify-content:center; gap:28px; margin-top:32px; width:100%; max-width:1200px;">
-      <div style="flex:1; border:2px solid var(--color-line); border-radius:12px; padding:28px 22px; background:#fafafa; text-align:center;">
-        <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:18px;">2026年4月の事故</div>
-        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;"><span style="color:var(--color-accent);">Sensitiveでない</span><br>環境変数が外部に露出</div>
-        <div style="margin-top:16px; font-size:18pt; line-height:1.7; color:var(--color-sub);">従業員アカウントの侵害<br>から拡大</div>
+    <div style="display:flex; gap:28px; max-width:1240px; margin:18px auto 0; align-items:center; width:100%;">
+      <!-- Left: incident contrast -->
+      <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
+        <div style="border:2px solid var(--color-line); border-radius:12px; padding:16px 20px; background:#fafafa; text-align:center;">
+          <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.2em; font-weight:700; margin-bottom:8px;">2026年4月の事故</div>
+          <div style="font-size:20pt; line-height:1.5; color:var(--color-text); font-weight:500;"><span style="color:var(--color-accent);">Sensitiveでない</span><br>環境変数のみ露出</div>
+        </div>
+        <div style="border:2px solid var(--color-accent); border-radius:12px; padding:16px 20px; background:#fafafa; text-align:center;">
+          <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:8px;">Sensitive ON なら</div>
+          <div style="font-size:20pt; line-height:1.5; color:var(--color-text); font-weight:500;">読み取り不可能な形で保管<br>→ 守られた</div>
+        </div>
+        <div style="font-size:18pt; color:var(--color-text); text-align:center; line-height:1.5;">
+          最初から Sensitive にしておけば、<br>防げた事故。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; justify-content:center; min-width:80px;">
-        <div style="font-size:48pt; color:var(--color-accent); font-weight:700;">→</div>
-      </div>
-      <div style="flex:1; border:2px solid var(--color-accent); border-radius:12px; padding:28px 22px; background:#fafafa; text-align:center;">
-        <div style="font-size:18pt; color:var(--color-accent); letter-spacing:0.2em; font-weight:700; margin-bottom:18px;">Sensitive ON なら</div>
-        <div style="font-size:22pt; line-height:1.7; color:var(--color-text); font-weight:500;">暗号化されて保管<br>値は読み戻せない</div>
-        <div style="margin-top:16px; font-size:18pt; line-height:1.7; color:var(--color-sub);">この事故でも<br>守られた</div>
+      <!-- Right: Vercel UI screenshot -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:18pt; color:var(--color-sub); letter-spacing:0.15em; font-weight:700; margin-bottom:8px;">Vercelの登録画面</div>
+        <img src="../assets/vercel-sensitive-toggle-cropped.png" alt="Vercel環境変数のSensitiveトグル" style="width:100%; max-width:480px; max-height:440px; object-fit:contain; border:1px solid var(--color-line); border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12);">
       </div>
     </div>
-    <div style="margin-top:28px; font-size:18pt; color:var(--color-text); text-align:center;">
-      最初から Sensitive にしておけば、防げた事故。
-    </div>
-    <div style="margin-top:14px; font-size:16pt; color:var(--color-sub); text-align:center;">
+    <div style="margin-top:12px; font-size:16pt; color:var(--color-sub); text-align:center;">
       <span style="font-size:12pt;">出典: vercel.com/kb/bulletin/vercel-april-2026-security-incident</span>
     </div>
   </section>
