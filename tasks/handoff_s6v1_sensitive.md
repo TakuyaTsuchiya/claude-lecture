@@ -2,8 +2,9 @@
 
 ## 経緯
 
-修了課題の運用ルールに「Vercelに登録する際は **Sensitive にチェック** を入れること」を入れた（[docs/completion-criteria.html](../docs/completion-criteria.html) 参照）。
-受講生にこのルールを納得して守ってもらうには、**S6V1の動画でなぜSensitiveにするかを説明しておく必要がある**。
+修了課題の運用ルールはシンプル化し、セキュリティ系（Sensitive・RLS等）は修了課題ドキュメントには書かない方針にした（受講生に細かいルールを覚えてもらうのは現実的でないため）。
+
+ただしVercel上にDB接続アプリをデプロイする受講生は出るため、**セキュリティの説明はS6V1の動画で完結させる必要がある**。修了課題ドキュメントが薄くなった分、動画側の責任は重くなった。
 
 現状S6V1の台本は以下の1行しかSensitiveに触れていない:
 > `VITE_SUPABASE_URL`を入力し、Add Another をクリックして`VITE_SUPABASE_PUBLISHABLE_KEY`も入力、Sensitive はONのまま Save で保存し、Redeployします。

@@ -440,6 +440,14 @@
         </div>
       </li>
       <li class="module-item">
+        <div class="module-id">S6V1B</div>
+        <div class="module-name">Vercel環境変数を Sensitive で守る</div>
+        <div class="module-links">
+          <a class="btn btn-slides" href="s6v1b/">スライド</a>
+          <a class="btn btn-script" href="script-viewer.html?src=s6v1b/script.md">台本</a>
+        </div>
+      </li>
+      <li class="module-item">
         <div class="module-id">S6V2</div>
         <div class="module-name">経費管理アプリにデータベースを接続して集計しよう</div>
         <div class="module-links">
@@ -516,47 +524,50 @@
       </tbody>
     </table>
 
-    <h3>提出方法（修了されたパスによって2通り）</h3>
+    <h3>提出方法</h3>
+
+    <p><strong>動作している様子のスクリーンショットをLMSに添付してください。</strong> これだけでOKです。</p>
+
+    <p>成果物の種類によって、撮るスクショの内容が変わります:</p>
 
     <table>
       <thead>
         <tr>
-          <th>修了パス</th>
-          <th>提出方法</th>
+          <th>成果物の種類</th>
+          <th>スクショの例</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>S4まで修了</strong></td>
-          <td>成果物のスクリーンショット（動作している画面）をLMSに添付</td>
+          <td>GUIツール・アプリ</td>
+          <td>動作している画面のスクショ</td>
         </tr>
         <tr>
-          <td><strong>S5以降を修了</strong></td>
-          <td>GitHubリポジトリ（<strong>Private</strong>）+ レビュアーアカウント <code>aiplus-reviewer</code> をRead権限のCollaboratorとして招待。アプリの場合はVercelデプロイ先も併記</td>
+          <td>ファイル整理スクリプト</td>
+          <td>整理前のフォルダ + 整理後のフォルダ（横並びで1枚 or 2枚）</td>
+        </tr>
+        <tr>
+          <td>データ変換（CSV → CSV など）</td>
+          <td>入力ファイルの冒頭 + 出力ファイルの冒頭（マスク済み）</td>
+        </tr>
+        <tr>
+          <td>通知bot</td>
+          <td>ターミナルでの実行画面 + 通知が届いた画面（Slack等）</td>
+        </tr>
+        <tr>
+          <td>バッチ処理</td>
+          <td>ターミナルで実行 → 処理ログが流れている画面</td>
         </tr>
       </tbody>
     </table>
 
-    <h4 class="completion-h4">S5以降パスの方へ: Collaborator招待の手順</h4>
-
-    <ol>
-      <li>GitHubで自分のリポジトリを開く</li>
-      <li>Settings → Collaborators → <strong>Add people</strong></li>
-      <li><code>aiplus-reviewer</code> を入力し、<strong>Read</strong> 権限で招待</li>
-    </ol>
-
-    <h4 class="completion-h4">S5以降パスの方へ: 環境変数の取り扱い</h4>
-
-    <ul>
-      <li>APIキー等は <code>.env</code> で管理し、<code>.gitignore</code> に <code>.env</code> を含めてGitにコミットしないこと</li>
-      <li>Vercelに登録する際は <strong>Sensitive にチェック</strong>を入れること</li>
-    </ul>
+    <p>S5以降を修了されてアプリをVercelにデプロイした方は、デプロイURLを併記いただいても結構です（任意）。</p>
 
     <h3>提出内容</h3>
 
     <ol>
       <li><strong>解決したかった問題</strong>: どんな小さな問題でもOK（1〜2行）</li>
-      <li><strong>成果物</strong>: 上記「提出方法」のパス別の形式で</li>
+      <li><strong>動作スクリーンショット</strong>: 1枚以上</li>
       <li><strong>詰まった点と解決方法</strong>: ここがメインです。Claudeとどう対話して乗り越えたか（1〜5行）</li>
     </ol>
 
@@ -605,7 +616,7 @@
 
     <ul>
       <li><strong>提出確認のみで修了</strong>: 合否判定はありません</li>
-      <li><strong>事後、事例として紹介したい場合のみ個別連絡</strong>: 上記「事例紹介候補」に該当する提出が対象</li>
+      <li><strong>事後、事例として紹介したい場合のみ個別連絡</strong>: その際にコードや詳細を見せていただきたい場合は、改めてご相談します</li>
       <li>提出を確認したら修了処理します。お疲れさまでした!</li>
     </ul>
   </div>
