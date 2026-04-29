@@ -1,11 +1,11 @@
-# S6V1B 台本 — Vercel環境変数を Sensitive で守る
+# S6V1B 台本 — Vercel環境変数を Sensitive（機密情報）機能で守る
 
 - **想定尺**: 約2分
 - **実演**: なし（スライドのみ）
 
 ---
 
-## [P1] カバー — Vercel環境変数を Sensitive で守る
+## [P1] カバー — Vercel環境変数を Sensitive（機密情報）機能で守る
 
 S6V1で名刺管理アプリにデータベースを接続したとき、Supabaseの鍵をVercelに登録しました。その登録画面で「Sensitive」というオプションをONのまま保存しましたが、この**Sensitive**が何者なのか、なぜONにするのかを補足します。
 
