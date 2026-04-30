@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【畑さん向け】LMSアップロードSkillレクチャー</title>
+<link rel="stylesheet" href="../styles/slide.css">
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- 1: Cover -->
+  <section class="slide cover active">
+    <h1 style="font-size:54pt; white-space:nowrap;">【畑さん向け】<br>LMSアップロードSkillレクチャー</h1>
+    <div class="rule"></div>
+    <div style="font-size:26pt; color:var(--color-sub); line-height:1.6;">
+      Claude Codeから WisdomBase LMS のコース構築を自動化する
+    </div>
+  </section>
+
+  <!-- 2: インストール -->
+  <section class="slide">
+    <div class="eyebrow">STEP 1 — インストール</div>
+    <h2 style="font-size:40pt; margin-bottom:40px;">Claude Codeで2コマンド実行するだけ</h2>
+    <div style="max-width:1100px; width:100%; display:flex; flex-direction:column; gap:20px; text-align:left;">
+      <div style="display:flex; align-items:center; gap:24px;">
+        <div style="font-size:32pt; font-weight:700; color:var(--color-accent); min-width:48px;">①</div>
+        <pre style="flex:1; background:#1E293B; color:#fff; border-radius:10px; padding:20px 28px; font-family:var(--font-mono); font-size:18pt; line-height:1.5; margin:0;">/plugin marketplace add TakuyaTsuchiya/wisdombase-lms-skill</pre>
+      </div>
+      <div style="display:flex; align-items:center; gap:24px;">
+        <div style="font-size:32pt; font-weight:700; color:var(--color-accent); min-width:48px;">②</div>
+        <pre style="flex:1; background:#1E293B; color:#fff; border-radius:10px; padding:20px 28px; font-family:var(--font-mono); font-size:18pt; line-height:1.5; margin:0;">/plugin install wisdombase@wisdombase-lms-skill</pre>
+      </div>
+      <div style="margin-top:16px; font-size:22pt; color:var(--color-sub); line-height:1.5;">
+        承認プロンプトはYesを選ぶだけ。完了すれば <code style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 12px; border-radius:6px; font-size:20pt;">/wisdombase</code> が使えるようになる
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: 使い方 -->
+  <section class="slide">
+    <div class="eyebrow">STEP 2 — 使う</div>
+    <h2 style="font-size:40pt; margin-bottom:32px;">話しかけて、生成されたスクリプトを貼るだけ</h2>
+    <div style="max-width:1100px; width:100%; display:flex; flex-direction:column; gap:18px; text-align:left;">
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <div style="font-size:30pt; font-weight:700; color:var(--color-accent); min-width:48px;">①</div>
+        <div style="font-size:22pt; line-height:1.5;">
+          Claude Codeに自然言語で依頼<br>
+          <span style="color:var(--color-sub); font-size:20pt;">例：「<strong>WisdomBase</strong>でモジュール2をアップしたい」</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <div style="font-size:30pt; font-weight:700; color:var(--color-accent); min-width:48px;">②</div>
+        <div style="font-size:22pt; line-height:1.5;">
+          コースID・動画タイトル・クイズ内容などをヒアリングされるので答える
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <div style="font-size:30pt; font-weight:700; color:var(--color-accent); min-width:48px;">③</div>
+        <div style="font-size:22pt; line-height:1.5;">
+          <code style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 10px; border-radius:6px; font-size:20pt;">~/Desktop/wisdombase-scripts/</code> にスクリプトが生成される
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <div style="font-size:30pt; font-weight:700; color:var(--color-accent); min-width:48px;">④</div>
+        <div style="font-size:22pt; line-height:1.5;">
+          WisdomBase管理画面のDevToolsコンソールに貼って実行 → 完了
+        </div>
+      </div>
+      <div style="margin-top:14px; padding:16px 24px; background:var(--color-accent-soft); border-radius:10px; font-size:20pt; color:var(--color-text); line-height:1.5;">
+        <strong>ポイント:</strong> Claudeがテンプレに沿って書くので、毎回同じ品質のスクリプトが出る
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
+<div class="nav-hint">← → / Space</div>
+
+<script src="../styles/slide.js"></script>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  total.textContent = slides.length;
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    cur.textContent = i + 1;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) && initial > 0 ? initial - 1 : 0);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+  });
+  document.addEventListener('click', () => show(i + 1));
+</script>
+
+</body>
+</html>
