@@ -73,6 +73,47 @@
     </div>
   </section>
 
+  <!-- 4: 生成されるスクリプトの例 -->
+  <section class="slide">
+    <div class="eyebrow">参考 — 生成されるスクリプトの例</div>
+    <h2 style="font-size:30pt; margin-bottom:18px;">「マンガ生成講座のモジュール2」を依頼した場合</h2>
+    <div style="max-width:1180px; width:100%; text-align:left;">
+      <pre style="background:#1E293B; color:#e2e8f0; border-radius:10px; padding:18px 26px; font-family:var(--font-mono); font-size:14pt; line-height:1.45; margin:0;"><span style="color:#94a3b8;">// 動画レクチャー一括作成スクリプト
+// 実行URL: https://ai-plus.share-wis.com/ja/courses/47002/edit</span>
+
+(async () =&gt; {
+  const csrfToken = document.querySelector(<span style="color:#fbbf24;">'meta[name="csrf-token"]'</span>).content;
+
+  <span style="color:#94a3b8;">// ★★★ ユーザー入力パラメータ ★★★</span>
+  const <span style="color:#fb923c;">COURSE_ID</span> = <span style="color:#a3e635;">47002</span>;
+
+  const <span style="color:#fb923c;">LECTURES</span> = [
+    <span style="color:#fbbf24;">'M2_S1_マンガ生成の基礎'</span>,
+    <span style="color:#fbbf24;">'M2_S2_キャラクター設計のコツ'</span>,
+    <span style="color:#fbbf24;">'M2_S3_ストーリー構成の組み立て方'</span>,
+  ];
+  <span style="color:#94a3b8;">// ★★★ ここまで ★★★
+
+  // ...動画レクチャー作成 → ID取得処理が続く...</span>
+})();</pre>
+      <div style="margin-top:14px; font-size:18pt; color:var(--color-sub); line-height:1.4;">
+        <strong style="color:var(--color-accent);">★</strong> で囲まれた部分（コースID・タイトル）をClaudeが自動で埋める
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: 貼る場所 -->
+  <section class="slide">
+    <div class="eyebrow">参考 — DevToolsでの実行画面</div>
+    <h2 style="font-size:26pt; margin-bottom:14px;">WisdomBase編集画面 → DevTools → Console に貼り付け</h2>
+    <div style="max-width:1240px; width:100%; display:flex; flex-direction:column; align-items:center; gap:12px;">
+      <img src="devtools-paste-annotated.png" alt="DevToolsコンソールの貼り付け位置" style="width:100%; height:auto; border:1px solid var(--color-line); border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+      <div style="font-size:18pt; color:var(--color-sub); line-height:1.4; text-align:center;">
+        <code style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 10px; border-radius:6px; font-size:16pt;">F12</code> または <code style="font-family:var(--font-mono); background:#f0f0f0; padding:2px 10px; border-radius:6px; font-size:16pt;">Cmd + Option + I</code> でDevToolsを開く → Consoleタブ → 貼り付けて Enter
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <div class="page-indicator"><span id="cur">1</span> / <span id="total">1</span></div>
